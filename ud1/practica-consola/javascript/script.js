@@ -7,3 +7,12 @@ console.log("hola, se esta cargando el js")
     let nombr="leila"
 }
 let nombre="leila"
+
+let empleados = [
+    {"nombre": "marcos","edad":24},
+    {"nombre": "paula","edad":24},
+    {"nombre": "omar","edad":24}
+
+]
+
+console

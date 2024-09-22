@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- si o si pon el defer  en el script-->
     <script src="javascript/script.js" defer></script>
-    
-        
+
+
 </head>
+
 <body>
-   <header>
+    <header>
         <h1>Mi Página Web</h1>
     </header>
 
@@ -26,14 +28,14 @@
         <section id="inicio">
             <h2>Inicio</h2>
             <p>Esta es la página principal de mi sitio web donde encontrarás toda la información que necesitas.</p>
-            <img src="https://via.placeholder.com/400" alt="Imagen de ejemplo">
         </section>
 
         <section id="sobre-mi">
             <h2>Sobre mí</h2>
             <p>Me llamo Juan Pérez y soy un desarrollador web con experiencia en HTML, CSS y JavaScript.</p>
         </section>
-        <section id="servicios"></section>
+
+        <section id="servicios">
             <h2>Servicios</h2>
             <ul>
                 <li>Desarrollo web</li>
@@ -45,13 +47,27 @@
         <section id="contacto">
             <h2>Contacto</h2>
             <p>Envíame un mensaje a: <a href="mailto:contacto@mipaginaweb.com">contacto@mipaginaweb.com</a></p>
+
+            <!-- Formulario de contacto interactivo -->
+            <form action="https://httpbin.org/post" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required  onclick='alert("hola")'>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."
+                    required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
     </footer>
-
 </body>
-</html>
 
+</html>

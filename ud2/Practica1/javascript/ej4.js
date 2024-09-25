@@ -1,6 +1,5 @@
-//bucle para recoger dato
 let contador = 0
-while (contador <4){
+while (contador <3){
     let salario =prompt("indica el salario")
     let años = prompt("indica los años")
     let salida=0

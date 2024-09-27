@@ -2,17 +2,22 @@
 
 let contador = 0
 do{
-    let valores=prompt("Introduce el numero")
+    let valores=parseInt(prompt("Introduce el numero"))
     let esPrimo = (valores) => {
-        if(valores*1===valores && valores %valores ===0){
-        return true
+        if(valores <=1){
+            return false; 
         }
-        return false
+        for(let i=2;i<valores;i++){
+            if(valores % i === 0){
+                return false;
+            }
+        }
+        return true;
     }
-    if(esPrimo===true){
-        console.log(`el numero ${valores}  es ${esPrimo}`)
+    if(esPrimo(valores)===true){
+        console.log(`el numero ${valores}  es ${esPrimo(valores)}`)
     }else{
-        console.log(`el numero ${valores}  es ${esPrimo}`)
+        console.log(`el numero ${valores}  es ${esPrimo(valores)}`)
     }
 contador++
 }while (contador <2) 

@@ -9,13 +9,12 @@ console.log(socios.join(", "));
 
 console.log(`numero de socios  ${socios.length}`);
 
+//mostrar los socios albaceticamente
+console.log("los nombre ordenados: ");
+console.log(socios.sort().join(", "));
+
 //mostrarlo en orden inverso
 console.log("los nombre invertidos: ");
 console.log(socios.reverse().join(", "));
-
-//mostrar los socios albaceticamente
-
-console.log("los nombre ordenados: ");
-console.log(socios.sort().join(", "));
 
 

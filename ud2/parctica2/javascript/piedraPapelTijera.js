@@ -17,6 +17,7 @@ let empate=0;
 let jugando =true;
 
 while(jugando=== true){
+
     let eleccionPersona = menu();
 
     if(eleccionPersona === 0){
@@ -24,7 +25,10 @@ while(jugando=== true){
         console.log("adiossss pescado");
         break;
     }
-    if(eleccionPersona >=1 || eleccionPersona <=3){
+    if(eleccionPersona <1 || eleccionPersona >3){
+        console.log("error,introduce de nuevo ");
+        
+    }else{
         let eleccionMaquina=eleccionMaquinaFun();
         if(eleccionPersona=== 1){
             console.log("eleccion tuya: piedra")
@@ -57,13 +61,7 @@ while(jugando=== true){
             console.log("has perdido joooo");
             perder++;
         }
-
         console.log(`marcador son: has ganado ${ganar}, has perdido  ${perder}  y habeis empatado ${empate}`)
-
-       
-
-    }else{
-        console.log("error,introduce de nuevo ");
     }
 
     

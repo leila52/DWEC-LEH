@@ -1,5 +1,7 @@
 const alumnos = [ "Juan", "María", "Pedro", "Ana", "Sofía", "Luis", "Miguel", "Fernando", "Valeria" ];
+
 let alumnosNoDuplicados = new Set();
+let nameCount=new Map();
 
 let num=function(){
     let aleatorio=Math.floor(Math.random() *9) ;
@@ -7,17 +9,26 @@ let num=function(){
     alumnosNoDuplicados.add(alumnos[aleatorio]); 
 }
 let idB=setInterval(num,2000);
+
+
+
 let alerta =function(){
     clearInterval(idB);
+    if(nameCount.has(nombre)){
+        nameCount.set()
+    }
     //muestra los nombres que se han añadido al set a los 10 seg
     console.log(alumnosNoDuplicados);
 }
+
 let idA=setTimeout(alerta,10000);
-let array= new Map;
-for(let i=0; i<alumnosNoDuplicados.size;i++){
-    array.set(alumnosNoDuplicados[i]);
-    console.log(array);
-}
+
+
+
 
 
 //filter y map 
+//para meter el set en un array normal
+
+const nameArray=[... alumnosNoDuplicados];
+Array.from(alumnosNoDuplicados);

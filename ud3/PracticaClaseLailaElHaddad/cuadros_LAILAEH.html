@@ -13,20 +13,26 @@
 <body>
 
 <script>
-    //document driive cin un div crear unas cordenadas
-    //left y top
-    //boqule for para crear mil cuadrados
-    //random para colores 0-255 RGB(rojo,verde,azul)
+function generar(){
+    console.log("hola");
 
-    for(let i=0;i<100000;i++){
-        let azul=Math.floor(Math.random() *255) ;
-        let rojo=Math.floor(Math.random() *255) ;
-        let verde=Math.floor(Math.random() *255) ;
+    for(let i=0;i<10000;i++){
+        let azul=Math.floor(Math.random() *256) ;
+        let rojo=Math.floor(Math.random() *256) ;
+        let verde=Math.floor(Math.random() *256) ;
         let left=Math.floor(Math.random() *100) ;
         let top=Math.floor(Math.random() *100) ;
-        document.write(`<div style= "background-color:rgb( ${rojo} , ${verde} , ${azul});left:${left}%; top: ${top}%"></div>`);
+        document.write(`<div style= "background-color:rgb( ${rojo} , ${verde} , ${azul});
+            left:${left}%; 
+            top:${top}%;
+            position:fixed;
+            width:50px;
+            height:50px;
+            "></div>`);
         
     }
+}
+setInterval(generar,5000);
 
 </script>    
 </body>

@@ -1,3 +1,10 @@
 .pet{
-    color: blueviolet;
+    color: rgb(226, 43, 116);
+}
+.color{
+    color: rgb(40, 123, 40);
+}
+
+.resultado {
+    color:rgb(67, 67, 157);
 }

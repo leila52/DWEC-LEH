@@ -1,22 +1,47 @@
-let deporte=document.getElementById('deporte');
-let serie=document.getElementById('serie');
-let pelicula=document.getElementById('pelicula');
-let divInfo=document.getElementById('divInformacion');
-
-let generar=document.getElementById('generar');
-let campo=document.getElementById('divCheckbox');
+const CAMPOS = ["Deportes", "Series", "Peliculas"];
+//elemento que seria parrafo
+let elemento=null;
 
 
-generar.addEventListener('click',function(){
-    divInfo.innerHTML=""
-    let infoDeporte=document.createElement("p");
-    infoDeporte.innerHTML=`el deporte favorito es: ${deporte.value}`;
-    let infoSerie=document.createElement("p");
-    infoSerie.innerHTML=`el serie favorito es: ${serie.value}`;
-    let infoPeli=document.createElement("p");
-    infoPeli.innerHTML=`el pelicula favorito es: ${pelicula.value}`;
-    divInfo.appendChild(infoDeporte);
-    divInfo.appendChild(infoSerie);
-    divInfo.appendChild(infoPeli);
-    
+document.getElementById("generar").addEventListener("click", () => {
+    quitarEstilos();
+    for (const i in CAMPOS) {
+        //coge el input
+        let input=document.getElementById(`d${CAMPOS[i]}Favorito`);
+        elemento.parentElement.previousElementSibling.classList.add("rojo")
+        if(input.value !==""){
+            elemento=crearElemento("p",input.value,document.getElementById(`id${CAMPOS[i]}`));
+            input.value="";
+            //para que el raton se quede ahi
+            input.focus();
+            elemento.classList.add("resultado");
+            elemento.parentElement.previousElementSibling.classList.add("color")
+        }
+
+    }
 })
+
+
+function crearElemento(tipo, contenido, padre) {
+    // Crear el elemento del tipo especificado
+    let hijo = document.createElement(tipo)
+    // Indicamos el contenido
+    hijo.innerHTML = contenido
+    //añadir el nodo al documento
+    padre.appendChild(hijo)
+
+    hijo.addEventListener("click", function () {
+        this.remove()
+    })
+    return hijo
+}
+
+function quitarEstilos(){
+    let parrafos = document.querySelectorAll("p")
+    
+    parrafos.forEach(function(e){    
+
+        e.classList.remove("color")
+        e.classList.remove("resultado")
+    })
+}

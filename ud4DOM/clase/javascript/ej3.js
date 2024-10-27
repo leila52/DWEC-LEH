@@ -11,7 +11,7 @@ generar.addEventListener('click',function(){
     //Insertamos nuevos
     for(let i=0;i<input.value;i++){
         let aleatorio=Math.floor(Math.random() *256) ;
-        let letra = crearElemento("label", `nuevo elemento ${aleatorio}<br>`, campo);
+        let letra = crearElemento("label", `nuevo elementos ${aleatorio}<br>`, campo);
         let cajita = crearElemento("input", "", campo);
         
         cajita.setAttribute('type','checkbox');

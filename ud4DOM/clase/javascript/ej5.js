@@ -6,8 +6,10 @@ function crearElemento(tipo, contenido,padre) {
      //añadir el nodo al documento
      padre.appendChild(hijo)
      hijo.addEventListener("click", function () {
-        this.remove()
-    })
+        this.remove();
+        //para actualizar  el precio 
+        precioTotal(padre);
+    });
      return hijo
 }
 
@@ -21,13 +23,20 @@ function enOrden(compra){
 }
 //comprobar pcuando no introduce nada que no muestra Nan Y SI TIENE TAMAÑO 2
 function precioTotal(compra){
+    //comprobamos si el precio exixte
+    let precioExistente = compra.querySelector("p");
+    if (precioExistente) precioExistente.remove();
     let total=0;
     let conjunto=compra.querySelectorAll("li");
     let precioArray=[];
     conjunto.forEach((li) =>{
         let partes=li.innerHTML.split(",");
         let precio=parseFloat(partes[1]);
-        total=suma(precio,total);
+        //comprobar si ha introducido el precio o no
+        if(!isNaN(precio)){
+            total=suma(precio,total);
+        }
+        
     });
     crearElemento("p",`Precio total: ${total}`,compra)
 }
@@ -54,4 +63,3 @@ document.getElementById("insertar").addEventListener("click",function(){
     }
     
 })
-//introduzca el precio y en otro campo muestre el precio total

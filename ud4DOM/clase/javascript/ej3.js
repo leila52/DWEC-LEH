@@ -11,9 +11,9 @@ generar.addEventListener('click',function(){
     //Insertamos nuevos
     for(let i=0;i<input.value;i++){
         let aleatorio=Math.floor(Math.random() *256) ;
-        let letra=document.createElement("label");
-        let cajita=document.createElement("input");
-        letra.innerHTML=`nuevo elemento  ${aleatorio}<br>`;
+        let letra = crearElemento("label", `nuevo elemento ${aleatorio}<br>`, campo);
+        let cajita = crearElemento("input", "", campo);
+        
         cajita.setAttribute('type','checkbox');
         letra.setAttribute('for',`a${aleatorio}`);
         cajita.setAttribute('id',`a${aleatorio}`);
@@ -35,4 +35,10 @@ generar.addEventListener('click',function(){
 
     }
     
-})
+});
+function crearElemento(tipo, contenido, padre) {
+    let hijo = document.createElement(tipo);
+    hijo.innerHTML = contenido;
+    padre.appendChild(hijo); 
+    return hijo;
+}

@@ -175,10 +175,7 @@ function hora(){
 	//tiene que estar fuera de la funcion para poder crearlo
 	const jugadores=new Set();
 	function gestionJugadores(){
-		
 		//alamacenar jugadores  en un array set
-		
-		
 		jugadores.add(nombre_j1);
 		jugadores.add(nombre_j2);
 		let campo= document.getElementById("idNombreJugadores");

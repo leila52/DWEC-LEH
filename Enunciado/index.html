@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>  </title>
+		<meta charset="UTF-8">
+		<meta name="author" content="Agustin Aguilera y Mario Murias">
+		<script type="text/javascript" src="./dados.js" defer></script>
+		<link rel="stylesheet" type="text/css" href="./dados.css">		
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</head>
+	<body>
+		<div id="idReloj"> 
+			Hora: <span></span>
+		</div>		
+
+		<form id="idFormInicio">
+			<div>	
+				<label for="idInputNombreJ1">NOMBRE DEL JUGADOR 1 </label>
+				<input type="text" id="idInputNombreJ1" value="">
+			</div>
+
+			<div>	
+				<label for="idInputNombreJ2">NOMBRE DEL JUGADOR 2 </label>
+				<input type="text" id="idInputNombreJ2" value="">
+			</div>
+
+			<div>	
+				<label for="idNumTiradas">¿¿NÚMERO DE TIRADAS?? </label>
+				<input type="number" min="0" max="3" id="idNumTiradas">
+			</div>
+
+			<div>	
+				<input type="button" id="idBotonIniciar" onclick="iniciar()" value="INICIAR">				
+			</div>
+		</form>
+		
+		<hr>		
+		
+		<div id="idTablero" >
+			<div id="idTableroJ1" >
+				<div class="informacion">
+					<h3 id="idNombreJ1"> JUGADOR 1 :  </h3>
+					<h4 id="tiradasJ1"> TE QUEDAN -XX- TIRADAS</h4>
+				</div>
+				<img id="dadoJ1" class="dados" src="img/0.png" />
+				
+				<div class="opciones">
+					<button id="idBotonTirarJ1" class="boton_tirar mostrar" onclick="tiradaJ1()" disabled>TIRADA JUGADOR 1</button>		
+				</div>
+				
+				<div class="puntuacion">
+					<h3 id="idPuntuacionJ1"> PUNTUACIÓN: -XX- </h3>
+				</div>
+
+			</div>	
+
+			<div id="idTableroJ2">
+				<div class="informacion">
+					<h3 id="idNombreJ2">  JUGADOR 2 : </h4>
+					<h4 id="tiradasJ2"> TE QUEDAN -YY- TIRADAS </h4>
+				</div>
+
+				<img id="dadoJ2" class="dados" src="img/0.png" />
+				
+				<div class="opciones">
+					<button id="idBotonTirarJ2" class="boton_tirar mostrar" onclick="tiradaJ2()" disabled>TIRADA JUGADOR 2</button>
+				</div>
+				
+				<div class="puntuacion">
+					<h3 id="idPuntuacionJ2"> PUNTUACIÓN: -YY- </h3>
+				</div>
+			</div>	
+			<div id="idListadoJugadores" >
+				<h3> JUGADORES </h3>
+				<span id="idNombreJugadores"></span>				
+			</div>			
+		</div>			
+		<div id="idResultado" >
+			<h3> RESULTADOS</h1>
+			<table id="idTablaResultados">
+				<thead>
+					<tr>				  
+						<th> Puntuacion</th>				  
+						<th> Ganador </th>				  
+						<th> Perdedor </th>				  
+					</tr>
+				</thead>
+				<!--esto se bora y dentro tienes que crear tablas en el js-->
+				<tbody id="idEstadisticas">				
+					<tr>				  
+						<td> 14 - 5</td>				  
+						<td>Agustin</td>				  
+						<td>Alumno1</td>  
+					</tr>
+					<tr>				  
+						<td> 10 - 7</td>				  
+						<td>Agustin</td>				  
+						<td>Alumno2</td>  
+					</tr>
+					<tr>				  
+						<td> 10 - 3</td>				  
+						<td>Agustin</td>				  
+						<td>Alumno3</td>  
+					</tr>
+				</tbody>
+			</table>			
+		</div>	
+	</body>
+</html>

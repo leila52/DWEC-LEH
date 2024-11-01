@@ -14,12 +14,13 @@ function cambiaColor() {
     `background-color: rgb(${rojo}, ${verde}, ${azul})`
   );
 }
-//para poder resetearlo
+//para poder resetearlo si pulsas en el body 
 function resetearColor() {
   cuerpoPagina.setAttribute("style", `background-color: white)`);
 }
 
 function acciones(evento) {
+  // target.id palabra reservada que devuelve el boton
   console.log(evento.target.id);
   if (evento.target.id === "idcuerpo") {
     resetearColor();

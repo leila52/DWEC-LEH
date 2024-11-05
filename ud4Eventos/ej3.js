@@ -9,6 +9,7 @@ function mostrartecla(e){
 }
 
 function moverCuadrado(e){
+    console.log(e)
     //Ariba
     if(e.key =="ArrowUp" || e.key == 8){
         console.log("ariba");

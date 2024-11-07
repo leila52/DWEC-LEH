@@ -33,7 +33,7 @@ function crearElemento(tipo, contenido, padre) {
     return hijo
 }
 
-
+//array con nombres no repetidos
 let setArray=new Set();
 autores.forEach((e) => setArray.add(e.Autor));
 haceroption();
@@ -47,6 +47,7 @@ function haceroption(){
 
 
 inputAutores.addEventListener("change", autore2s);
+//introducir titulos y fecha en la tabla de cada autor
 function autore2s(e){
     cuerpoAutoress.innerHTML="";
     //console.log("funciona");
@@ -54,9 +55,9 @@ function autore2s(e){
     autores.forEach(function(e){  
         
         if(inputAutores.value===e.Autor) {
-            crearElemento("tr",``,cuerpoAutoress)
-            crearElemento("td",`${e.Titulo}`,cuerpoAutoress)
-            crearElemento("td",`${e.Fecha}`,cuerpoAutoress)
+            let creado = crearElemento("tr",``,cuerpoAutoress)
+            crearElemento("td",`${e.Titulo}`,creado)
+            crearElemento("td",`${e.Fecha}`,creado)
         }
         
     })

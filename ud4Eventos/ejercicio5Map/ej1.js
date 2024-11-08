@@ -52,7 +52,6 @@ function autore2s(e){
         
         if(inputAutores.value===e) {
             let arraycontenido= [];
-            
             let creado = crearElemento("tr",``,cuerpoAutoress)
             crearElemento("td",`${autor}`,creado)
             crearElemento("td",`${autor}`,creado)

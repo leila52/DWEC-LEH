@@ -51,10 +51,12 @@ function autore2s(e){
     autores.forEach(function(autor,e){  
         
         if(inputAutores.value===e) {
-            let arraycontenido= [];
-            let creado = crearElemento("tr",``,cuerpoAutoress)
-            crearElemento("td",`${autor}`,creado)
-            crearElemento("td",`${autor}`,creado)
+            autor.forEach((autor) => {
+                let creado = crearElemento("tr",``,cuerpoAutoress); //hay que meter los titulos y fechas dentro de la fila
+                const [titulo, año] = autor.split(",");
+                crearElemento("td", titulo, creado);
+                crearElemento("td", año, creado);
+            });
         }
         
     })

@@ -1,19 +1,18 @@
 const autores = [
-    new Set([{ autor: "Juan Rulfo", titulo: "Pedro Páramo", año: "2014" }]),
-    new Set([{ autor: "Juan Rulfo", titulo: "El Llano en Llamas", año: "2013" }]),
-    new Set([{ autor: "Rosa Montero", titulo: "Cuentos verdaderos", año: "2024" }]),
-    new Set([{ autor: "Pablo Neruda", titulo: "Veinte poemas de amor y una canción desesperada", año: "2013" }]),
-    new Set([{ autor: "Almudena Grandes", titulo: "La madre de Frankenstein", año: "2020" }]),
-    new Set([{ autor: "Miguel de Cervantes Saavedra", titulo: "Don Quijote de la Mancha", año: "1605" }]),
-    new Set([{ autor: "Jorge Luis Borges", titulo: "Ficciones", año: "2014" }]),
-    new Set([{ autor: "Rosa Chacel", titulo: "Memorias de Leticia Valle", año: "1945" }]),
-    new Set([{ autor: "Pablo Neruda", titulo: "Antología poética", año: "2014" }]),
-    new Set([{ autor: "Rosa Chacel", titulo: "Saturnal", año: "1972" }]),
-    new Set([{ autor: "Carmen Laforet", titulo: "La Isla de los Demonios", año: "1952" }]),
-    new Set([{ autor: "Jorge Luis Borges", titulo: "El sur", año: "1953" }]),
-    new Set([{ autor: "Pablo Neruda", titulo: "Confieso que he vivido", año: "2010" }])
+    new Set([ "Juan Rulfo",  "Pedro Páramo",  "2014" ]),
+    new Set([ "Juan Rulfo",  "El Llano en Llamas",  "2013" ]),
+    new Set([ "Rosa Montero",  "Cuentos verdaderos",  "2024" ]),
+    new Set([ "Pablo Neruda",  "Veinte poemas de amor y una canción desesperada",  "2013" ]),
+    new Set([ "Almudena Grandes",  "La madre de Frankenstein",  "2020" ]),
+    new Set([ "Miguel de Cervantes Saavedra",  "Don Quijote de la Mancha",  "1605" ]),
+    new Set([ "Jorge Luis Borges",  "Ficciones",  "2014" ]),
+    new Set([ "Rosa Chacel",  "Memorias de Leticia Valle",  "1945" ]),
+    new Set([ "Pablo Neruda",  "Antología poética",  "2014" ]),
+    new Set([ "Rosa Chacel",  "Saturnal",  "1972" ]),
+    new Set([ "Carmen Laforet",  "La Isla de los Demonios",  "1952" ]),
+    new Set([ "Jorge Luis Borges",  "El sur",  "1953" ]),
+    new Set([ "Pablo Neruda",  "Confieso que he vivido",  "2010" ])
 ];
-
 let cuerpoAutores = document.getElementById("idAutores");
 let cuerpoAutoress = document.getElementById("campoAutores");
 let inputAutores = document.getElementById("idautores");
@@ -36,8 +35,11 @@ function crearElemento(tipo, contenido, padre) {
 //array con nombres no repetidos
 let setArray=new Set();
 autores.forEach((e)=>{
-    e.forEach((autor)=>{
-        setArray.add(autor.autor);
+    let indice=0;
+    e.forEach(elemento=>{
+        if(indice==0){
+            setArray.add(elemento);
+        }indice++
     });
 } );
 haceroption();
@@ -53,23 +55,22 @@ function haceroption(){
 inputAutores.addEventListener("change", autore2s);
 //introducir titulos y fecha en la tabla de cada autor
 function autore2s(e){
-
-    
     cuerpoAutoress.innerHTML="";
     //console.log("funciona");
     //console.log(inputAutores.value);
     autores.forEach(function(e){  
-        e.forEach((autor)=>{
-            if(inputAutores.value===autor.autor) {
-                let creado = crearElemento("tr",``,cuerpoAutoress)
-                crearElemento("td",`${autor.titulo}`,creado);
-                crearElemento("td",`${autor.año}`,creado);
+        let indice=0;
+        let encontrado=false;
+        let creado ;
+        e.forEach(elemento=>{
+            if(indice==0 && elemento === inputAutores.value  ){
+                encontrado=true;
+               creado= crearElemento("tr",``,cuerpoAutoress);
             }
-            
+            if(encontrado === true && indice!==0){
+                crearElemento("td",`${elemento}`,creado);
+            }
+            indice++
         });
-        
-        
-        
-    })
-    
+    })          
 }

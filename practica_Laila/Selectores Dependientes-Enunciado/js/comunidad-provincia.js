@@ -4,12 +4,12 @@ let provincias = new Map([
     ["Galicia",["Lugo","Orense","Pontevedra"]]
 ]);
 
+//los id del formulario
 let selectAutonomia = document.getElementById("id_autonomia");
 let selectProvincias = document.getElementById("id_provincia");
 let enviar =document.getElementById("id_submit");
 
-
-
+//funcion para crear elementos
 function crearElemento(tipo, contenido, padre) {
     // Crear el elemento del tipo especificado
     let hijo = document.createElement(tipo)
@@ -22,6 +22,7 @@ function crearElemento(tipo, contenido, padre) {
     return hijo
     
 }
+
 //mostrar mensaje
 crearElemento("option","selecciona una comunidad",selectProvincias);
 
@@ -42,6 +43,7 @@ function haceroption(){
 //añadimos el disabled
 selectProvincias.setAttribute("disabled","");
 
+
 //para comprobar si ha pulsado una comunidad autonoma y asi cargar el select  de provincias
 selectAutonomia.addEventListener("click", provincias1);
 
@@ -59,6 +61,8 @@ function provincias1(e){
         }
     })
 }
+
+//intento de validar
 enviar.addEventListener("click", validacion);
 
 function validacion(){
@@ -69,10 +73,3 @@ function validacion(){
 
     })  
 }
-    
-
-
-
-
-
-

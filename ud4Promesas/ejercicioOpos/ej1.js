@@ -4,6 +4,21 @@ let cuerpoAutores = document.getElementById("idAutores");
 let cuerpoAutoress = document.getElementById("campoAutores");
 let inputAutores = document.getElementById("idautores");
 
+function crearElemento(tipo, contenido, padre) {
+    // Crear el elemento del tipo especificado
+    let hijo = document.createElement(tipo)
+    // Indicamos el contenido
+    hijo.innerHTML = contenido
+    //añadir el nodo al documento
+    padre.appendChild(hijo)
+
+    hijo.addEventListener("click", function () {
+        this.remove()
+    })
+    return hijo
+}
+
+
 
 fetch("autores.json")
         .then((response) => {
@@ -14,20 +29,6 @@ fetch("autores.json")
         })
         .then((data) => {
 
-            function crearElemento(tipo, contenido, padre) {
-                // Crear el elemento del tipo especificado
-                let hijo = document.createElement(tipo)
-                // Indicamos el contenido
-                hijo.innerHTML = contenido
-                //añadir el nodo al documento
-                padre.appendChild(hijo)
-
-                hijo.addEventListener("click", function () {
-                    this.remove()
-                })
-                return hijo
-            }
-
             //array con nombres no repetidos
             let setArray=new Set();
             data.autores.forEach((e) => setArray.add(e.Autor));
@@ -37,11 +38,9 @@ fetch("autores.json")
                 setArray.forEach(function(e){ 
                     crearElemento("option",e,inputAutores);
                 })
-
+            
             }
-
-
-            inputAutores.addEventListener("change", autore2s);
+            inputAutores.addEventListener("click", autore2s);
             //introducir titulos y fecha en la tabla de cada autor
             function autore2s(e){
                 cuerpoAutoress.innerHTML="";
@@ -60,5 +59,18 @@ fetch("autores.json")
             }
         })
         .catch((error) => {
-            Swal.fire("error");
+            Swal.fire({
+                text: error.message,
+                title: "Custom width, padding, color, background.",
+                width: 600,
+                padding: "3em",
+                color: "#718add",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `
+                });
           });

@@ -109,8 +109,11 @@ function comprobarGanador(){
 				`${puntos_j1} puntos`,
 				'success'
 			  )
-			ganador=document.getElementById("idNombreJ1").value
-			perdedor=document.getElementById("idNombreJ2").value	
+			ganador = document.getElementById("idNombreJ1").value
+			perdedor =document.getElementById("idNombreJ2").value	
+			/*ganador =nombre_j1
+			perdedor = nombre_j2
+			*/ 
 							;
 		} else if (puntos_j1 < puntos_j2) {				
 			Swal.fire(
@@ -118,8 +121,8 @@ function comprobarGanador(){
 				`${puntos_j2} puntos`,
 				'success'
 			  )
-			ganador=document.getElementById("idNombreJ1").value
-			perdedor=document.getElementById("idNombreJ2").value
+			ganador = document.getElementById("idNombreJ2").value
+			perdedor = document.getElementById("idNombreJ1").value
 			
 		} else{
 			
@@ -186,8 +189,28 @@ function hora(){
 		
 
 	}
-	//crear tablas con la putacion 
+	//crear tablas con la putacion
+	function crearElemento(tipo, contenido, padre) {
+		// Crear el elemento del tipo especificado
+		let hijo = document.createElement(tipo)
+		// Indicamos el contenido
+		hijo.innerHTML = contenido
+		//añadir el nodo al documento
+		padre.appendChild(hijo)
+	
+		hijo.addEventListener("click", function () {
+			this.remove()
+		})
+		return hijo
+	} 
+	let campoResultado= document.getElementById("idEstadisticas");
+
 	function gestionPuntuacion(){
+		let fila=document.createElement("tr");
+		crearElemento("td",` ${puntos_j1}-${puntos_j2}`,fila);
+		crearElemento("td",ganador,fila);
+		crearElemento("td",perdedor,fila);
+		campoResultado.appendChild(fila);
 
 	}
 

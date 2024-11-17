@@ -15,11 +15,14 @@ function crearElemento(tipo, contenido, padre) {
     let hijo = document.createElement(tipo)
     // Indicamos el contenido
     hijo.innerHTML = contenido
-    //añadir el nodo al documento
-    padre.appendChild(hijo)
-    
 
-    return hijo
+    //añade valor
+    hijo.value=contenido;
+    
+    //añadir el nodo al documento
+    padre.appendChild(hijo);
+    
+    return hijo;
     
 }
 
@@ -65,11 +68,69 @@ function provincias1(e){
 //intento de validar
 enviar.addEventListener("click", validacion);
 
-function validacion(){
-    provincias.forEach(function(provincia,comunidad){  
-    if((selectAutonomia.value=== comunidad) && (selectProvincias.value=== provincia) ){
-        console.log("correcto");
-    }
+function validacion(event){
+    //no permite enviar
+    event.preventDefault();
+    let comunidadcorrecta=false;
+    let provinciacorrecta=false;
 
-    })  
+    provincias.forEach(function(provincia,comunidad){  
+    if(selectAutonomia.value=== comunidad){
+        comunidadcorrecta=true;
+        if(provincia.includes(selectProvincias.value)){
+            provinciacorrecta=true;
+        }
+    }
+    });  
+
+    //poner esto siempre siempre
+    if(event.target.id==="id_submit"){
+        if (!comunidadcorrecta) {
+            Swal.fire({
+                text: "introduca la comunidad",
+                title: "introduca la comunidad",
+                width: 600,
+                padding: "3em",
+                color: "#718add",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `
+                });
+        } else if (!provinciacorrecta) {
+            Swal.fire({
+                text: "introduca la provincia",
+                title: "introduca la provincia",
+                width: 600,
+                padding: "3em",
+                color: "#718add",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `
+                });
+        } else {
+            Swal.fire({
+                text: "correcto",
+                title: "correcto.",
+                width: 600,
+                padding: "3em",
+                color: "blue",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `
+                });
+            document.getElementById("id_form").submit();
+        }
+    }
 }

@@ -109,11 +109,13 @@ function comprobarGanador(){
 				`${puntos_j1} puntos`,
 				'success'
 			  )
+			  /*
 			ganador = document.getElementById("idNombreJ1").value
-			perdedor =document.getElementById("idNombreJ2").value	
-			/*ganador =nombre_j1
+			perdedor =document.getElementById("idNombreJ2").value
+			*/	
+			ganador =nombre_j1
 			perdedor = nombre_j2
-			*/ 
+			
 							;
 		} else if (puntos_j1 < puntos_j2) {				
 			Swal.fire(

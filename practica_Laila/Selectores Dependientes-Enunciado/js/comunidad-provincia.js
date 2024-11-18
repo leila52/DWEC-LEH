@@ -71,6 +71,7 @@ enviar.addEventListener("click", validacion);
 function validacion(event){
     //no permite enviar
     event.preventDefault();
+    
     let comunidadcorrecta=false;
     let provinciacorrecta=false;
 

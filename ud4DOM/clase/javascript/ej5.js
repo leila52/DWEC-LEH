@@ -1,26 +1,35 @@
+
+
 function crearElemento(tipo, contenido,padre) {
-    // Crear el elemento del tipo especificado
+
     let hijo = document.createElement(tipo)
+    
     // Indicamos el contenido
     hijo.innerHTML = contenido
+
      //añadir el nodo al documento
      padre.appendChild(hijo)
+
      hijo.addEventListener("click", function () {
         this.remove();
+
         //para actualizar  el precio 
         precioTotal(padre);
+
     });
      return hijo
 }
 
 function enOrden(compra){
     let conjunto=compra.querySelectorAll("li");
+    
     let valorArray=[];
     conjunto.forEach((li) => valorArray.push(li.innerHTML));
     valorArray.sort();
     compra.innerHTML="";
     valorArray.forEach((e) => crearElemento("li",e,compra));
 }
+
 //comprobar pcuando no introduce nada que no muestra Nan Y SI TIENE TAMAÑO 2
 function precioTotal(compra){
     //comprobamos si el precio exixte

@@ -109,13 +109,13 @@ function comprobarGanador(){
 				`${puntos_j1} puntos`,
 				'success'
 			  )
-			  /*
-			ganador = document.getElementById("idNombreJ1").value
-			perdedor =document.getElementById("idNombreJ2").value
-			*/	
+			  
+			ganador = document.getElementById("idInputNombreJ1").value
+			perdedor =document.getElementById("idInputNombreJ2").value
+			/*	
 			ganador =nombre_j1
 			perdedor = nombre_j2
-			
+			*/
 							;
 		} else if (puntos_j1 < puntos_j2) {				
 			Swal.fire(
@@ -123,8 +123,8 @@ function comprobarGanador(){
 				`${puntos_j2} puntos`,
 				'success'
 			  )
-			ganador = document.getElementById("idNombreJ2").value
-			perdedor = document.getElementById("idNombreJ1").value
+			ganador = document.getElementById("idInputNombreJ2").value
+			perdedor = document.getElementById("idInputNombreJ1").value
 			
 		} else{
 			
@@ -186,7 +186,7 @@ function hora(){
 		let campo= document.getElementById("idNombreJugadores");
 		campo.innerHTML="";
 
-		jugadores.forEach((e) => campo.innerHTML+=`${e},`
+		jugadores.forEach((e) => campo.innerHTML+=`${e} `
 		);
 		
 

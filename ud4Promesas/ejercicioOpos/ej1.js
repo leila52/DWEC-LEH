@@ -59,18 +59,5 @@ fetch("autores.json")
             }
         })
         .catch((error) => {
-            Swal.fire({
-                text: error.message,
-                title: "Custom width, padding, color, background.",
-                width: 600,
-                padding: "3em",
-                color: "#718add",
-                background: "#fff url(/images/trees.png)",
-                backdrop: `
-                    rgba(0,0,123,0.4)
-                    url("/images/nyan-cat.gif")
-                    left top
-                    no-repeat
-                `
-                });
+            alert(error.message);
           });

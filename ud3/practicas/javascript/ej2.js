@@ -14,4 +14,3 @@ idB=setInterval(num,1000);
 
 
 
-

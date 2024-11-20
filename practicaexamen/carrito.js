@@ -14,7 +14,7 @@ let articulos = new Set();
 
 document.getElementById("insertar").addEventListener("click",function(){
     let input=document.getElementById("producto");
-let compra=document.getElementById("compra");
+    let compra=document.getElementById("compra");
     //si no esta vacio 
     if(input.value!=="" && !articulos.has(input.value) ){
         

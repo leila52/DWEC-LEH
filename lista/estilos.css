@@ -1,0 +1,114 @@
+/***********************************
+  Estilos a utilizar en JavaScript
+***********************************/
+
+.nuevo-producto-rojo{
+  color: red
+}
+.producto-nomal{
+  color: black;
+}
+
+
+/***********************************
+  Estilos Generales
+***********************************/
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+
+h1 {
+  color: #4CAF50;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Estilos para el input */
+#productoInput {
+  padding: 8px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+#productoInput:focus {
+  border-color: #4CAF50;
+}
+
+/* Estilos para la lista de productos */
+#productoList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 20px;
+  max-width: 500px;
+  width: 100%;
+}
+
+#productoList li {
+  background-color: #fff;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#productoList li:hover {
+  background-color: #f9f9f9;
+}
+
+#productoList li[data-producto] {
+  color: black;
+  text-align: center;
+}
+
+#productoList li[data-producto]:last-child {
+  color: red; /* El último producto insertado */
+}
+
+/* Estilos para el contador y el total */
+#idElementos, #idImporte {
+  font-weight: bold;
+}
+
+/* Estilos para el contenedor general */
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

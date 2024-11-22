@@ -10,8 +10,6 @@ function crearElemento(tipo,contenido,padre){
 
 
 /*
-no sabia como meterlo ya que json no tiene nombre lo intentando con array con data y nada
-
 fetch("productos.json")
 .then((response)=>{
     if(!response.ok){
@@ -20,9 +18,9 @@ fetch("productos.json")
     return response.json();
 })
 
-.then((data)=>{
-    console.log(data);
-    .forEach((e)=>{
+.then((elementos)=>{
+    console.log(elementos);
+    elementos.forEach((e)=>{
         crearElemento("option",e["producto"],productoInput);
     })
 })
@@ -31,10 +29,9 @@ fetch("productos.json")
     alert(error.message);
 })
 
-
-
 */
-let elementos= [
+
+let elementos=[
     {
         "producto": "Manzana",
         "descripcion": "Fruta fresca y crujiente",
@@ -111,6 +108,9 @@ let elementos= [
         "precio": 5.50
     }
   ]
+  
+
+
   let productoInput=document.getElementById("productos");
 
 
@@ -120,6 +120,7 @@ function haceropcion(){
     })
 }
  
+
 haceropcion();
 
 let listaCompra=document.getElementById("productoList");

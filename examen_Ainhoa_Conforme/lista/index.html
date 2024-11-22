@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datalist desde JSON</title>
+    <script src="datalist.js" defer></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1>Selecciona un Producto </h1>
+    <p> Nº Elementos : <span id="idElementos"></span> </p>
+    <p> Importe Total : <span id="idImporte"></span> </p>    
+    <label for="productos">Producto:</label>
+    <input list="productos" id="productoInput" />
+    <datalist id="productos"></datalist>
+    
+    <h2>Lista de Productos Seleccionados</h2>
+    <ul id="productoList"></ul>
+
+    
+</body>
+</html>

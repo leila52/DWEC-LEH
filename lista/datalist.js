@@ -23,7 +23,7 @@ fetch("productos.json")
 .then((data)=>{
     console.log(data);
     .forEach((e)=>{
-        crearElemento("option",data["producto"],productoInput);
+        crearElemento("option",e["producto"],productoInput);
     })
 })
 
@@ -127,7 +127,7 @@ let listaCompra=document.getElementById("productoList");
 let eleccionUsuario=document.getElementById("productoInput");
 
 
-eleccionUsuario.addEventListener("keydown",function() {
+eleccionUsuario.addEventListener("keydown",function(evento) {
     let lista=new Array;
     let noEstaEnElementos;
     let noestaEnLista;
@@ -135,14 +135,15 @@ eleccionUsuario.addEventListener("keydown",function() {
     eleccionUsuario.innerHTML=" ";
     elementos.forEach((e)=>{
         
-    
-    if(e["producto"]===eleccionUsuario.value  ){
+    //evento.key=="Enter"
+    if(e["producto"]===eleccionUsuario.value  && evento.key=="Enter"){
         noEstaEnElementos=true;
         noestaEnLista=true;
         let precio=e["precio"];
         let producto=e["producto"];
         lista.push(producto);
         let a=crearElemento("li",`${producto} -€ ${precio}`,listaCompra);
+        
         a.addEventListener("dblclick",function(){
             this.remove();
             Resumen();

@@ -1,0 +1,77 @@
+[
+  {
+      "producto": "Manzana",
+      "descripcion": "Fruta fresca y crujiente",
+      "precio": 0.50
+  },
+  {
+      "producto": "Pan",
+      "descripcion": "Pan integral horneado",
+      "precio": 1.20
+  },
+  {
+      "producto": "Leche",
+      "descripcion": "Leche de vaca pasteurizada",
+      "precio": 0.80
+  },
+  {
+      "producto": "Arroz",
+      "descripcion": "Arroz blanco de grano largo",
+      "precio": 1.00
+  },
+  {
+      "producto": "Azúcar",
+      "descripcion": "Azúcar refinado blanco",
+      "precio": 0.70
+  },
+  {
+      "producto": "Aceite de oliva",
+      "descripcion": "Aceite de oliva virgen extra",
+      "precio": 4.50
+  },
+  {
+      "producto": "Café",
+      "descripcion": "Café molido natural",
+      "precio": 3.20
+  },
+  {
+      "producto": "Té verde",
+      "descripcion": "Hojas de té verde orgánico",
+      "precio": 2.50
+  },
+  {
+      "producto": "Huevos",
+      "descripcion": "Docena de huevos frescos",
+      "precio": 2.10
+  },
+  {
+      "producto": "Queso",
+      "descripcion": "Queso manchego curado",
+      "precio": 6.00
+  },
+  {
+      "producto": "Yogur",
+      "descripcion": "Pack de 4 yogures naturales",
+      "precio": 2.40
+  },
+  {
+      "producto": "Plátano",
+      "descripcion": "Plátanos de Canarias",
+      "precio": 1.30
+  },
+  {
+      "producto": "Tomate",
+      "descripcion": "Tomates maduros para ensalada",
+      "precio": 2.00
+  },
+  {
+      "producto": "Zanahoria",
+      "descripcion": "Zanahorias frescas por kilo",
+      "precio": 1.10
+  },
+  {
+      "producto": "Pollo",
+      "descripcion": "Pechuga de pollo fresca",
+      "precio": 5.50
+  }
+]

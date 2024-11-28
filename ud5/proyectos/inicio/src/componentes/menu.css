@@ -4,7 +4,7 @@
   
   .cara{
     background-color: #3344db;
-    min-height: 100vh;
+    margin: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;

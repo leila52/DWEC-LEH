@@ -1,56 +1,82 @@
+/* Contenedor principal */
+.tarjetas-container {
+  display: flex;
+  flex-direction: row; /* Asegura que las tarjetas estén en una fila */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  align-items: center; /* Centra las tarjetas verticalmente */
+  gap: 20px; /* Espaciado entre tarjetas */
+  padding: 2rem;
+  background-color: #f9f9f9; /* Fondo del contenedor */
 
+  /* Para centrar el contenedor en toda la pantalla */
+  position: absolute; /* Posición absoluta para ocupar toda la pantalla */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Mueve el contenedor al centro */
+  white-space: nowrap; /* Evita que las tarjetas se envuelvan a otra línea */
+}
 
+/* Estilos individuales de las tarjetas */
 .tarjeta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #c76839; /* Borde con color cálido */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    padding: 1rem;
-    max-width: 300px;
-    background-color: #dbdad4; /* Fondo gris claro */
-    margin: 1rem 0;
-    gap: 4px;
-  }
-  
-  .tarjeta-imagen {
-    width: 100%;
-    height: 200px; /* Ajustar según lo que necesites */
-    object-fit: cover; /* Recorta la imagen para llenar el espacio sin distorsión */
-    border-radius: 5px; /* Para un diseño más uniforme */
-  }
-  
-  .tarjeta-contenido {
-    text-align: center;
-  }
-  .tarjeta-titulo {
-    text-align: center;
-  }
-  
-  .tarjeta-contenido p {
-    font-size: 1rem;
-    color: #333; /* Color de texto neutro */
-    margin-bottom: 1rem;
-  }
-  .tarjeta-precio {
-    font-size: 1rem;
-    color: #c76839; /* Color del precio */
-    font-weight: bold;
-    margin-bottom: 0.5rem; /* Separación del botón */
-  }
-  .tarjeta-boton {
-    background-color: #c82a16; /* Color del botón */
-    color: white;
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .tarjeta-boton:hover {
-    background-color: #c76839; /* Cambio de color al pasar el cursor */
-  }
-  
+  display: inline-flex; /* Asegura que las tarjetas se comporten como elementos en línea */
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #40e0d0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 300px; /* Fija el ancho de las tarjetas */
+  background-color: #f0f8f8;
+  flex-shrink: 0; /* Evita que las tarjetas se reduzcan si hay espacio limitado */
+}
+
+/* Título */
+.tarjeta-titulo {
+  text-align: center;
+  color: #40e0d0;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Imagen */
+.tarjeta-imagen {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 2px solid #40e0d0;
+  margin-bottom: 1rem;
+}
+
+/* Contenido */
+.tarjeta-contenido {
+  text-align: center;
+}
+
+.tarjeta-contenido p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tarjeta-precio {
+  font-size: 1.2rem;
+  color: #40e0d0;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Botón */
+.tarjeta-boton {
+  background-color: #40e0d0;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tarjeta-boton:hover {
+  background-color: #1d645f;
+}

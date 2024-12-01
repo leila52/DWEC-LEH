@@ -25,14 +25,19 @@ header {
     align-items: center;
     font-size: 1.2rem;
   }
-
   nav a {
     color: white;
     text-decoration: none;
-    margin: 0 30px;
+    margin: 0 20px;
     font-weight: bold;
   }
-
+  
   nav a:hover {
     color: blueviolet;
+  }
+  
+  header nav a:nth-child(2),
+  header nav a:nth-child(3) {
+    font-size: 1.1rem;
+    color: #ffeb3b;
   }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Menu from "../menu/Menu.jsx";
 import "./Cuerpo.css";
 
 import cup2 from './imagenes/cup2.jpg';
@@ -66,16 +67,18 @@ const Cuerpo = () => {
 
   return (
     <>
-      <h2>Lista de la compra</h2>
-      <ul>
-        {carrito.map((producto, index) => (
-          <li key={index}>
-            {producto.descripcion} - {producto.precio.toFixed(2)}€
-          </li>
-        ))}
-      </ul>
-      <h2>Total: {total.toFixed(2)}€</h2>
-
+      <Menu itemCount={carrito.length} totalPrice={total} />
+      <div className="lista-carrito">
+        <h2>Lista de la compra</h2>
+        <ul>
+          {carrito.map((producto, index) => (
+            <li key={index}>
+              {producto.descripcion} - {producto.precio.toFixed(2)}€
+            </li>
+          ))}
+        </ul>
+        <h2>Total: {total.toFixed(2)}€</h2>
+      </div>
       <div className="tarjetas-container">
         {productos.map((producto) => (
           <Cuerp

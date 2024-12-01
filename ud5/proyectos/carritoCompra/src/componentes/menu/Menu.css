@@ -1,43 +1,46 @@
+/* Estilos para el header y el menú */
 header {
-    position: absolute;
-    top: 0;
-    background-color: #3da3bd;
-    color: white;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  header h1 {
-    font-size: 1.2rem;
-    margin: 0 18px;
-  }
+  background-color: #3f678a; /* Fondo oscuro para el header */
+  padding: 0 20px; /* Espaciado alrededor del contenido: 0 en la parte superior e inferior, 20px a los lados */
+  height: 60px; /* Fijar la altura del header a 50px */
+  position: fixed; /* Fijar el menú en la parte superior */
+  top: 0; /* Asegura que esté en la parte superior */
+  left: 0;
+  width: 100%; /* El menú ocupa todo el ancho de la pantalla */
+  z-index: 100; /* Asegura que el menú esté por encima de otros elementos */
+  display: flex; /* Usar flexbox para alinear los elementos dentro del header */
+  align-items: center; /* Centra los elementos verticalmente */
+  justify-content: space-between; /* Espacio entre los elementos (logo y enlaces) */
+}
 
+header img {
+  width: 60px; /* Tamaño de la imagen del logo ajustado para no desbordar el header */
+  height: auto;
+}
 
-  header img {
-    height: 100px; /* Tamaño del logotipo */
-  }
+nav {
+  display: flex; /* Usar flexbox para alinear los enlaces */
+  justify-content: flex-end; /* Alinear los enlaces a la derecha */
+  gap: 30px; /* Espacio entre los enlaces */
+}
 
-  nav {
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    color: blueviolet;
-  }
-  
-  header nav a:nth-child(2),
-  header nav a:nth-child(3) {
-    font-size: 1.1rem;
-    color: #ffeb3b;
-  }
+nav a {
+  color: #fff; /* Texto blanco */
+  text-decoration: none; /* Eliminar subrayado */
+  font-size: 16px; /* Tamaño de la fuente */
+}
+
+nav a:hover {
+  color: #32c69e5e; /* Cambiar color al pasar el ratón */
+}
+
+a {
+  display: inline-block; /* Asegura que los enlaces se comporten correctamente */
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* Agregar un poco de espacio entre el contenido y el menú */
+body {
+  padding-top: 60px; /* Deja espacio suficiente para que el header fijo no tape el contenido */
+}

@@ -62,7 +62,7 @@ const Cuerpo = () => {
   };
 
   return (
-    // <Menu itemCount={carrito.length} totalPrice={total} />
+    // <Menu totalElementos={carrito.length} total={total} />
     <>
       
      

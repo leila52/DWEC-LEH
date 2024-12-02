@@ -1,5 +1,5 @@
 import { useState } from "react";
-//import Menu from "./componentes/menu/Menu.jsx";
+import Menu from "../menu/ Menu";
 import "./Cuerpo.css";
 
 import cup2 from './imagenes/cup2.jpg';
@@ -64,7 +64,7 @@ const Cuerpo = () => {
   return (
     // <Menu totalElementos={carrito.length} total={total} />
     <>
-      
+      <Menu totalElementos={carrito.length} total={total} />
      
       <div className="lista-carrito">
         <h2>Lista de la compra</h2>

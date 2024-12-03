@@ -4,9 +4,12 @@ import './estilos/FormularioBase.css';
 
 function FormularioBase(){
 
+    const [errores,setErrores]=useState({});
+
     const [form,setForm] = useState({
         nombre: '',
-        appellido:''
+        appellido:'',
+        descripcion:''
     })
 
 
@@ -19,10 +22,33 @@ function FormularioBase(){
             [name]:value,
         })
     }
+
+    const validar=()=>{
+        const nuevosErrores={};
+        if(!form.nombre.trim()){
+            nuevosErrores.nombre='el nombre es obligatorio';
+        }
+        if(!form.appellido.trim()){
+            nuevosErrores.apellido='el apellido es obligatorio';
+        }
+        if(!form.descripcion.trim()){
+            nuevosErrores.descripcion='la descripcion es obligatorio';
+        }
+        setErrores(nuevosErrores);
+        return Object.keys(nuevosErrores).length === 0;
+    }
+
+
     const enviarFormulario=(evento)=>{
         evento.preventDefault();
-        console.log("valores del formulario: ",form)
+        if(validar()){
+            console.log("correct valores del formulario: ",form)
+        }else{
+            console.log("valores del error ",errores)
+        }
+        
     }
+    
     return (
         <form onSubmit={enviarFormulario}>
             
@@ -36,7 +62,8 @@ function FormularioBase(){
                 placeholder='Escribe tu nombre'
             
             />
-            <label htmlFor="nombre"> appellido</label>
+            {errores.nombre && <p className="error">{errores.nombre}</p>}
+            <label htmlFor="apellido"> appellido</label>
             <input
                 id="appellido"
                 type="text"
@@ -46,6 +73,17 @@ function FormularioBase(){
                 placeholder='Escribe tu appellido'
             
             />
+            {errores.apellido && <p className="error">{errores.apellido}</p>}
+             <label htmlFor="descripcion"> descripcion</label>
+            <input
+                id="descripcion"
+                type="textarea"
+                name="descripcion"
+                value={form.descripcion}
+                onChange={gestionarCambio}
+            
+            />
+            {errores.descripcion && <p className="error">{errores.descripcion}</p>}
             <button type='submit'>enviar</button>
             
         </form>

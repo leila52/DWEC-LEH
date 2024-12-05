@@ -1,0 +1,37 @@
+div {
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0 20px;
+  }
+  
+  li {
+    margin: 10px 0;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  li::marker {
+    color: #e74c3c;
+    font-size: 1.2em;
+  }
+  

@@ -1,0 +1,8 @@
+{
+    "aficiones": [
+      { "id": "1", "nombre": "futbol", "descripcion": "Los partidos de la liga andaluza" },
+      { "id": "2", "nombre": "cocina", "descripcion": "cocina tradicional de una madre" },
+      { "id": "3", "nombre": "correr", "descripcion": "Salir a correr por Fuente del Berro" }
+
+    ]
+  }

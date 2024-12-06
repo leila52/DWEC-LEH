@@ -38,10 +38,10 @@ function FormularioSephora({onAddProduct}){
 
 
     const enviarFormulario=(evento)=>{
-        evento.preventDefault();
+        evento.preventDefault();   
         if(validar()){
             const nuevoproducto ={
-                id:new Date().getTime(),
+                id:new Date().getTime,
                 nombre: form.nombre,
                 descripcion: form.descripcion,
                 url: form.url

@@ -46,7 +46,6 @@ function FormularioSephora({onAddProduct}){
                 descripcion: form.descripcion,
                 url: form.url
         };
-        console.log("correct valores del formulario: ",form)
         //lamamos a la funcion de onAddProduct para añadirlo
         onAddProduct(nuevoproducto);
         //limpiamos el formulario

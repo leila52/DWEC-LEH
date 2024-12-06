@@ -1,8 +1,34 @@
 {
-    "aficiones":[
-      { "id": "1", "nombre": "colorete", "descripcion": "colorete charlot tilburry" ,"url":"https://i.pinimg.com/236x/f8/bc/1b/f8bc1be76de7932d2ee50ac42f7cf275.jpg"},
-      { "id": "2", "nombre": "crema byoma", "descripcion": "crema hidratante de marca byoma la cual es perfecta para pieles secas" ,"url":"https://i.pinimg.com/236x/4d/9c/67/4d9c67057c049ff8411c41c927a362ef.jpg"},
-      { "id": "3", "nombre": "bronzer", "descripcion": "colore neutro grisacio","url":"https://i.pinimg.com/236x/8d/4b/51/8d4b5148692d56a1b5b1ec2a9094da5f.jpg" }
-
-    ]
+  "aficiones": [
+    {
+      "id": "1",
+      "nombre": "colorete",
+      "descripcion": "colorete charlot tilburry",
+      "url": "https://i.pinimg.com/236x/f8/bc/1b/f8bc1be76de7932d2ee50ac42f7cf275.jpg"
+    },
+    {
+      "id": "2",
+      "nombre": "crema byoma",
+      "descripcion": "crema hidratante de marca byoma la cual es perfecta para pieles secas",
+      "url": "https://i.pinimg.com/236x/4d/9c/67/4d9c67057c049ff8411c41c927a362ef.jpg"
+    },
+    {
+      "id": "3",
+      "nombre": "bronzer",
+      "descripcion": "colore neutro grisacio",
+      "url": "https://i.pinimg.com/236x/8d/4b/51/8d4b5148692d56a1b5b1ec2a9094da5f.jpg"
+    },
+    {
+      "id": 1733496400530,
+      "nombre": "leila",
+      "descripcion": "rtrsgdfrstst",
+      "url": "https://i.pinimg.com/236x/ad/d2/5c/add25c76fd2e92997e0cbb32643aa6ce.jpg"
+    },
+    {
+      "id": 1733496449817,
+      "nombre": "mono casual",
+      "descripcion": "jejejejjejjjej",
+      "url": "https://i.pinimg.com/236x/ca/90/9e/ca909e88c9846e858a9083e30cb5d889.jpg"
+    }
+  ]
 }

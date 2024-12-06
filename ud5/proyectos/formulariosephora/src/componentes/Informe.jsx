@@ -26,7 +26,16 @@ const Informe = () => {
 
   //funcion para añadir nueva aficion
   const agregarAficion =(nuevaAficion)=>{
-    setAficiones([...aficiones,nuevaAficion]);
+    //para añadirl al json se hace el create
+    ServicioAficiones.create(nuevaAficion)
+    .then((response) => {
+      setAficiones([...aficiones,nuevaAficion]);
+      console.log("agregacion", response.data);
+    })
+    .catch((error) => {
+      console.error("no se ha agregado sorry ",error);
+    });
+    
   }
 
   return (

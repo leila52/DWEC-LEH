@@ -19,16 +19,22 @@
       "url": "https://i.pinimg.com/236x/8d/4b/51/8d4b5148692d56a1b5b1ec2a9094da5f.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "jess",
       "descripcion": "rtrsgdfrstst",
       "url": "https://i.pinimg.com/236x/fc/1d/70/fc1d70d2f11a2f5eda88ac9ef8b2af64.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "nombre": "leilassass",
       "descripcion": "rtrsgdfrstst",
       "url": "https://i.pinimg.com/236x/ad/d2/5c/add25c76fd2e92997e0cbb32643aa6ce.jpg"
+    },
+    {
+      "id": "ffeb",
+      "nombre": "dani el xulo",
+      "descripcion": "un mono bn chulo",
+      "url": "https://i.pinimg.com/736x/2b/69/1e/2b691e296182a38bb5315735e2d323d0.jpg"
     }
   ]
 }

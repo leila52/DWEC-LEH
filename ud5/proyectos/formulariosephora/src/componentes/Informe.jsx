@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ServicioAficiones from "../servicios/servicioAficiones";
-import Swal from "sweetalert2";
+import "../estilos/Informe.css";
+import FormularioSephora from "../componentes/FormularioSephora";
+//import Swal from "sweetalert2";
 
 const Informe = () => {
   const [aficiones, setAficiones] = useState([]);
@@ -22,14 +24,26 @@ const Informe = () => {
       });
   }, []);
 
+  //funcion para añadir nueva aficion
+  const agregarAficion =(nuevaAficion)=>{
+    setAficiones([...aficiones,nuevaAficion]);
+  }
+
   return (
     <div>
-      <h1>Lista de Aficiones</h1>
+      <h1>Productos de Sephora</h1>
       <ul>
         {aficiones.map((aficion) => (
-          <li key={aficion.id}>{aficion.nombre} - {aficion.descripcion}</li>
+          <li key={aficion.id}> 
+            <img src={aficion.url} alt={aficion.nombre}/> <br/>
+            {aficion.nombre} - {aficion.descripcion}  
+          </li>
         ))}
       </ul>
+      <div>
+        <h1>Formulario para introducir productos</h1>
+        <FormularioSephora onAddProduct={agregarAficion} />
+      </div>
     </div>
   );
 };

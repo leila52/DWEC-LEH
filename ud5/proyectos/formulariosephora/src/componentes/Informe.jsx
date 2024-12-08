@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import ServicioAficiones from "../servicios/servicioAficiones";
 import "../estilos/Informe.css";
 import FormularioSephora from "../componentes/FormularioSephora";
-//import Swal from "sweetalert2";
+//npm i sweetalert2
+import Swal from "sweetalert2";
 
 const Informe = () => {
   const [aficiones, setAficiones] = useState([]);
@@ -33,7 +34,11 @@ const Informe = () => {
       console.log("agregacion", response.data);
     })
     .catch((error) => {
-      console.error("no se ha agregado sorry ",error);
+      Swal.fire({
+        title: "¿Tienes Internet?",
+        text: "No consigo descargar las aficiones :(",
+        icon: "question"
+      });
     });
     
   }

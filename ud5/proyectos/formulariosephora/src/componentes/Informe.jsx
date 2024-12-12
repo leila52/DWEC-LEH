@@ -56,7 +56,7 @@ const Informe = () => {
       </ul>
       <div>
         <h1>Formulario para introducir productos</h1>
-        <FormularioSephora onAddProduct={agregarAficion} />
+        <FormularioSephora añadirfoto={agregarAficion} />
       </div>
     </div>
   );

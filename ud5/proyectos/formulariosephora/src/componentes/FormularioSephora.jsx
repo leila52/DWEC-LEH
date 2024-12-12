@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../estilos/Formulario.css';
 
-function FormularioSephora({onAddProduct}){
+function FormularioSephora({añadirfoto}){
     const [errores,setErrores]=useState({});
 
     const [form,setForm] = useState({
@@ -47,7 +47,7 @@ function FormularioSephora({onAddProduct}){
                 url: form.url
         };
         //lamamos a la funcion de onAddProduct para añadirlo
-        onAddProduct(nuevoproducto);
+        añadirfoto(nuevoproducto);
         //limpiamos el formulario
         setForm({
             nombre: '',

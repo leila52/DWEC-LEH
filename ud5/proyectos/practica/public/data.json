@@ -1,0 +1,32 @@
+{
+  "servicios": [
+    {
+      "id": "1",
+      "nombre": "Desarrollo Web",
+      "descripcion": "Creación y diseño de sitios web personalizados, con tecnologías como HTML, CSS, JavaScript y frameworks modernos como React o Vue.js.",
+      "importe": 800,
+      "url": "https://cdn.pixabay.com/photo/2019/10/09/07/28/development-4536630_640.png"
+    },
+    {
+      "id": "3",
+      "nombre": "Soporte Técnico",
+      "descripcion": "Asistencia en la resolución de problemas de hardware y software, mantenimiento preventivo y correctivo de dispositivos y equipos informáticos.",
+      "importe": 150,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD6TRdppgNpHrPpLIyctSQINOo9YApGJhgBw&s"
+    },
+    {
+      "id": "4",
+      "nombre": "Desarrollo de Aplicaciones Móviles",
+      "descripcion": "Desarrollo de aplicaciones móviles para iOS y Android, con enfoque en la experiencia de usuario y funcionalidades avanzadas.",
+      "importe": 1000,
+      "url": "https://www.insightcreativos.es/wp-content/uploads/2015/09/desarrollo_de_aplicaciones_moviles_android_ios.jpg"
+    },
+    {
+      "id": "5",
+      "nombre": "Instalación de Redes y Servidores",
+      "descripcion": "Instalación, configuración y mantenimiento de redes informáticas, servidores y soluciones de almacenamiento en la nube.",
+      "importe": 950,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHmzZiNoqL8TYVStYgXufEam67uXEoOcNbg&s"
+    }
+  ]
+}

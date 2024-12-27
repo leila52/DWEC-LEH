@@ -1,6 +1,7 @@
 {
   "aficiones": [
     {
+<<<<<<< HEAD
       "nombre": "pasera",
       "descripcion": "todas las mañanas\n",
       "id": 1
@@ -14,6 +15,21 @@
       "nombre": "dfasdfas",
       "descripcion": "dfasdfasdfa",
       "id": 3
+=======
+      "nombre": "dfasdfas",
+      "descripcion": "dfasdfasdfa",
+      "id": "3"
+    },
+    {
+      "id": "eda0",
+      "nombre": "laila",
+      "descripcion": "ejemplo random"
+    },
+    {
+      "id": "1f2d",
+      "nombre": "laila",
+      "descripcion": "gggggggggg"
+>>>>>>> 51e19d7fe70ad21dc2c611168d796180b94b588a
     }
   ]
 }

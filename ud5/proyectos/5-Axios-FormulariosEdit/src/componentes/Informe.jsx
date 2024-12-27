@@ -3,6 +3,7 @@ import ServicioAficiones from "../servicios/servicioAficiones";
 import "../estilos/Informe.css"
 import Swal from "sweetalert2";
 import FormularioAficiones from "./FormularioAficiones.jsx";
+import FormularioAficionEdit from "./FormularioAficionEdit.jsx"
 import AficionDetalle from "./AficionDetalle.jsx";
 import Modal from "./Modal.jsx";
 
@@ -17,11 +18,18 @@ const Informe = () => {
   const openModalNuevo = () => setIsModalNuevoOpen(true);
   const closeModalNuevo = () => setIsModalNuevoOpen(false);
 
-  //Variables del modal de Nuevo
+  //Variables del modal de Detalle
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+
+  //Variables del modal de Editar
+  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
+  const openModalEdit = () => setIsModalEditOpen(true);
+  const closeModalEdit = () => setIsModalEditOpen(false);
+
+  
   // Dibujar las aficiones una sola vez
   useEffect(() => {
     ServicioAficiones.getAll()
@@ -41,6 +49,11 @@ const Informe = () => {
   const consultarDetalleAficion = (aficion) => {
     setAficionSeleccionada(aficion);
     openModal(); // Abre el modal con la afición seleccionada
+  };
+
+  const EditarAficion = (aficion) => {
+    setAficionSeleccionada(aficion);
+    openModalEdit(); // Abre el modal con la afición seleccionada
   };
 
   const borrarAficion =(aficion) => {
@@ -77,6 +90,7 @@ const Informe = () => {
         <div>
           <button onClick={() => consultarDetalleAficion(aficion)}>Consulta</button>
           <button onClick={() => borrarAficion(aficion)}>Borrar</button>
+          <button onClick={() => EditarAficion(aficion)}>Editar</button>
         </div>
       </li>
     ))
@@ -88,18 +102,19 @@ const Informe = () => {
 <button className="add-aficion-btn" onClick={openModalNuevo}>Añadir Afición</button>
 
 
-      <Modal isOpen={isModalNuevoOpen} onClose={closeModalNuevo}>
+      <Modal isOpen={isModalNuevoOpen} onClose={closeModalNuevo}>      
           <FormularioAficiones aficiones={aficiones} setAficiones={setAficiones} onClose={closeModalNuevo} />
       </Modal>     
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        {aficionSeleccionada && <AficionDetalle aficion={aficionSeleccionada} />}  {/* Pasamos la afición seleccionada al modal */}
+              {aficionSeleccionada && <AficionDetalle aficion={aficionSeleccionada} />} 
       </Modal>
+
+      <Modal isOpen={isModalEditOpen} onClose={closeModalEdit} >
+           <FormularioAficionEdit  aficiones={aficionSeleccionada} setAficiones={setAficiones} onClose={closeModalEdit} />
+      </Modal> 
+   
     </>
   );
 };
 
-<<<<<<< HEAD
 export default Informe;
-=======
-export default Informe;
->>>>>>> 51e19d7fe70ad21dc2c611168d796180b94b588a

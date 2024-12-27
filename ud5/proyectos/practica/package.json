@@ -1,5 +1,5 @@
 {
-  "name": "formulariosephora",
+  "name": "practica",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,11 +12,9 @@
   "dependencies": {
     "axios": "^1.7.9",
     "json": "^11.0.0",
-    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sweetalert": "^2.1.2",
-    "sweetalert2": "^11.14.5"
+    "sweetalert2": "^11.15.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

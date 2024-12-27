@@ -1,0 +1,80 @@
+/* Estilos generales para el formulario */
+form {
+  max-width: 500px; /* Ancho máximo del formulario */
+  margin: 20px auto; /* Centrar el formulario en la página */
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo claro */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  border: 1px solid #ddd;
+}
+
+/* Estilo para las etiquetas de los campos */
+label {
+  display: block; /* Hacer que las etiquetas estén en una nueva línea */
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px; /* Separar la etiqueta del campo */
+  color: #333;
+}
+
+/* Estilos para los campos de entrada (input y textarea) */
+input, textarea {
+  width: 100%; /* Hacer que los campos ocupen todo el ancho disponible */
+  padding: 10px; /* Espaciado interno */
+  margin-bottom: 12px; /* Separar los campos de los siguientes */
+  border: 1px solid #ccc; /* Borde de los campos */
+  border-radius: 4px; /* Bordes redondeados */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  font-size: 1rem; /* Tamaño de fuente para que se vea bien */
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff; /* Color de borde al enfocarse */
+  outline: none; /* Eliminar el borde por defecto */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efecto sutil al enfocarse */
+}
+
+/* Estilo para el texto de error */
+.error {
+  color: red;
+  font-size: 0.9rem; /* Un poco más pequeño que el texto normal */
+  margin-top: 4px;
+}
+
+/* Estilo para el botón de envío */
+button {
+  padding: 10px 20px; /* Espaciado interno */
+  background-color: #28a745; /* Verde atractivo */
+  color: white; /* Texto blanco */
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efecto suave al pasar el ratón */
+}
+
+button:hover {
+  background-color: #218838; /* Color de fondo más oscuro al pasar el ratón */
+}
+
+button:disabled {
+  background-color: #ccc; /* Color de fondo cuando el botón está deshabilitado */
+  cursor: not-allowed; /* Cambiar el cursor cuando no se puede hacer clic */
+}
+
+/* Agregar un pequeño margen en el formulario */
+form * {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  /* Hacer que el formulario ocupe más espacio en pantallas pequeñas */
+  form {
+    padding: 15px;
+  }
+
+  input, textarea, button {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+  }
+}

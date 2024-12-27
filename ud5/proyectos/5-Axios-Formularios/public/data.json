@@ -1,0 +1,19 @@
+{
+  "aficiones": [
+    {
+      "nombre": "pasera",
+      "descripcion": "todas las mañanas\n",
+      "id": 1
+    },
+    {
+      "nombre": "dfasdfasdf",
+      "descripcion": "",
+      "id": 2
+    },
+    {
+      "nombre": "dfasdfas",
+      "descripcion": "dfasdfasdfa",
+      "id": 3
+    }
+  ]
+}

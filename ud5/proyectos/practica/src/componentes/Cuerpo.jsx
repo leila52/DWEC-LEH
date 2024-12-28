@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import ServicioAxios from "../servicios/ServicioAxios";
 import Swal from "sweetalert2";
 import ServicioDetalle from "./ServicioDetalle.jsx";
+import FormularioServicioEdit from "./FormularioServicioEdit.jsx";
 import Modal from "./Modal.jsx";
+import FormularioServicio from "./FormularioServicio.jsx";
 
 
 
@@ -61,8 +63,8 @@ const Cuerpo = ({ servicios, setServicios })=> {
             Swal.fire("servicio borrada correctamente");   
           
             //borrar aficion en js  
-          const nuevasAficiones = servicio.filter((a) => a.id !== servicio.id);
-          setServicios(nuevasAficiones)
+          const nuevosServicios = servicios.filter((a) => a.id !== servicio.id);
+          setServicios(nuevosServicios)
          })
          .catch(error => {
           
@@ -94,12 +96,23 @@ const Cuerpo = ({ servicios, setServicios })=> {
                 <p>No se encontraron aficiones.</p>
             )}
         </ul>
-        
+        <button className="add-aficion-btn" onClick={openModalNuevo}>Añadir Afición</button>
+
+            
+      <Modal isOpen={isModalNuevoOpen} onClose={closeModalNuevo}>      
+          <FormularioServicio servicios={servicios} setServicios={setServicios} onClose={closeModalNuevo} />
+      </Modal>     
+
+
         <Modal isOpen={isModalOpen} onClose={closeModal}>
               {servicioSeleccionada && <ServicioDetalle servicio={servicioSeleccionada} />} 
-        </Modal>
-
+        </Modal> 
+         <Modal isOpen={isModalEditOpen} onClose={closeModalEdit} >
+            <FormularioServicioEdit  servicio={servicioSeleccionada} setServicios={setServicios} onClose={closeModalEdit} />
+        </Modal> 
+         
         </>
+        
 
       );
 };

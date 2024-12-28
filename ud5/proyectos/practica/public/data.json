@@ -1,18 +1,9 @@
 {
   "servicios": [
     {
-      "id": "1",
-      "nombre": "Desarrollo Web",
-      "descripcion": "Creación y diseño de sitios web personalizados, con tecnologías como HTML, CSS, JavaScript y frameworks modernos como React o Vue.js.",
-      "importe": 800,
-      "url": "https://cdn.pixabay.com/photo/2019/10/09/07/28/development-4536630_640.png"
-    },
-    {
-      "id": "3",
       "nombre": "Soporte Técnico",
-      "descripcion": "Asistencia en la resolución de problemas de hardware y software, mantenimiento preventivo y correctivo de dispositivos y equipos informáticos.",
-      "importe": 150,
-      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD6TRdppgNpHrPpLIyctSQINOo9YApGJhgBw&s"
+      "descripcion": "Asistencia en la reso, mantenimiento preventivo y correctivo de dispositivos y equipos informáticos.",
+      "id": "3"
     },
     {
       "id": "4",
@@ -27,6 +18,13 @@
       "descripcion": "Instalación, configuración y mantenimiento de redes informáticas, servidores y soluciones de almacenamiento en la nube.",
       "importe": 950,
       "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHmzZiNoqL8TYVStYgXufEam67uXEoOcNbg&s"
+    },
+    {
+      "id": "ae9b",
+      "nombre": "leila ",
+      "descripcion": "leila es la mejor ",
+      "importe": 100000,
+      "url": "https://i.pinimg.com/236x/02/79/34/027934dccb625eb4f7e13a5936d11654.jpg"
     }
   ]
 }

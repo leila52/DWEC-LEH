@@ -37,10 +37,6 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
       nuevosErrores.nombre = 'El nombre es obligatorio';
     }
 
-    // Validación para "descripcion"
-    if (form.descripcion && (form.descripcion.length < 10 || form.descripcion.length > 100)) {
-      nuevosErrores.descripcion = 'La descripción debe tener entre 10 y 100 caracteres';
-    }
 
     setErrores(nuevosErrores);
 
@@ -83,7 +79,7 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
             })
 
 
-        // //Cerramos el modal
+        //Cerramos el modal
         onClose();
        
       })

@@ -10,9 +10,9 @@ function App() {
 
   return (
     <>
-    <Menu servicios={servicios}   />
+    <Menu servicios={servicios}/>
     <Cuerpo servicios={servicios} setServicios={setServicios}/>
-     <Inferior servicios={servicios} /> 
+    <Inferior servicios={servicios} /> 
      
     </>
   )

@@ -17,7 +17,7 @@ function Inferior({ servicios }) {
           <img src={ultimoServicio.url} alt={ultimoServicio.nombre} width="200" />
           <h4>{ultimoServicio.nombre}</h4>
           <p>{ultimoServicio.descripcion}</p>
-          <p><strong>Importe:</strong> ${ultimoServicio.importe}</p>
+          <p>Importe: ${ultimoServicio.importe}</p>
         </div>
       </div>
     );

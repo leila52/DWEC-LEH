@@ -8,6 +8,7 @@ function App() {
 
   const submit = usuario => {
     setUsuarios([
+      // tres puntos para destructurar
       ...usuarios,
       usuario,
     ])

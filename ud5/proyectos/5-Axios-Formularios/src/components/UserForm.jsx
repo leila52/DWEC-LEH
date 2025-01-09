@@ -3,16 +3,27 @@ import Button from './Button'
 import useFormulario from '../hooks/useFormulario'
 
 const UserForm = ({ submit }) => {
-  const [formulario, handleChange, reset] = useFormulario({
+  
+  const [formulario, handleChange, reset , validar, errores] = useFormulario({
     name: '',
     email: '',
     lastname: ''
   })
+
   const handleSubmit = (e) => {
-    e.preventDefault()
-    submit(formulario)
-    reset()
+    e.preventDefault();
+    if (validar()) {
+      submit(formulario);
+      console.log('Formulario correcto:', formulario);
+      reset();
+    }
+    else {
+      console.log('Errores en el formulario:', errores);
+    }
+
   }
+  
+
   return (
           <form onSubmit={handleSubmit}>
             <Input
@@ -22,6 +33,7 @@ const UserForm = ({ submit }) => {
               onChange={handleChange}
               placeholder='Nombre'
             />
+             {errores.name && <p className="error">{errores.name}</p>}
             <Input
               label="Apellido"
               name="lastname"
@@ -29,6 +41,7 @@ const UserForm = ({ submit }) => {
               onChange={handleChange}
               placeholder='Apellido'
             />
+             {errores.lastname && <p className="error">{errores.lastname}</p>}
             <Input
               label="Correo"
               name="email"
@@ -36,6 +49,7 @@ const UserForm = ({ submit }) => {
               onChange={handleChange}
               placeholder='Correo'
             />
+             {errores.email && <p className="error">{errores.email}</p>}
             <Button>Enviar</Button>
           </form>
   )

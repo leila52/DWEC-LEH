@@ -4,7 +4,8 @@ import "../estilos/Informe.css"
 import Swal from "sweetalert2";
 import FormularioAficiones from "./FormularioAficiones.jsx";
 import FormularioAficionEdit from "./FormularioAficionEdit.jsx"
-import AficionDetalle from "./AficionDetalle.jsx";
+//import AficionDetalle from "./AficionDetalle.jsx";
+import AficionBorrar from "./AficionBorrar.js";
 import Modal from "./Modal.jsx";
 
 
@@ -13,23 +14,17 @@ const Informe = () => {
   const [aficiones, setAficiones] = useState([]);
   const [aficionSeleccionada, setAficionSeleccionada] = useState(null);
 
-  //Variables del modal de Nuevo
-  const [isModalNuevoOpen, setIsModalNuevoOpen] = useState(false);
-  const openModalNuevo = () => setIsModalNuevoOpen(true);
-  const closeModalNuevo = () => setIsModalNuevoOpen(false);
+  //asi diferenciamos si quiere borrar,consultar o editar
+  const [modals, setModals] = useState({
+    crear: false,
+    consultar: false,
+    editar: false,
+  });
+  //lo gestionamos
+  const gestionarModal =(tipoModal,estadoAbierto)=>{
+    setModals((previoModals) => ({...previoModals, [tipoModal]:estadoAbierto}))
+  };
 
-  //Variables del modal de Detalle
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-
-  //Variables del modal de Editar
-  const [isModalEditOpen, setIsModalEditOpen] = useState(false);
-  const openModalEdit = () => setIsModalEditOpen(true);
-  const closeModalEdit = () => setIsModalEditOpen(false);
-
-  
   // Dibujar las aficiones una sola vez
   useEffect(() => {
     ServicioAficiones.getAll()
@@ -48,33 +43,21 @@ const Informe = () => {
 
   const consultarDetalleAficion = (aficion) => {
     setAficionSeleccionada(aficion);
-    openModal(); // Abre el modal con la afición seleccionada
+    gestionarModal("consultar",true)
   };
 
   const EditarAficion = (aficion) => {
     setAficionSeleccionada(aficion);
-    openModalEdit(); // Abre el modal con la afición seleccionada
+    gestionarModal("editar",true)
   };
 
-  const borrarAficion =(aficion) => {
-     //Enviar por Axios al Json de BD
-     ServicioAficiones.delete(aficion.id)
-     .then(response => {
-      
-        Swal.fire("Afición borrada correctamente");   
-      
-        //borrar aficion en js  
-      const nuevasAficiones = aficiones.filter((a) => a.id !== aficion.id);
-      setAficiones(nuevasAficiones)
-     })
-     .catch(error => {
-      
-      Swal.fire("ERROR, No se ha borrado la afición");  
+  const crearAficion = () => {    
+    gestionarModal("crear",true)
+  };
 
-     });
-
-   }
-  
+  const borrarAficion = (aficion) =>{
+      AficionBorrar(aficion, aficiones, setAficiones)
+  }
  
   
 
@@ -102,16 +85,13 @@ const Informe = () => {
 <button className="add-aficion-btn" onClick={openModalNuevo}>Añadir Afición</button>
 
 
-      <Modal isOpen={isModalNuevoOpen} onClose={closeModalNuevo}>      
-          <FormularioAficiones aficiones={aficiones} setAficiones={setAficiones} onClose={closeModalNuevo} />
-      </Modal>     
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-              {aficionSeleccionada && <AficionDetalle aficion={aficionSeleccionada} />} 
-      </Modal>
-
-      <Modal isOpen={isModalEditOpen} onClose={closeModalEdit} >
-           <FormularioAficionEdit  aficiones={aficionSeleccionada} setAficiones={setAficiones} onClose={closeModalEdit} />
-      </Modal> 
+<Modal isOpen={modals.crear} onClose={()=>gestionarModal("crear",false)}>      
+          <FormularioAficiones aficiones={aficiones} setAficiones={setAficiones} onClose={()=>gestionarModal("crear",false)} />
+      </Modal>  
+ 
+      <Modal isOpen={modals.editar} onClose={()=>gestionarModal("editar",false)} >
+           <FormularioAficionEdit  aficiones={aficionSeleccionada} setAficiones={setAficiones} onClose={()=>gestionarModal("editar",false)} />
+      </Modal>   
    
     </>
   );

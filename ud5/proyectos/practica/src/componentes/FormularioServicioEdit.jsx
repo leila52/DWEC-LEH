@@ -12,6 +12,8 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
   const [form, setForm] = useState({
     nombre: servicio.nombre,
     descripcion: servicio.descripcion,
+    precio:servicio.precio,
+    url:servicio.url
   });
 
   //////////////////////////////////////
@@ -56,6 +58,8 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
       const editarAficion = {          
         nombre: form.nombre,
         descripcion: form.descripcion,
+        precio:form.precio,
+        url:form.url
       };
 
      
@@ -68,12 +72,14 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
         setForm({
           nombre: '',
           descripcion: '',
+          precio:'',
+          url:''
         });
        
         // // Le ponemos el id correcto de la BD
         // nuevaAficion.id=response.data.id
 
-       servicioAficiones.getAll()
+        ServicioAxios.getAll()
             .then((response) => {
               setServicios(response.data);
             })

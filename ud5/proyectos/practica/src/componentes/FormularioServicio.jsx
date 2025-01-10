@@ -74,6 +74,7 @@ function FormularioServicios({ servicios, setServicios, onClose }) {
         importe: parseFloat(form.importe),
         url: form.url,
       };
+      console.log(nuevoServicio);
 
       // Enviar por Axios al Json de BD
       ServicioAxios.create(nuevoServicio)

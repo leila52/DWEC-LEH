@@ -1,9 +1,6 @@
-import './estilos/App.css';
-
-import './estilos/cuerpo.css';
-import React, { useState } from "react";
+import { useState } from 'react'
 import MenuSuperior from './componentes/menu'
-import Cuerpo from './componentes/cuerpo'
+import ListaImagenes from './componentes/cuerpo'
 
 
 function App() {
@@ -22,10 +19,10 @@ function App() {
       </header>
       <main>
         {/* Pasar total y setTotal a ListaImagenes */}
-        <Cuerpo total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}/>
+        <ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}/>
       </main>
     </div>
   );
 }
 
-export default App;
+export default App

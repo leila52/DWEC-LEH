@@ -13,9 +13,7 @@
   height: 40px;
   width: auto;
 }
-Link{
-  color: #ff0000;
-}
+
 .carrito-texto {
   display: inline-block;
   background-color: #ff0000; /* Círculo rojo */
@@ -78,7 +76,7 @@ Link{
 .carrito-productos ul li {
   padding: 5px 0;
   border-bottom: 1px solid #eee;
-  color: #f30e0e; /* Color del texto en la lista */
+  color: #333; /* Color del texto en la lista */
 }
 
 .carrito-productos ul li:last-child {

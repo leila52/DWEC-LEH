@@ -8,7 +8,7 @@ const imageUrls = [
 ];
 
 // Componente ListaImagenes
-const ListaImagenes = ({ total, setTotal , productos, setProductos }) => {
+const ListaImagenes = ({ total, setTotal , productos, setProductos,informacion }) => {
   
   const AnadirProducto = (nombre, precio) => {
     //alert(`${nombre} añadido al carrito, con precio ${precio}`);

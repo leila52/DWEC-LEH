@@ -18,7 +18,7 @@ const MenuSuperior = ({ total, productos }) => {
         alt="Supermercado"
         className="icono-supermercado"
       />
-      /* aqui estan los links */
+      {/* aqui estan los links */}
       <Link to="/">Inicio</Link>
       <Link to="/detalle-carrito">Detalle</Link>
 

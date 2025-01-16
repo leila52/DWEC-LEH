@@ -1,0 +1,79 @@
+/* Estilos para el contenedor del componente Detalle */
+.detalle-contenedor-Producto {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+  }
+  
+  /* Lista de productos */
+  .detalle-contenedor-Producto ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap; /* Asegura que los elementos no se envuelvan */
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center; /* Alinea los elementos en el centro verticalmente */
+  }
+  
+  /* Estilo para cada elemento de la lista */
+  .detalle-contenedor-Producto li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+  }
+  
+  /* Efecto hover en cada elemento de la lista */
+  .detalle-contenedor-Producto li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo para el texto de los productos */
+  .detalle-contenedor-Producto li span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-right: 10px;
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  }
+  
+  /* Estilo específico para el precio */
+  .detalle-contenedor-Producto li span.precio {
+    color: #ff5722;
+    font-weight: bold;
+  }
+  
+  /* Imagen del producto */
+  .detalle-contenedor-Producto li img {
+    max-width: 60px; /* Imagen más pequeña */
+    height: auto;
+    border-radius: 8px;
+    margin-left: 10px;
+    border: 2px solid #ddd;
+  }
+  
+  /* Diseño responsivo */
+  @media (max-width: 600px) {
+    .detalle-contenedor-Producto ul {
+      flex-direction: row; /* Mantener los elementos en una sola línea */
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .detalle-contenedor-Producto li img {
+      max-width: 50px; /* Reducir la imagen aún más en pantallas pequeñas */
+    }
+  }
+  

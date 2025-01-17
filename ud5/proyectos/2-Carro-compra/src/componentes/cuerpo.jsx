@@ -1,14 +1,8 @@
 import '../estilos/cuerpo.css';
-
-// Datos de imágenes
-const imageUrls = [ 
-  { url: "./imagenes/manzana.jpg", nombre: "Manzana", precio: 5 }, 
-  { url: "./imagenes/pera.jpg", nombre: "Pera", precio: 7 }, 
-  { url: "./imagenes/platano.jpg", nombre: "Platano", precio: 4 } 
-];
+import {  buscarProducto , añadir } from '../herramientas/buscarProducto';
 
 // Componente ListaImagenes
-const ListaImagenes = ({ total, setTotal , productos, setProductos,informacion }) => {
+const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson,setProductosJson,informacion }) => {
   
   const AnadirProducto = (nombre, precio) => {
     //alert(`${nombre} añadido al carrito, con precio ${precio}`);
@@ -21,6 +15,13 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos,informacion }
     // }) 
     
     setProductos([...productos, nombre]);
+    if(buscarProducto(nombre,productosJson)=== null){
+      setProductosJson([...productosJson,{"nombre": nombre,"cantidad": 1}]);
+
+    }else{
+      setProductosJson(añadir(productosJson,nombre));
+    }
+    
         
     //console.log(productos)
    
@@ -28,7 +29,7 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos,informacion }
 
   return (
     <div className="container">
-      {imageUrls.map((item, index) => (
+      {informacion.map((item, index) => (
         <div key={index}>
           <img src={item.url} alt="imagen" />
           <h3>{item.nombre}</h3>

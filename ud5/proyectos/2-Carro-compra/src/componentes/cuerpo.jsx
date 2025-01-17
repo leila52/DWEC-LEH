@@ -19,7 +19,7 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson
       setProductosJson([...productosJson,{"nombre": nombre,"cantidad": 1}]);
 
     }else{
-      setProductosJson(añadir(productosJson,nombre));
+      setProductosJson([añadir(productosJson,nombre)]);
     }
     
         

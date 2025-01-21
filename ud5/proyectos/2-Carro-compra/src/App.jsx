@@ -31,7 +31,7 @@ function App() {
         {/* Pasar total y setTotal a ListaImagenes */}
         
         <Routes>
-          <Route  path='/detalle-carrito' element={<Detalle productos={productos} informacion={informacion}/>}/>
+          <Route  path='/detalle-carrito' element={<Detalle productosJson={productosJson} informacion={informacion}/>}/>
       <Route path='/' 
       element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos}  productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion}/>} />
       

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../estilos/menu.css";
 import { Link } from "react-router-dom";
+import { obtenerCantidadTotal } from "../herramientas/buscarProducto";
 
 // Componente MenuSuperior
 const MenuSuperior = ({ total, productosJson }) => {
@@ -18,12 +19,12 @@ const MenuSuperior = ({ total, productosJson }) => {
         alt="Supermercado"
         className="icono-supermercado"
       />
-      {/* aqui estan los links */}
-      <Link to="/">Inicio</Link>
-      <Link to="/detalle-carrito">Detalle</Link>
+
+      <Link to="/" >Inicio</Link>
+      <Link to="/detalle-carrito">Detalles</Link>
 
       {/* Texto a la derecha */}
-      <span className="carrito-texto">{productosJson.length} : {total}Є</span>
+      <span className="carrito-texto">{obtenerCantidadTotal(productosJson)} : {total}Є</span>
 
       {/* Botón para mostrar/ocultar carrito */}
       <button className="toggle-carrito" onClick={toggleCarrito}>

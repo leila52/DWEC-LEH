@@ -19,11 +19,13 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson
       setProductosJson([...productosJson,{"nombre": nombre,"cantidad": 1}]);
 
     }else{
-      setProductosJson([añadir(productosJson,nombre)]);
+      añadir(productosJson,nombre);
+      console.log(añadir(productosJson,nombre));
+      //setProductosJson([]);
     }
     
         
-    //console.log(productos)
+    console.log(productosJson)
    
   };
 

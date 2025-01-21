@@ -19,10 +19,8 @@ const MenuSuperior = ({ total, productosJson }) => {
         alt="Supermercado"
         className="icono-supermercado"
       />
-
-      <Link to="/" >Inicio</Link>
-      <Link to="/detalle-carrito">Detalles</Link>
-
+      <Link to="/"> Inicio</Link>
+      <Link to="/detalle-carrito"> Detalle</Link>
       {/* Texto a la derecha */}
       <span className="carrito-texto">{obtenerCantidadTotal(productosJson)} : {total}Є</span>
 
@@ -38,7 +36,7 @@ const MenuSuperior = ({ total, productosJson }) => {
           { productosJson.length > 0 ? (
             <ul>
               { productosJson.map((producto, index) => (
-                <li key={index}>{producto.nombre} {producto.cantidad}</li>
+                <li key={index}>{producto.nombre}{producto.cantidad}</li>
               ))}
             </ul>
           ) : (

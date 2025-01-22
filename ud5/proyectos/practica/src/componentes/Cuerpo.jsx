@@ -102,8 +102,6 @@ const Cuerpo = ({ servicios, setServicios })=> {
       <Modal isOpen={isModalNuevoOpen} onClose={closeModalNuevo}>      
           <FormularioServicio servicios={servicios} setServicios={setServicios} onClose={closeModalNuevo} />
       </Modal>     
-
-
         <Modal isOpen={isModalOpen} onClose={closeModal}>
               {servicioSeleccionada && <ServicioDetalle servicio={servicioSeleccionada} />} 
         </Modal> 

@@ -35,17 +35,12 @@ export function borrarSiHayMasDeUnProducto(informacion,nombre){
 }
 
 //borrar todo
-export function borrarTodo(informacion,nombre){
-  console.log("estoy buscando"+nombre)
-  return informacion.map(producto => {
-    if (producto.nombre === nombre) {
-      return {
-        ...producto,
-        cantidad: producto.cantidad - 1
-      };
-    }
-    return producto;
-  })
-  // Filtrar productos con cantidad mayor a 0
-  .filter(producto => producto.cantidad > 0);
+export function borrarTodo(informacion, nombre) {
+  console.log("Productos antes de eliminar:", informacion);
+  console.log("Eliminando completamente: " + nombre);
+  const productosFiltrados = productos.filter(
+    (producto) => producto.nombre.toLowerCase() !== nombre.toLowerCase()
+  );
+  console.log("Productos después de eliminar:", resultado);
+  return resultado;
 }

@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
 import "../estilos/detalle.css";
-import { buscarProducto  } from "../herramientas/buscarProducto";
+import { buscarProducto ,borrarSiHayMasDeUnProducto } from "../herramientas/buscarProducto";
 
-const DetalleCarrito = ({productos , informacion, productosJson}) => { 
+const DetalleCarrito = ({setProductosJson , informacion, productosJson}) => { 
   
+  const reducirCantidad = (nombreProducto) => {
+
+    const nuevosProductos = borrarSiHayMasDeUnProducto(productosJson, nombreProducto);
+    //se actualiza el array de los tres productos de productos Json
+    setProductosJson(nuevosProductos);
+  };
+
     return (
       <div className="container-detalle-carrito">
         <ul>
@@ -11,10 +18,14 @@ const DetalleCarrito = ({productos , informacion, productosJson}) => {
              productosJson.map((producto,index) =>{
             
               let productoInformacion = buscarProducto(producto.nombre,informacion)
-              return <li key={index}>{productoInformacion.nombre} - {productoInformacion.precio} x {producto.cantidad}
+              return <li key={index}>{productoInformacion.nombre} ---  {producto.cantidad}   --- {productoInformacion.precio}€
               <Link to={`/detalle-producto/${productoInformacion.nombre}`}>
               <img src={productoInformacion.url}/>
               </Link>
+              
+              <button onClick={() => reducirCantidad(producto.nombre)}>
+                Reducir
+              </button>
               </li>
             }
             )

@@ -35,3 +35,28 @@
   font-weight: bold;
   color: #333;
 }
+/* Botón de reducir */
+.container-detalle-carrito button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.container-detalle-carrito button:hover {
+  background-color: #ff5252;
+}
+
+.container-detalle-carrito button:active {
+  background-color: #e04848;
+}
+
+.container-detalle-carrito button:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(255, 107, 107, 0.5);
+}

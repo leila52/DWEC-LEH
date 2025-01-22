@@ -25,13 +25,14 @@ function App() {
         <MenuSuperior
           total={total}
           productosJson={productosJson}
+          setProductosJson={setProductosJson}
         />
       </header>
       <main>
         {/* Pasar total y setTotal a ListaImagenes */}
 
         <Routes>
-          <Route path='/detalle-carrito' element={<DetalleCarrito productos={productos} informacion={informacion} productosJson={productosJson} />} />
+          <Route path='/detalle-carrito' element={<DetalleCarrito setProductosJson={setProductosJson} informacion={informacion} productosJson={productosJson} />} />
           <Route path='/'
             element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos} productosJson={productosJson} setProductosJson={setProductosJson} informacion={informacion} />} />
 

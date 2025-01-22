@@ -90,3 +90,23 @@ Link{
   text-align: center;
   color: #999;
 }
+/* Botón para eliminar productos */
+.eliminar-producto {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.eliminar-producto:hover {
+  background-color: #ff5252;
+}
+
+.eliminar-producto:active {
+  background-color: #e04848;
+}

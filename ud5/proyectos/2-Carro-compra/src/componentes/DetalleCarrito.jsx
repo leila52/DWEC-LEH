@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../estilos/detalleCarrito.css";
+import "../estilos/detalle.css";
 import { buscarProducto  } from "../herramientas/buscarProducto";
 
 const DetalleCarrito = ({productos , informacion, productosJson}) => { 
@@ -8,11 +8,9 @@ const DetalleCarrito = ({productos , informacion, productosJson}) => {
       <div className="container-detalle-carrito">
         <ul>
           {
-            productosJson.map((producto,index) =>{
-                
+             productosJson.map((producto,index) =>{
+            
               let productoInformacion = buscarProducto(producto.nombre,informacion)
-              console.log("esto meme",productosJson);
-  
               return <li key={index}>{productoInformacion.nombre} - {productoInformacion.precio} x {producto.cantidad}
               <Link to={`/detalle-producto/${productoInformacion.nombre}`}>
               <img src={productoInformacion.url}/>

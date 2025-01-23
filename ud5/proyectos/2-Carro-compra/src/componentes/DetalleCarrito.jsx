@@ -2,13 +2,20 @@ import { Link } from "react-router-dom";
 import "../estilos/detalle.css";
 import { buscarProducto ,borrarSiHayMasDeUnProducto } from "../herramientas/buscarProducto";
 
-const DetalleCarrito = ({setProductosJson , informacion, productosJson}) => { 
+const DetalleCarrito = ({setProductosJson , informacion, productosJson, total, setTotal}) => { 
   
   const reducirCantidad = (nombreProducto) => {
+    const producto = productosJson.find((p) => p.nombre === nombreProducto);
 
-    const nuevosProductos = borrarSiHayMasDeUnProducto(productosJson, nombreProducto);
-    //se actualiza el array de los tres productos de productos Json
-    setProductosJson(nuevosProductos);
+    if (producto) {
+      // Buscar la información completa del producto
+      const productoInformacion = buscarProducto(nombreProducto, informacion);
+      // restar el precio del total
+      setTotal((prevTotal) => prevTotal - productoInformacion.precio);
+      const nuevosProductos = borrarSiHayMasDeUnProducto(productosJson, nombreProducto);
+      //se actualiza el array de los tres productos de productos Json
+      setProductosJson(nuevosProductos);
+    }
   };
 
     return (

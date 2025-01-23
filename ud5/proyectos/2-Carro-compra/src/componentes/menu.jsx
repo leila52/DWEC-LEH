@@ -1,21 +1,39 @@
 import React, { useState } from "react";
 import "../estilos/menu.css";
 import { Link } from "react-router-dom";
-import { obtenerCantidadTotal ,borrarTodo} from "../herramientas/buscarProducto";
+import { buscarProducto,obtenerCantidadTotal ,borrarTodo} from "../herramientas/buscarProducto";
 
 // Componente MenuSuperior
-const MenuSuperior = ({ total, productosJson,setProductosJson }) => {
+const MenuSuperior = ({ total, setTotal ,productosJson,setProductosJson,informacion }) => {
   const [carritoVisible, setCarritoVisible] = useState(false);
 
   const toggleCarrito = () => {
     setCarritoVisible(!carritoVisible);
   };
-
+  //calculamos total
+  const calcularTotal =(productos,informacion)=>{
+    return productos.reduce((total, producto) => {
+      // Busca el producto en la información completa
+      const productoDetalle = buscarProducto(producto.nombre, informacion);
+      if (productoDetalle) {
+        // Si encuentra el producto, suma el precio total basado en la cantidad
+        return total + producto.cantidad * productoDetalle.precio;
+      }
+      return total;
+    }, 0);
+    
+  }
   const eliminarProducto = (nombreProducto) => {
-    console.log("Intentando eliminar: " + nombreProducto);
+    console.log(" eliminar: " + nombreProducto);
+    
     const nuevosProductos = borrarTodo(productosJson, nombreProducto);
-    console.log("Estado actualizado del carrito:", nuevosProductos);
+
+    console.log("Estado actualizacion :", nuevosProductos);
     setProductosJson(nuevosProductos);
+
+    const nuevoTotal = calcularTotal(nuevosProductos,informacion);
+    console.log("Nuevo total después de eliminar:", nuevoTotal);
+    setTotal(nuevoTotal);
   };
 
   return (

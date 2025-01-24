@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Pagina404 from './componentes/Pagina404';
 import DetalleProducto from './componentes/DetalleProducto';
 import DetalleCarrito from './componentes/DetalleCarrito';
+import useStateStorage from './servicios/UseSateStorage';
 
 function App() {
   const informacion = [
@@ -13,9 +14,10 @@ function App() {
     { url: "../imagenes/platano.jpg", nombre: "Platano", precio: 4 }
   ];
 
-  const [total, setTotal] = useState(0); // Estado para el importe total
-  const [productos, setProductos] = useState([]);
-  const [productosJson, setProductosJson] = useState([]);// Lista de productos del carrrito
+  const [total, setTotal] = useStateStorage("total",0);
+  //const [total, setTotal] = useState(0); // Estado para el importe total
+  const [productos, setProductos] = useStateStorage("productos",[]);
+  const [productosJson, setProductosJson] = useStateStorage("productosJson",[]);// Lista de productos del carrrito
 
   return (
     <div className="App">

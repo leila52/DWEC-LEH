@@ -1,0 +1,14 @@
+{
+  "aficiones": [
+    {
+      "nombre": "beisbol",
+      "descripcion": "Sacando la bola de pista, si se puede no se puede",
+      "id": "4d16"
+    },
+    {
+      "id": "3de2",
+      "nombre": "leilassass",
+      "descripcion": "la xula"
+    }
+  ]
+}

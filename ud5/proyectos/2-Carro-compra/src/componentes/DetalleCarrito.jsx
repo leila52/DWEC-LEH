@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../estilos/detalle.css";
-import { buscarProducto ,borrarSiHayMasDeUnProducto } from "../herramientas/buscarProducto";
+import { buscarProducto ,borrarSiHayMasDeUnProducto ,añadir} from "../herramientas/buscarProducto";
 
 const DetalleCarrito = ({setProductosJson , informacion, productosJson, total, setTotal}) => { 
   
@@ -16,7 +16,19 @@ const DetalleCarrito = ({setProductosJson , informacion, productosJson, total, s
       //se actualiza el array de los tres productos de productos Json
       setProductosJson(nuevosProductos);
     }
+   
   };
+  const añadirCantidad=(nombreProducto) =>{
+    const productoInformacion = buscarProducto(nombreProducto, informacion);
+    if (productoInformacion) {
+      // sumar el precio al total
+      setTotal((precTotal) => precTotal + productoInformacion.precio);
+      
+      // actualizar productosJson con la nueva cantidad del producto
+      const nuevosProductos = añadir(productosJson, nombreProducto);
+      setProductosJson(nuevosProductos);
+    }
+  }
 
     return (
       <div className="container-detalle-carrito">
@@ -30,6 +42,9 @@ const DetalleCarrito = ({setProductosJson , informacion, productosJson, total, s
               <img src={productoInformacion.url}/>
               </Link>
               
+              <button onClick={() => añadirCantidad(producto.nombre)}>
+                Añadir
+              </button>
               <button onClick={() => reducirCantidad(producto.nombre)}>
                 Reducir
               </button>

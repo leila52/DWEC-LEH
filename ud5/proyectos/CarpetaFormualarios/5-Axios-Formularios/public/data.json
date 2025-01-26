@@ -1,0 +1,14 @@
+{
+  "aficiones": [
+    {
+      "nombre": "voley playas",
+      "descripcion": "en arena autentica",
+      "id": "2b32"
+    },
+    {
+      "id": "4d16",
+      "nombre": "beisbol",
+      "descripcion": "Sacando la bola de pista, si se puede"
+    }
+  ]
+}

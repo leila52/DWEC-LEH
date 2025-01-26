@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
+import servicioStock from './servicios/servicioStock';
+import FormularioAdministrador from './componentes/FormularioAdministrador';
 import './App.css'
+import Listado from './componentes/Listado';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-    <p>prueba</p>
+    <h1>Tienda sephora</h1>
+      <Listado/>
     </>
-  )
+  );
 }
 
 export default App

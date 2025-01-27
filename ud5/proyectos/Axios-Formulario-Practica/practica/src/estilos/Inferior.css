@@ -1,0 +1,19 @@
+.inferior {
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  .servicio-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  .servicio-card img {
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+  }

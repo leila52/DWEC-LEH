@@ -52,10 +52,8 @@ const Listado = () => {
 
   const editarProducto = (producto) => {
     console.log("Producto a editar:", producto);
-    if (producto) {
         setProductoSeleccionado(producto);
         gestionarModal("editar", true);
-      }
     
 };
 

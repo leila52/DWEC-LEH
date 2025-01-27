@@ -1,0 +1,43 @@
+/* Estilos para el header y el menú */
+header {
+    background-color: #3f678a; /* Fondo oscuro para el header */
+    padding: 0 20px; /* Espaciado alrededor del contenido: 0 en la parte superior e inferior, 20px a los lados */
+    height: 60px; /* Fijar la altura del header a 50px */
+    position: fixed; /* Fijar el menú en la parte superior */
+    top: 0; /* Asegura que esté en la parte superior */
+    left: 0;
+    width: 100%; /* El menú ocupa todo el ancho de la pantalla */
+    z-index: 100; /* Asegura que el menú esté por encima de otros elementos */
+    display: flex; /* Usar flexbox para alinear los elementos dentro del header */
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Espacio entre los elementos (logo y enlaces) */
+}
+  
+  nav {
+    justify-content: center;
+    align-items: center;
+    display: flex; /* Usar flexbox para alinear los enlaces */
+    gap: 50px; /* Espacio entre los enlaces */
+    
+}
+  
+  nav a {
+    color: #fff; /* Texto blanco */
+    text-decoration: none; /* Eliminar subrayado */
+    font-size: 16px; /* Tamaño de la fuente */
+  }
+  
+  nav a:hover {
+    color: #32c69e5e; /* Cambiar color al pasar el ratón */
+  }
+  
+  a {
+    display: inline-block; /* Asegura que los enlaces se comporten correctamente */
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  /* Agregar un poco de espacio entre el contenido y el menú */
+  body {
+    padding-top: 60px; /* Deja espacio suficiente para que el header fijo no tape el contenido */
+  }

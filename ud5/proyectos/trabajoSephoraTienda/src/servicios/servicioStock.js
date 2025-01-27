@@ -15,7 +15,7 @@ class ServicioStock {
   }
 
   update(id, data) {
-    return http.put(`/stockaficiones/${id}`, data);
+    return http.put(`/stock/${id}`, data);
   }
 
   delete(id) {

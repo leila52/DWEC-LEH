@@ -1,33 +1,56 @@
+/* Modal.css */
+
+/* Fondo oscuro semitransparente detrás del modal */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+/* Contenedor del contenido del modal */
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; /* Ancho máximo para pantallas grandes */
+  padding: 20px;
+  position: relative; /* Necesario para el botón de cierre */
+  animation: slideDown 0.3s ease-out; /* Animación al aparecer */
+}
+
+/* Botón de cierre del modal */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333; /* Color del ícono de cierre */
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ff0000; /* Cambia de color al pasar el ratón */
+}
+
+/* Animación para la entrada del modal */
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
   }
-  
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .close-btn {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
+}

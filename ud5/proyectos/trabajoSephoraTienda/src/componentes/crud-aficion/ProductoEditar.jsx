@@ -3,7 +3,7 @@ import '../../estilos/Formulario.css'; // Asegúrate de tener este archivo CSS
 import servicioStock from '../../servicios/servicioStock';
 import Swal from 'sweetalert2';
 
-function ProductoEditar({ producto, setProducto, onClose }) {
+function ProductoEditar({ producto, setProductos, onClose }) {
   // Almacenar los errores del formulario
   const [errores, setErrores] = useState({});
 
@@ -91,7 +91,7 @@ function ProductoEditar({ producto, setProducto, onClose }) {
           // Obtener todos los productos actualizados
           servicioStock.getAll()
             .then((response) => {
-              setProducto(response.data);
+              setProductos(response.data);
             });
 
           // Cerrar el modal

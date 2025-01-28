@@ -1,14 +1,14 @@
 {
   "stock": [
     {
-      "nombre": "colorete",
+      "nombre": "coloreterrr",
       "descripcion": "colorete charlot tilburry aaaaaa",
       "precio": "5",
       "url": "https://i.pinimg.com/236x/f8/bc/1b/f8bc1be76de7932d2ee50ac42f7cf275.jpg",
       "id": "1"
     },
     {
-      "nombre": "crema byoma aaa",
+      "nombre": "crema byoma  aaaa",
       "descripcion": "crema hidratante de marca byoma la cual es perfecta para pieles secas",
       "precio": "25",
       "url": "https://i.pinimg.com/236x/4d/9c/67/4d9c67057c049ff8411c41c927a362ef.jpg",
@@ -16,17 +16,10 @@
     },
     {
       "nombre": "bronzer",
-      "descripcion": "colore neutro grisacio aaaa",
+      "descripcion": "colore neutro grisacio aaaaaaa",
       "precio": "5",
       "url": "https://i.pinimg.com/236x/8d/4b/51/8d4b5148692d56a1b5b1ec2a9094da5f.jpg",
       "id": "3"
-    },
-    {
-      "id": "9972",
-      "nombre": "leilusss",
-      "descripcion": "njlvbl vyhi vyhl yui",
-      "precio": "85.56",
-      "url": "https://i.pinimg.com/736x/2b/69/1e/2b691e296182a38bb5315735e2d323d0.jpg"
     }
   ]
 }

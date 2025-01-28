@@ -8,6 +8,7 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
   // Almacenar los errores del formulario
   const [errores, setErrores] = useState({});
   
+  
   // Almacenar los valores del formulario
   const [form, setForm] = useState({
     nombre: servicio.nombre,

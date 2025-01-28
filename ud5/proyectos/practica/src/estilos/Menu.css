@@ -1,43 +1,89 @@
-/* Estilos para el header y el menú */
-header {
-    background-color: #3f678a; /* Fondo oscuro para el header */
-    padding: 0 20px; /* Espaciado alrededor del contenido: 0 en la parte superior e inferior, 20px a los lados */
-    height: 60px; /* Fijar la altura del header a 50px */
-    position: fixed; /* Fijar el menú en la parte superior */
-    top: 0; /* Asegura que esté en la parte superior */
-    left: 0;
-    width: 100%; /* El menú ocupa todo el ancho de la pantalla */
-    z-index: 100; /* Asegura que el menú esté por encima de otros elementos */
-    display: flex; /* Usar flexbox para alinear los elementos dentro del header */
-    align-items: center; /* Centra los elementos verticalmente */
-    justify-content: space-between; /* Espacio entre los elementos (logo y enlaces) */
+/* Estilos generales para el menú superior */
+.menu-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  position: relative;
 }
-  
-  nav {
-    justify-content: center;
-    align-items: center;
-    display: flex; /* Usar flexbox para alinear los enlaces */
-    gap: 50px; /* Espacio entre los enlaces */
-    
+
+.icono-supermercado {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
-  
-  nav a {
-    color: #fff; /* Texto blanco */
-    text-decoration: none; /* Eliminar subrayado */
-    font-size: 16px; /* Tamaño de la fuente */
-  }
-  
-  nav a:hover {
-    color: #32c69e5e; /* Cambiar color al pasar el ratón */
-  }
-  
-  a {
-    display: inline-block; /* Asegura que los enlaces se comporten correctamente */
-    padding: 10px 15px;
-    border-radius: 5px;
-  }
-  
-  /* Agregar un poco de espacio entre el contenido y el menú */
-  body {
-    padding-top: 60px; /* Deja espacio suficiente para que el header fijo no tape el contenido */
-  }
+
+.carrito-texto {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.toggle-carrito {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+}
+
+.toggle-carrito:hover {
+  color: #ff6600;
+}
+
+/* Estilos del carrito de productos */
+.carrito-productos {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 100;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.carrito-productos h4 {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.carrito-productos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carrito-productos ul li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.carrito-productos p {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Estilo para el botón de "Añadir al carrito" */
+.add-aficion-btn {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.add-aficion-btn:hover {
+  background-color: #e65c00;
+}

@@ -3,24 +3,27 @@
     {
       "nombre": "Soporte Técnico",
       "descripcion": "Asistencia en la reso, mantenimiento preventivo y correctivo de dispositivos y equipos informáticos.",
+      "importe": "7555",
       "id": "3"
     },
     {
       "nombre": "Desarrollo de Aplicaciones Móviles",
       "descripcion": "Desarrollo de aplicaciones móvies para iOS y Android, con enfoque en la experiencia de usuario y funcionalidades avanzadas.",
+      "importe": "1",
       "url": "https://www.insightcreativos.es/wp-content/uploads/2015/09/desarrollo_de_aplicaciones_moviles_android_ios.jpg",
       "id": "4"
     },
     {
       "nombre": "Instalación de Redes y Servidores",
       "descripcion": "Instalación, cmantenimiento de redes informáticas, servidores y soluciones de almacenamiento en la ",
+      "importe": "85",
       "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNHmzZiNoqL8TYVStYgXufEam67uXEoOcNbg&s",
       "id": "5"
     },
     {
       "nombre": "laila",
       "descripcion": "htfggdtffgddfgf",
-      "importe": 52,
+      "importe": "56",
       "url": "https://i.pinimg.com/236x/31/80/f4/3180f4ea074ce5c20ec35fa9986f8929.jpg",
       "id": "AF1h0zc"
     }

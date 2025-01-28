@@ -12,7 +12,7 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
   const [form, setForm] = useState({
     nombre: servicio.nombre,
     descripcion: servicio.descripcion,
-    precio:servicio.precio,
+    importe:servicio.importe,
     url:servicio.url
   });
 
@@ -38,6 +38,10 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
     if (!form.nombre.trim()) {
       nuevosErrores.nombre = 'El nombre es obligatorio';
     }
+    // Validación para "importe"
+    if (!form.importe || isNaN(form.importe) || form.importe <= 0) {
+      nuevosErrores.importe = 'El importe debe ser un número mayor a 0';
+    }
 
 
     setErrores(nuevosErrores);
@@ -58,7 +62,7 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
       const editarAficion = {          
         nombre: form.nombre,
         descripcion: form.descripcion,
-        precio:form.precio,
+        importe:form.importe,
         url:form.url
       };
 
@@ -72,7 +76,7 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
         setForm({
           nombre: '',
           descripcion: '',
-          precio:'',
+          importe:'',
           url:''
         });
        
@@ -121,6 +125,18 @@ function FormularioServicioEdit({servicio, setServicios, onClose}) {
         placeholder="Escribe una breve descripción de la afición"
       />
       {errores.descripcion && <p className="error">{errores.descripcion}</p>}
+
+      {/* Campo de texto para importe */}
+      <label htmlFor="importe">Importe</label>
+        <input
+          id="importe"
+          type="number"
+          name="importe"
+          value={form.importe}
+          onChange={gestionarCambio}
+          placeholder="Escribe el importe del servicio"
+        />
+        {errores.importe && <p className="error">{errores.importe}</p>}
 
       {/* Botón de envío */}
       <button type="submit">Enviar</button>

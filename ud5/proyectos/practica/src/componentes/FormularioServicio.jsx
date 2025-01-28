@@ -11,7 +11,7 @@ function FormularioServicios({ servicios, setServicios, onClose }) {
   const [form, setForm] = useState({
     nombre: '',
     descripcion: '',
-    importe: '',
+    precio: '',
     url: '',
   });
 

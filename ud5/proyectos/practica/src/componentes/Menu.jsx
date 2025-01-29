@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../estilos/menu.css";
+import "../estilos/Menu.css";
 import { buscarProducto , obtenerCantidadTotal ,borrarTodo } from "../heramientas/buscarProducto";
 
 // Componente MenuSuperior

@@ -1,0 +1,18 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Pizza Margarita",
+      "descripcion": "Pizza clásica con queso mozzarella y albahaca.",
+      "urlImagen": "https://example.com/pizza-margarita.jpg",
+      "precio": 8.5
+    },
+    {
+      "id": "2",
+      "nombre": "Ensalada César",
+      "descripcion": "Lechuga, pollo, queso parmesano y croutons con aderezo César.",
+      "urlImagen": "https://example.com/ensalada-cesar.jpg",
+      "precio": 7
+    }
+  ]
+}

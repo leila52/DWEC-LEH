@@ -1,0 +1,67 @@
+.productos {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9; /* Fondo suave */
+    color: #333;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .productos h4 {
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .productos ul {
+    list-style: none; /* Elimina puntos de la lista */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre elementos de la lista */
+    align-items: center; /* Centra los elementos dentro del contenedor */
+  }
+  
+  .productos ul li {
+
+    border-radius: 10px;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .productos ul li img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .productos ul li:first-child {
+    font-weight: bold; /* Destaca el nombre del producto */
+    font-size: 1.2rem;
+  }
+  
+  .productos ul li:nth-child(2) {
+    color: #777; /* Estilo más suave para el precio */
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .productos ul li {
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+  
+    .productos ul li img {
+      width: 150px; /* Tamaño más pequeño en pantallas pequeñas */
+    }
+  }
+  

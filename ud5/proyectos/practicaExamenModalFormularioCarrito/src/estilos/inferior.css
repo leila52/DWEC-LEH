@@ -1,0 +1,50 @@
+/* inferiror.css */
+
+/* Estilo general para la barra inferior */
+.navbar {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenedor que agrupa el contenido */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Estilo del producto mostrado */
+  .navbar div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Título del producto */
+  .navbar p strong {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Estilo para la imagen */
+  .navbar img {
+    max-width: 200px;
+    margin-top: 15px;
+    border-radius: 8px;
+  }
+  
+  /* Estilo para el mensaje cuando no se encuentran productos */
+  .navbar p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  /* Estilo para el mensaje cuando no hay servicios disponibles */
+  .navbar p.no-product {
+    color: red;
+    font-weight: bold;
+  }
+  

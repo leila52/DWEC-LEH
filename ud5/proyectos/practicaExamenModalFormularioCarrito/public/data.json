@@ -1,0 +1,25 @@
+{
+  "informacion": [
+    {
+      "url": "/imagenes/manzana.jpg",
+      "nombre": "Manzana",
+      "precio": 5
+    },
+    {
+      "url": "/imagenes/pera.jpg",
+      "nombre": "Pera",
+      "precio": 7
+    },
+    {
+      "url": "/imagenes/platano.jpg",
+      "nombre": "Platano",
+      "precio": 4
+    },
+    {
+      "url": "https://i.pinimg.com/236x/fc/1d/70/fc1d70d2f11a2f5eda88ac9ef8b2af64.jpg",
+      "nombre": "noe",
+      "precio": "54",
+      "id": "339f"
+    }
+  ]
+}

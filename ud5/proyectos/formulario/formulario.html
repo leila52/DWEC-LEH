@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incluir Producto al Carrito</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+      <div class="form-container">
+        <h1>Incluir Producto al Carrito</h1>
+        <form id="productForm" action="#" method="POST">
+            <label for="producto">Productos:</label>
+            <select id="producto" name="producto">
+                <option value="aceitunas">Aceitunas</option>
+                <option value="calabacin">Calabacín</option>
+                <option value="ajos">Ajos</option>
+                <option value="calabaza">Calabaza</option>
+            </select>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" max="10" required>
+            <div id="error-message" class="error-message"> La cantidad no debe ser superior a 5</div>
+
+            <button type="submit">Agregar al Carrito</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+/* Contenedor principal */
+.menu-superior {
+  background-color: #2a9d8f;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lista del menú */
+.menu-lista {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-lista li {
+  margin: 0 15px;
+}
+
+/* Icono del supermercado */
+.icono-supermercado {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Enlaces */
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Información del carrito */
+.carrito-info {
+  display: flex;
+  gap: 15px;
+  font-size: 1rem;
+  align-items: center;
+  color: #f4f4f4;
+}
+
+.carrito-unidades,
+.carrito-total {
+  font-weight: bold;
+  background-color: #264653;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: #e9c46a;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.carrito-unidades:hover,
+.carrito-total:hover {
+  background-color: #f4a261;
+  color: #fff;
+}
+
+/* Botón del carrito */
+.toggle-carrito {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.toggle-carrito:hover {
+  color: #f4a261;
+}
+
+/* Carrito desplegable */
+.carrito-productos {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.carrito-productos h4 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #2a9d8f;
+}
+
+.lista-productos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-productos li {
+  margin-bottom: 5px;
+}
+
+.lista-productos li:last-child {
+  margin-bottom: 0;
+}
+
+/* Mensaje de carrito vacío */
+.carrito-productos p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}

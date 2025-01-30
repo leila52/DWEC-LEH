@@ -1,0 +1,80 @@
+/* Contenedor principal */
+.container-detalle {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2a9d8f;
+  text-align: center;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+/* Elementos del producto */
+.producto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.producto-detalle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.producto-detalle img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Acciones (botones) */
+.producto-acciones {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-reducir,
+.btn-incrementar {
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #264653;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-reducir:hover {
+  background-color: #e63946;
+}
+
+.btn-incrementar:hover {
+  background-color: #2a9d8f;
+}
+
+/* Total */
+.total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+  color: #333;
+}

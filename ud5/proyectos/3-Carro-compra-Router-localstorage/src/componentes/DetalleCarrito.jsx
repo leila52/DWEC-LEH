@@ -19,7 +19,7 @@ const DetalleCarrito = ({ productos, setProductos , total, setTotal , informacio
     cantidad=Number(cantidad);
 
     setProductos(incrementarCantidadIntroducida(productos, producto.nombre, cantidad))
-    setTotal(total + producto.precio); 
+    setTotal(total + producto.precio*producto.cantidad); 
 
   }
   return (

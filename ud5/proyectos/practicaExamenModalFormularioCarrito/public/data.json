@@ -3,23 +3,26 @@
     {
       "url": "/imagenes/manzana.jpg",
       "nombre": "Manzana",
-      "precio": 5
+      "precio": 5,
+      "id": "bec9"
     },
     {
       "url": "/imagenes/pera.jpg",
       "nombre": "Pera",
-      "precio": 7
+      "precio": 7,
+      "id": "b39c"
     },
     {
       "url": "/imagenes/platano.jpg",
       "nombre": "Platano",
-      "precio": 4
+      "precio": 4,
+      "id": "07c8"
     },
     {
-      "url": "https://i.pinimg.com/236x/fc/1d/70/fc1d70d2f11a2f5eda88ac9ef8b2af64.jpg",
-      "nombre": "noe",
-      "precio": "54",
-      "id": "339f"
+      "url": "https://i.pinimg.com/736x/3f/28/5d/3f285d2fe2f7c7a1c35f157399ba1555.jpg",
+      "nombre": "leila",
+      "precio": "8",
+      "id": "6b55"
     }
   ]
 }

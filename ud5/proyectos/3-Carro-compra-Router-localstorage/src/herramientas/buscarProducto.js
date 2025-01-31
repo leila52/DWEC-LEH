@@ -24,7 +24,8 @@ export function incrementarCantidadIntroducida(informacion, nombre, cantidad){
       if(producto.cantidad+cantidad <=10){
         return { ...producto, cantidad: producto.cantidad + cantidad }; 
       }
-      return alert("no puedes ya que teine que ser menor o igual que 10");
+      //sin return ya que es solo un aler
+       alert("no puedes ya que teine que ser menor o igual que 10");
       
     }
     return { ...producto }; 

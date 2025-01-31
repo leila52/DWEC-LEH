@@ -9,17 +9,13 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos,productosJson
     
     setTotal(total + precio); // Actualiza el total
 
-    // setProductos((prevArray) => {    
-
-    //   return [...prevArray, nombre]
-    // }) 
-    
     setProductos([...productos, nombre]);
+
     if(buscarProducto(nombre,productosJson)=== null){
       setProductosJson([...productosJson,{"nombre": nombre,"cantidad": 1}]);
 
     }else{
-      setProductosJson( añadir(productosJson,nombre))
+      setProductosJson(añadir(productosJson,nombre))
       //setProductosJson([]);
     }
     

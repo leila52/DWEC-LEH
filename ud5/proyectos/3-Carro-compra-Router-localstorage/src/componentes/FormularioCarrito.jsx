@@ -66,11 +66,12 @@ function FormularioCarrito({ productos,setProductos,informacion }) {
                     cantidad:Number(form.cantidad ) ,
                 };
             } */
-                /**const nuevoProducto = {
+                const nuevoProducto = {
                     producto: form.producto,
                     //acuerdate
                     cantidad:Number(form.cantidad ) ,
                 };
+                /* 89
            servicioInformacion.getAll()
                 .then((response)=>{
                     setProductos(response.data);

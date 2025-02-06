@@ -1,0 +1,55 @@
+{
+    "informacion": [
+      {
+        "id": 1,
+        "nombre": "Rare Beauty Soft Pinch Liquid Blush",
+        "marca": "Rare Beauty",
+        "categoria": "Rubor",
+        "precio": 23.00,
+        "tonos_disponibles": ["Hope", "Happy", "Bliss", "Joy"],
+        "descripcion": "Un rubor líquido de larga duración con un acabado natural y modulable.",
+        "url": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw99cbf732/images/hi-res/PID_principal/PID_principal_1857/P10017094_principal.jpg?sw=585&sh=585&sm=fit"
+      },
+      {
+        "id": 2,
+        "nombre": "Fenty Beauty Pro Filt’r Soft Matte Longwear Foundation",
+        "marca": "Fenty Beauty",
+        "categoria": "Base de maquillaje",
+        "precio": 39.00,
+        "tonos_disponibles": ["100", "150", "220", "310", "420"],
+        "descripcion": "Base de maquillaje de cobertura media a completa con acabado mate y resistente a la humedad.",
+        "url": "data:image/jpeg;base64,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"
+      },
+      {
+        "id": 3,
+        "nombre": "Huda Beauty Easy Bake Loose Baking & Setting Powder",
+        "marca": "Huda Beauty",
+        "categoria": "Polvo suelto",
+        "precio": 38.00,
+        "tonos_disponibles": ["Banana Bread", "Pound Cake", "Cherry Blossom"],
+        "descripcion": "Polvo suelto para sellar el maquillaje y dar un acabado mate sin marcas.",
+        "url": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw78abd63f/images/hi-res/PID_principal/PID_principal_5280/P3410032_principal.jpg?sw=585&sh=585&sm=fit"
+      },
+      {
+        "id": 4,
+        "nombre": "Charlotte Tilbury Pillow Talk Matte Revolution Lipstick",
+        "marca": "Charlotte Tilbury",
+        "categoria": "Labial",
+        "precio": 35.00,
+        "tonos_disponibles": ["Pillow Talk", "Walk of No Shame", "Supermodel"],
+        "descripcion": "Un labial mate de textura cremosa e hidratante con un color icónico.",
+        "url": "https://is4.revolveassets.com/images/p4/n/d/CTIL-WU115_V1.jpg"
+      },
+      {
+        "id": 5,
+        "nombre": "Too Faced Better Than Sex Mascara",
+        "marca": "Too Faced",
+        "categoria": "Máscara de pestañas",
+        "precio": 28.00,
+        "tonos_disponibles": ["Negro"],
+        "descripcion": "Máscara de pestañas voluminizadora con un cepillo en forma de reloj de arena.",
+        "url": "https://m.toofaced.eu/media/export/cms/products/1000x1000/2f_sku_94281_1000x1000_0.jpg"
+      }
+    ]
+  }
+  

@@ -1,0 +1,93 @@
+/* Estilos para el icono del supermercado */
+.icono-supermercado {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Estilos para el texto del carrito y el total */
+.carrito-texto {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    color: #333;
+}
+
+/* Estilos para el botón del carrito */
+.toggle-carrito {
+    background-color: #ff6f00;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-carrito:hover {
+    background-color: #ff9f00;
+}
+
+/* Estilos para el carrito desplegado */
+.carrito-productos {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 10px;
+    width: 300px;
+    position: fixed;  /* Cambiar a posición fija */
+    top: 20px;        /* Espacio desde la parte superior de la pantalla */
+    right: 20px;      /* Espacio desde el borde derecho */
+    z-index: 1000;    /* Asegura que el carrito esté por encima de otros elementos */
+    transform: translateY(0); /* Evita que el carrito se superponga con el contenido */
+    transition: transform 0.3s ease; /* Efecto de transición suave */
+}
+
+/* Estilos para los productos dentro del carrito */
+.carrito-productos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.carrito-productos li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.carrito-productos button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-productos button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para el botón "Eliminar todo" */
+.eliminar-producto {
+    background-color: #f44336;
+    margin-left: 10px;
+}
+
+.eliminar-producto:hover {
+    background-color: #e53935;
+}
+
+/* Mensaje cuando no hay productos en el carrito */
+.carrito-productos p {
+    font-size: 16px;
+    color: #777;
+}

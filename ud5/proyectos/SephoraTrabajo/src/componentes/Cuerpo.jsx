@@ -1,38 +1,62 @@
 
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import servicioInformacion from "../servicios/servicioInformacion";
 import { buscarProducto,añadir } from "../herramientas/herramientas";
 import "../estilos/Cuerpo.css";
 import Swal from 'sweetalert2';
 
 const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, setTotal }) => {
-
-//coger inormacioon del json que es informacion
-useEffect(() => {
-    servicioInformacion.getAll()
-        .then((response) => {
-            //almacenamos toda la info
-            setInformacion(response.data);
-        })
-        .catch((error) => {
-            Swal.fire({
-                title: "¿Tienes Internet?",
-                text: "No consigo descargar las aficiones :(",
-                icon: "question",
+    const [tonosSeleccionados, setTonosSeleccionados] = useState({});
+    //coger inormacioon del json que es informacion
+    useEffect(() => {
+        servicioInformacion.getAll()
+            .then((response) => {
+                //almacenamos toda la info
+                setInformacion(response.data);
+            })
+            .catch((error) => {
+                Swal.fire({
+                    title: "¿Tienes Internet?",
+                    text: "No consigo descargar las aficiones :(",
+                    icon: "question",
+                });
             });
+    },//importante poner esto 
+        []);
+
+    // Manejar la selección del tono
+    const manejarCambioTono = (productoId, tono) => {
+        setTonosSeleccionados(prevTonos => ({
+            ...prevTonos,
+            [productoId]: tono
+        }));
+    };
+        const AnadirACesta=(nombre, precio,productoId)=>{
+            const tonoSeleccionado = tonosSeleccionados[productoId];
+            if (!tonoSeleccionado) {
+                Swal.fire("Selecciona un tono", "Debes elegir un tono antes de añadir el producto", "warning");
+                return;
+            }
+            setTotal(total+precio);
+            // Verificamos si el producto con ese tono ya está en la cesta
+            let productoExistente = false;
+            let nuevaLista = productoM.map(p => {
+            if (p.nombre === nombre && p.tono === tonoSeleccionado) {
+                productoExistente = true;
+                return { ...p, cantidad: p.cantidad + 1 };
+            }
+            return p;
         });
-},//importante poner esto 
-    []);
-    const AnadirACesta=(nombre, precio)=>{
-    setTotal(total+precio);
-        
-    if (buscarProducto(nombre, productoM) === null) {
-        setProductoM((elegidoProducto)=>[...elegidoProducto,{nombre,cantidad:1}]);
-    }else{
-        setProductoM((elegidoProducto)=> añadir(elegidoProducto,nombre))
-    }
-    Swal.fire("Producto añadido a la cesta", `${nombre} añadido`, "success");
-    }
+
+        if (!productoExistente) {
+            nuevaLista.push({ nombre, tono: tonoSeleccionado, cantidad: 1 });
+        }
+
+        setProductoM(nuevaLista);
+
+        Swal.fire("Producto añadido a la cesta", `${nombre} (${tonoSeleccionado}) añadido`, "success");
+    };
+
 
 
 
@@ -44,7 +68,20 @@ return(
                         <li key={info.id} className="info-item">
                             <img src={info.url} alt={info.nombre} />
                             <div>
-                                {info.nombre}: {info.precio}
+                                <strong>{info.nombre}</strong>: ${info.precio.toFixed(2)}
+                            </div>
+                            <div>
+                                <label htmlFor={`tono-${info.id}`}>Selecciona un tono: </label>
+                                <select
+                                    id={`tono-${info.id}`}
+                                    onChange={(e) => manejarCambioTono(info.id, e.target.value)}
+                                    value={tonosSeleccionados[info.id] || ""}
+                                >
+                                    <option value="">-- Selecciona --</option>
+                                    {info.tonos_disponibles.map((tono) => (
+                                        <option key={tono} value={tono}>{tono}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div>
                                 <button

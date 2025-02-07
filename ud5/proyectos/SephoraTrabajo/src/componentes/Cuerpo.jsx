@@ -1,7 +1,7 @@
 
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import servicioInformacion from "../servicios/servicioInformacion";
-import { buscarProducto,añadir } from "../herramientas/herramientas";
+import { buscarProducto, añadir } from "../herramientas/herramientas";
 import "../estilos/Cuerpo.css";
 import Swal from 'sweetalert2';
 
@@ -31,16 +31,16 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
             [productoId]: tono
         }));
     };
-        const AnadirACesta=(nombre, precio,productoId)=>{
-            const tonoSeleccionado = tonosSeleccionados[productoId];
-            if (!tonoSeleccionado) {
-                Swal.fire("Selecciona un tono", "Debes elegir un tono antes de añadir el producto", "warning");
-                return;
-            }
-            setTotal(total+precio);
-            // Verificamos si el producto con ese tono ya está en la cesta
-            let productoExistente = false;
-            let nuevaLista = productoM.map(p => {
+    const AnadirACesta = (nombre, precio, productoId) => {
+        const tonoSeleccionado = tonosSeleccionados[productoId];
+        if (!tonoSeleccionado) {
+            Swal.fire("Selecciona un tono", "Debes elegir un tono antes de añadir el producto", "warning");
+            return;
+        }
+        setTotal(total + precio);
+        // Verificamos si el producto con ese tono ya está en la cesta
+        let productoExistente = false;
+        let nuevaLista = productoM.map(p => {
             if (p.nombre === nombre && p.tono === tonoSeleccionado) {
                 productoExistente = true;
                 return { ...p, cantidad: p.cantidad + 1 };
@@ -60,9 +60,9 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
 
 
 
-return(
-    <>
-        <ul className="informacion-list">
+    return (
+        <>
+            <ul className="informacion-list">
                 {informacion.length > 0 ? (
                     informacion.map((info) => (
                         <li key={info.id} className="info-item">
@@ -84,11 +84,7 @@ return(
                                 </select>
                             </div>
                             <div>
-                                <button
-                                    onClick={() =>
-                                        AnadirACesta(info.nombre, info.precio)
-                                    }
-                                >
+                                <button onClick={() => AnadirACesta(info.nombre, info.precio, info.id)}>
                                     Añadir a la cesta
                                 </button>
                             </div>
@@ -99,8 +95,8 @@ return(
                 )}
 
             </ul>
-    </>
+        </>
 
-);
+    );
 }
 export default Cuerpo;

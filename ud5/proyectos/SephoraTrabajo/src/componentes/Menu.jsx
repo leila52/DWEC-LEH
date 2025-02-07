@@ -14,8 +14,10 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
     const [cantidad, setCantidad] = useState(1); // Cantidad por defecto 1
 
     const toggleCarrito = () => {
+        console.log("Contenido del carrito:", productoM); // Ver qué hay en la lista
         setCarritoVisible(!carritoVisible);
     };
+    
 
     //calculamos el total
     const calcularTotal = (productos, informacion) => {
@@ -42,39 +44,42 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
     };
 
     // Función para INCREMENTAR 1 EN LA CANTIDAD
-    const incrementarProducto = (nombre) => {
-        const productoEncontrado = productoM.find(prod => prod.nombre === nombre);
-
-        //busca la cantidad del producto
+    const incrementarProducto = (nombre, tono) => {
+        const productoEncontrado = productoM.find(prod => prod.nombre === nombre && prod.tono === tono);
+    
+        if (!productoEncontrado) return;
+    
         if (productoEncontrado.cantidad >= 15) {
             Swal.fire({
                 icon: 'error',
                 title: 'Límite alcanzado',
                 text: 'No puedes añadir más de 15 unidades de este producto.',
             });
-            return; // Salir si ya tiene la cantidad máxima
+            return;
         }
-        const productosActualizados = AñadirSiHayMasDeUnProducto(productoM, nombre);
-        setProductoM(productosActualizados); // Actualiza el estado con la nueva lista de productos QUITÁNDOLO 
-        const nuevoTotal = calcularTotal(productosActualizados, informacion);
-        console.log("Nuevo total después de eliminar:", nuevoTotal);
-        setTotal(nuevoTotal);
+    
+        const productosActualizados = productoM.map(prod => {
+            if (prod.nombre === nombre && prod.tono === tono) {
+                return { ...prod, cantidad: prod.cantidad + 1 };
+            } else {
+                return prod;
+            }
+        });
+    
+        setProductoM(productosActualizados);
+        setTotal(calcularTotal(productosActualizados, informacion));
     };
-
     return (
         <div>
-            {/* Icono a la izquierda */}
-            <img
-                src="/imagenes/supermercado.png"
-                alt="Supermercado"
-                className="icono-supermercado"
-            />
             {/* Texto a la derecha */}
-            <span className="carrito-texto">{obtenerCantidadTotal(productoM)} : {total}Є</span>
-            {/* Botón para mostrar/ocultar carrito */}
-            <button className="toggle-carrito" onClick={toggleCarrito}>
-                🛒
-            </button>
+            <div className="carrito-container">
+                <span className="carrito-texto">{obtenerCantidadTotal(productoM)} : {total}Є</span>
+                {/* Botón para mostrar/ocultar carrito */}
+                <button className="toggle-carrito" onClick={toggleCarrito}>
+                    🛒
+                </button>
+            </div>
+            
             {/* Carrito de productos */}
             {carritoVisible && (
                 <div className="carrito-productos">

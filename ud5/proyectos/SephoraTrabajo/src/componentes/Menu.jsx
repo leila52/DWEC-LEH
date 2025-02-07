@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { buscarProducto, obtenerCantidadTotal,  AñadirSiHayMasDeUnProducto, borrarSiHayMasDeUnProducto } from "../herramientas/herramientas";
+import { buscarProducto, obtenerCantidadTotal, AñadirSiHayMasDeUnProducto, borrarSiHayMasDeUnProducto } from "../herramientas/herramientas";
 import "../estilos/Menu.css";
 import Swal from 'sweetalert2';
 
@@ -14,7 +14,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
         console.log("Contenido del carrito:", productoM); // Ver qué hay en la lista
         setCarritoVisible(!carritoVisible);
     };
-    
+
 
     //calculamos el total
     const calcularTotal = (productos, informacion) => {
@@ -32,9 +32,9 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
 
 
     // Función para decrementar 1 EN LA CANTIDAD
-    const decrementarProducto = (nombre,tono) => {
+    const decrementarProducto = (nombre, tono) => {
         console.log(`Intentando restar 1 al producto: ${nombre}, Tono: ${tono}`);
-        const productosActualizados = borrarSiHayMasDeUnProducto(productoM, nombre,tono);
+        const productosActualizados = borrarSiHayMasDeUnProducto(productoM, nombre, tono);
         setProductoM(productosActualizados); // Actualiza el estado con la nueva lista de productos QUITÁNDOLO
         const nuevoTotal = calcularTotal(productosActualizados, informacion);
         console.log("Nuevo total después de eliminar:", nuevoTotal);
@@ -44,9 +44,9 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
     // Función para INCREMENTAR 1 EN LA CANTIDAD
     const incrementarProducto = (nombre, tono) => {
         const productoEncontrado = productoM.find(prod => prod.nombre === nombre && prod.tono === tono);
-    
+
         if (!productoEncontrado) return;
-    
+
         if (productoEncontrado.cantidad >= 15) {
             Swal.fire({
                 icon: 'error',
@@ -55,49 +55,53 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
             });
             return;
         }
-    
-        const productosActualizados =AñadirSiHayMasDeUnProducto(productoM, nombre, tono);
-    
+
+        const productosActualizados = AñadirSiHayMasDeUnProducto(productoM, nombre, tono);
+
         setProductoM(productosActualizados);
         setTotal(calcularTotal(productosActualizados, informacion));
     };
     return (
-        <div>
-            {/* Texto a la derecha */}
-            <div className="carrito-container">
-                <span className="carrito-texto">{obtenerCantidadTotal(productoM)} : {total}Є</span>
-                {/* Botón para mostrar/ocultar carrito */}
-                <button className="toggle-carrito" onClick={toggleCarrito}>
-                    🛒
-                </button>
-            </div>
-            
-            {/* Carrito de productos */}
-            {carritoVisible && (
-                <div className="carrito-productos">
-                    <h4>Carrito</h4>
-                    {productoM.length > 0 ? (
-                        <ul>
-                            {productoM.map((productito, index) => (
-                                <li key={index}>
-                                    <span>Producto: {productito.nombre} </span>
-                                    <span>Cantidad:{productito.cantidad}</span>
-                                    <span>Tono: {productito.tono.nombre} </span>
-                                    {/* Botón para incrementar la cantidad */}
-                                    <button onClick={() => incrementarProducto(productito.nombre, productito.tono)}>Añadir uno</button>
-                                    {/* Botón para decrementar la cantidad */}
-                                    <button onClick={() => decrementarProducto(productito.nombre, productito.tono)}>Restar Uno</button>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>No hay productos en el carrito.</p>
-                    )}
+        <div >
+            <div className="menu-container">
+                <h1>Sephora</h1>
+                <div className="total-container">
+                    <span>{obtenerCantidadTotal(productoM)} productos - Total: {total}€</span>
+
                 </div>
-            )}
+                <div className="carrito-container">
+                    <button className="toggle-carrito" onClick={toggleCarrito}>🛒</button>
+                </div>
+            </div>
+             {/* Carrito de productos */ }
+    {
+        carritoVisible && (
+            <div className="carrito-productos">
+                <h4>Carrito</h4>
+                {productoM.length > 0 ? (
+                    <ul>
+                        {productoM.map((productito, index) => (
+                            <li key={index}>
+                                <div className="carrito-info">
+                                    <span>Producto: {productito.nombre} </span>
+                                    <span>Cantidad: {productito.cantidad}</span>
+                                    <span >Tono: {productito.tono} </span>
+                                </div>
+                                <div className="carrito-botones">
+                                    <button onClick={() => incrementarProducto(productito.nombre, productito.tono)}>añadir</button>
+                                    <button onClick={() => decrementarProducto(productito.nombre, productito.tono)}>restar</button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No hay productos en el carrito.</p>
+                )}
+            </div>
+        )
+    }
 
-    </div>
-
-);
+        </div >
+    );
 }
 export default Menu;

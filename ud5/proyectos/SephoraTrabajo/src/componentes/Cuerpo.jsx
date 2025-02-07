@@ -28,7 +28,7 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
     const manejarCambioTono = (productoId, tono) => {
         setTonosSeleccionados(prevTonos => ({
             ...prevTonos,
-            [productoId]: tono
+            [productoId]: tono.nombre
         }));
     };
     const AnadirACesta = (nombre, precio, productoId) => {
@@ -71,7 +71,7 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
                         <li key={info.id} className="info-item">
                             <img src={info.url} alt={info.nombre} />
                             <div>
-                                <strong>{info.nombre}</strong>: ${info.precio.toFixed(2)}
+                                <strong>{info.nombre}</strong>: €{info.precio.toFixed(2)}
                             </div>
                             <div className="tonos-container">
                             {info.tonos_disponibles.map((tono,key) => (
@@ -79,8 +79,8 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
                                     <input
                                         type="radio"
                                         name={`tono-${info.id}`}
-                                        value={tono}
-                                        checked={tonosSeleccionados[info.id] === tono}
+                                        value={tono.nombre}
+                                        checked={tonosSeleccionados[info.id] === tono.nombre}
                                         onChange={() => manejarCambioTono(info.id, tono)}
                                         className="tono-radio"
                                     />

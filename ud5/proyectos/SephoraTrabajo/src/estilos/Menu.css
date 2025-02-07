@@ -1,56 +1,58 @@
-/* Reset general */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* Contenedor general del menú */
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
 }
 
-/* Contenedor del carrito y el total (CENTRADO) */
+/* Centrar el total y la cantidad */
+.total-container {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Botón del carrito alineado a la derecha */
 .carrito-container {
     display: flex;
-    justify-content: center; /* Centra el contenido */
     align-items: center;
-    position: fixed;
-    top: 10px; /* Cerca de la parte superior */
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
 }
 
-/* Estilo del botón del carrito */
+/* Botón del carrito */
 .toggle-carrito {
     font-size: 24px;
-    margin-left: 15px;
     padding: 10px;
-    background: #008cba;
-    color: white;
+    background: white;
+    color: black;
     border: none;
     border-radius: 50%;
     cursor: pointer;
 }
 
 .toggle-carrito:hover {
-    background: #005f73;
+    background: gray;
 }
 
-/* Carrito flotante (A LA DERECHA) */
+/* Carrito flotante (superpuesto sobre el cuerpo) */
 .carrito-productos {
     position: fixed;
-    top: 50px;
-    right: 20px; /* Se mueve hacia la derecha */
-    width: 300px;
-    background: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    top: 80px;
+    right: 20px;
+    width: 350px;
+    background: rgba(34, 34, 34, 0.95); /* Semitransparente para ver el fondo */
+    color: white;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
     padding: 20px;
     border-radius: 10px;
-    z-index: 1000;
+    border: 1px solid white;
+    z-index: 1000; /* Para que esté por encima del contenido del cuerpo */
 }
 
-/* Fondo oscuro detrás del carrito */
+/* Fondo oscuro para dar efecto de superposición */
 .carrito-overlay {
     position: fixed;
     top: 0;
@@ -59,32 +61,64 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
+    display: none; /* Se activa cuando el carrito está visible */
+}
+
+.carrito-overlay.visible {
+    display: block;
+}
+
+/* Título del carrito */
+.carrito-productos h4 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
 }
 
 /* Lista de productos */
 .carrito-productos ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
+/* Elementos de la lista */
 .carrito-productos li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Información del producto alineada a la izquierda */
+.carrito-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1; 
+}
+
+.carrito-botones {
+    display: flex;
+    gap: 5px;
 }
 
 /* Botones dentro del carrito */
 .carrito-productos button {
-    background: #ff4d4d;
-    color: white;
-    border: none;
+    background: white;
+    color: black;
+    border: 2px solid white;
     padding: 5px 10px;
-    margin: 5px;
     cursor: pointer;
     border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
 }
 
 .carrito-productos button:hover {
-    background: #cc0000;
+    background: #ccc;
+    color: black;
 }

@@ -33,7 +33,11 @@
         "marca": "Huda Beauty",
         "categoria": "Polvo suelto",
         "precio": 38.00,
-        "tonos_disponibles": ["Banana Bread", "Pound Cake", "Cherry Blossom"],
+        "tonos_disponibles": [
+          {"nombre":"Banana Bread", "imagen": "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw9bbfa09c/images/hi-res/SKU/SKU_6/425711_swatch.jpg"},
+        {"nombre":  "Pound Cake" , "imagen":"https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw97567c26/images/hi-res/SKU/SKU_4966/698125_swatch.jpg"}, 
+        {"nombre": "Cherry Blossom" , "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw7b01926b/images/hi-res/SKU/SKU_3077/579182_swatch.jpg" }
+        ],
         "descripcion": "Polvo suelto para sellar el maquillaje y dar un acabado mate sin marcas.",
         "url": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw78abd63f/images/hi-res/PID_principal/PID_principal_5280/P3410032_principal.jpg?sw=585&sh=585&sm=fit"
       },

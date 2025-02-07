@@ -7,9 +7,6 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
     //para mostrar el carrito
     const [carritoVisible, setCarritoVisible] = useState(false);
 
-
-    //esto para modal para pedir al usuario cantidad
-    const [modalVisible, setModalVisible] = useState(false);
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
     const [cantidad, setCantidad] = useState(1); // Cantidad por defecto 1
 
@@ -35,8 +32,9 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
 
 
     // Función para decrementar 1 EN LA CANTIDAD
-    const decrementarProducto = (nombre) => {
-        const productosActualizados = borrarSiHayMasDeUnProducto(productoM, nombre);
+    const decrementarProducto = (nombre,tono) => {
+        console.log(`Intentando restar 1 al producto: ${nombre}, Tono: ${tono}`);
+        const productosActualizados = borrarSiHayMasDeUnProducto(productoM, nombre,tono);
         setProductoM(productosActualizados); // Actualiza el estado con la nueva lista de productos QUITÁNDOLO
         const nuevoTotal = calcularTotal(productosActualizados, informacion);
         console.log("Nuevo total después de eliminar:", nuevoTotal);
@@ -58,13 +56,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
             return;
         }
     
-        const productosActualizados = productoM.map(prod => {
-            if (prod.nombre === nombre && prod.tono === tono) {
-                return { ...prod, cantidad: prod.cantidad + 1 };
-            } else {
-                return prod;
-            }
-        });
+        const productosActualizados =AñadirSiHayMasDeUnProducto(productoM, nombre, tono);
     
         setProductoM(productosActualizados);
         setTotal(calcularTotal(productosActualizados, informacion));
@@ -88,11 +80,13 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
                         <ul>
                             {productoM.map((productito, index) => (
                                 <li key={index}>
-                                    {productito.nombre}x {productito.cantidad}
+                                    <span>Producto: {productito.nombre} </span>
+                                    <span>Cantidad:{productito.cantidad}</span>
+                                    <span>Tono: {productito.tono.nombre} </span>
                                     {/* Botón para incrementar la cantidad */}
-                                    <button onClick={() => incrementarProducto(productito.nombre, productito.precio)}>Añadir uno</button>
+                                    <button onClick={() => incrementarProducto(productito.nombre, productito.tono)}>Añadir uno</button>
                                     {/* Botón para decrementar la cantidad */}
-                                    <button onClick={() => decrementarProducto(productito.nombre, productito.precio)}>Restar Uno</button>
+                                    <button onClick={() => decrementarProducto(productito.nombre, productito.tono)}>Restar Uno</button>
                                 </li>
                             ))}
                         </ul>

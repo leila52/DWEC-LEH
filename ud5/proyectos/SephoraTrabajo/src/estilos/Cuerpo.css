@@ -1,3 +1,5 @@
+
+/* Estilos generales de la lista */
 .informacion-list {
     list-style: none;
     padding: 0;
@@ -7,15 +9,17 @@
     justify-content: center;
     position: relative;
     z-index: 1;
+    margin-top: 70px; /* Espaciado superior para separar del menú */
 }
-
+/* Estilo de los elementos individuales */
 .info-item {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
     text-align: center;
-    width: 250px;
+    width: 100%;
+    max-width: 300px;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -24,9 +28,10 @@
 }
 
 .info-item img {
-    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
     border-radius: 8px;
-    height: auto;
 }
 
 .info-item div {
@@ -35,56 +40,29 @@
     font-weight: bold;
 }
 
+/* Botones */
 .info-item button {
     margin: 5px;
-    padding: 8px 12px;
+    padding: 10px 14px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
-}
-
-.info-item button:nth-child(1) {
-    background: #3498db;
+    background: black;
     color: white;
+    font-size: 14px;
 }
 
-.info-item button:nth-child(1):hover {
-    background: #2980b9;
+.info-item button:hover {
+    background: #333;
 }
 
-.info-item button:nth-child(2) {
-    background: #e74c3c;
-    color: white;
-}
-
-.info-item button:nth-child(2):hover {
-    background: #c0392b;
-}
-
-.info-item button:nth-child(3) {
-    background: #f1c40f;
-    color: black;
-}
-
-.info-item button:nth-child(3):hover {
-    background: #d4ac0d;
-}
-
-.info-item button:nth-child(4) {
-    background: #2ecc71;
-    color: white;
-}
-
-.info-item button:nth-child(4):hover {
-    background: #27ae60;
-}
-
+/* Botón de agregar afición */
 .add-aficion-btn {
     display: block;
     margin: 20px auto;
-    padding: 10px 16px;
-    background: #8e44ad;
+    padding: 12px 18px;
+    background: black;
     color: white;
     border: none;
     border-radius: 6px;
@@ -94,9 +72,10 @@
 }
 
 .add-aficion-btn:hover {
-    background: #732d91;
+    background: #333;
 }
 
+/* Modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -121,7 +100,7 @@
 }
 
 .close-btn {
-    background: red;
+    background: black;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -130,4 +109,53 @@
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.tonos-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.tono-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Ajusta el tamaño del círculo */
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border 0.3s ease;
+    position: relative;
+}
+
+.tono-label input[type="radio"] {
+    display: none; /* Oculta el radio original */
+}
+
+.tono-label .tono-imagen {
+    width: 100%; /* Hace que la imagen se ajuste dentro */
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tono-label input[type="radio"]:checked + .tono-imagen {
+    border: 2px solid #000; /* Resalta el tono seleccionado */
+}
+
+
+/* Responsividad */
+@media (max-width: 900px) {
+    .informacion-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .informacion-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

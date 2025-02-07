@@ -6,7 +6,10 @@
         "marca": "Rare Beauty",
         "categoria": "Rubor",
         "precio": 23.00,
-        "tonos_disponibles": ["Hope", "Happy", "Bliss", "Joy"],
+        "tonos_disponibles": [{"nombre":"Hope", "imagen": "https://m.media-amazon.com/images/I/413drhcW53L._AC_UF894,1000_QL80_.jpg"},
+        {"nombre":  "Happy" , "imagen":"https://carubeauty.com/cdn/shop/files/image_5d184710-ca9f-4475-a411-be2bebb1331c.jpg?v=1684377384&width=1445"}, 
+        {"nombre": "Bliss" , "imagen" : "https://zibashopni.com/wp-content/uploads/2024/01/IMG_2207.webp" }, 
+        {"nombre":"Joy", "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_8FO5cU5G2xiskh1Sqi7Mo-GcUp4dHlM_hg&s"}],
         "descripcion": "Un rubor líquido de larga duración con un acabado natural y modulable.",
         "url": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw99cbf732/images/hi-res/PID_principal/PID_principal_1857/P10017094_principal.jpg?sw=585&sh=585&sm=fit"
       },
@@ -16,7 +19,11 @@
         "marca": "Fenty Beauty",
         "categoria": "Base de maquillaje",
         "precio": 39.00,
-        "tonos_disponibles": ["100", "150", "220", "310", "420"],
+        "tonos_disponibles": [
+          {"nombre":"100", "imagen": "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw18acf941/images/hi-res/SKU/SKU_5/398328_swatch.jpg"},
+        {"nombre":  "150" , "imagen":"https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw394e8f59/images/hi-res/SKU/SKU_5/398333_swatch.jpg"}, 
+        {"nombre": "220" , "imagen" : "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw740a0e93/images/hi-res/SKU/SKU_5/398338_swatch.jpg?sw=585&sh=585&sm=fit" }, 
+        {"nombre":"310", "imagen": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw219a68ec/images/hi-res/SKU/SKU_5/398349_swatch.jpg?sw=265&sh=265&sm=fit"}],
         "descripcion": "Base de maquillaje de cobertura media a completa con acabado mate y resistente a la humedad.",
         "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxANDhAPDQ8PDQ4NDQ0NDg0NDg8NDQ0NFREWFhURExUaHCggGBolGxMTITEhJik3Li46Fx8zQjMsNygtLjcBCgoKDg0OGhAQGisfHRktLi0rLS0rLS0tKy0tLS0tLS0rLS0tLSsrLS0tLSstLSstLS0tKy0tLS0tNys3LS0rK//AABEIAOEA4QMBEQACEQEDEQH/xAAbAAEAAwEBAQEAAAAAAAAAAAAABAUGAgMBB//EADsQAQABAwEDBg0DAgcAAAAAAAABAgMRMQQFIQYSMnGxsiIzNEFRYXJzgYORocEjJMITUxRCYoLR8PH/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAQIEAwX/xAAjEQEBAAEEAQUBAQEAAAAAAAAAAQQCETEygQMSIUFRMyIT/9oADAMBAAIRAxEAPwD9xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzNWAfJmQedVyfT2Aj3dprjSftCElG1V83Pgz6sT/wAhskbLtH9SJ4YmmcTGvmylD3AAAAAAAAAAAAAAAAAAAAAABxVr8AJ0B41iUO+gfbXQkS9N1a3OujsIirBKAAAAAAAAAAAAAAAAAAAAAAHFevwB9nQHhWJRL6AtdCRLvdWtz/Z+SIqxSgAAAAAAAAAAAAAAAAAAAAABxVr8AfZ0B4ViUS+gLXQkS73V0rnVb/kRFWKUAAAAAAAAAAAAAAAAAAAAAAOKtfgDrzAj1oSiXwfLXRkS9N19O57NHbURFWKUAAAAAAAAAAAAAAAAAAAAAAOKtfgDrzAj1oSiXwc2+jIl6br6dfs0dtREVZJQAAAAAAAAAAAAAAAAAAAAAA4q1+APsxwB4ViUPaIQOLceDPGfsJem65/Uq9intkiKtEoAAAAAAAAAAAAAAAAAAAAAAcVa/AHU6Aj1yhOyFtFUemPqjdOzmzxiUj03Z42r3cd4RVolAAAAAAAAAAAAAAAAAAAAAACk35VVNyiiKpppiiap5szE1TM4xP0Y8rXZZI142iWW1W3tnonWM9fFiuq/rZJPxX7Tslr+3T9IRvVtoqdo2Oz/AGqfpC0tRZEWdktea3THwTvUbRpOQ12aNortR0K7M14nWKqaojh9WrG1232suVom27ctrEAAAAAAAAAAAAAAAAAAAAAApN8ePp91Helgy+0bsXrUK6y1qiv2lVZVbR51oioqULvkb5Z8i53qGjG7+GbJ6N49BgAAAAAAAAAAAAAAAAAAAAAAUm+PH0+7jvSwZfaN2L1qFdZK1RAvxnh2zER9URKs263NE4qxHO4xiYq7F/bZyrNUvCEJXnI7yz5FzvUNGN38M2T0bt6DAAAAAAAAAAAAAAAAAAAAAAAo99ePo93/ACl5+X2jdi9ah3dGWtUQbtHOmIjWZxGdCTe7Jt2m6s3lTNM0xVMVZjNMxMziP+4Xss5U02XhBQsvORvlnyLneoaMbv4Zsnp5bt6DAAAAAAAAAAAAAAAAAAAAAAAo99eOo93/ACYMvtG7E61DuslaohXddccdePD6E5TeFXvKiaKopmc8MxPHGPVnV01Tb4V03f5QVUr3kd5Z8i53qGjG7+GbJ6eW6egwAAAAAAAAAAAAAAAAAAAAAAKPffjqPYnvMGX2jdidahXGStUQr2vCccdc4x8URNVe8aJjmzVVzudE4xVzsYnGrpZf1WWfiDCEtByOj938i53qGjG7+GbJ6eW4egwAAAAAAAAAAAAAAAAAAAAAAKTfnjbfsVdsMGX2jdidag3NGStUQdo68evjwREqreFMUzHNnnZjMzGmfRjX6ulkist+0OlA0XJCP3XyLnepd8Xuz5XTy2z0WAAAAAAAAAAAAAAAAAAAAAABSb98bb9irthgy+Y24nFQbujJWuIG0oiyn2meKyKj0apVaXklH7n5NzvUu+N38M+V08tm9FgAAAAAAAAAAAAAAAAAAAAAAUm/fGW/Zr7aWDL5jbicVBu6Mla4hV182qJ1xOcek03a7mqbzZVb0v8A9SqOHNiIxrmZ9ejpq1bq6dO0Q7eqqWm5KR+5+Tc71Lvi93DK6eWxei88AAAAAAAAAAAAAAAAAAAAABS796dv2a+2lhy+Y24nFV9xirXEOqZiqJpjMxPCPTKdN2pqm8VW8r1VcxztaYx58/de6reVZpknwh29UJafkr5RHubnepd8bv4cMrp5bB6LzwAAAAAAAAAAAAAAAAAAAAAFPv2PCt9VfbSxZXMa8X7VtzRhrbEO7HGMRzuOnGc+rgmcpvCr3rXXVVm5nOOGYiOGV9Vtvyppkk+EO3qhLTclfKPk19tLvi9/Dhk9PLYPReeAAAAAAAAAAAAAAAAAAAAAAqd9xxo6q/wy5E3sace7bqu5o8+t8Q7tUxMTGsTw4Z4k3l+E3bb5VO8KZzEzTFGY4RFPNzGfQvd/tSbfSLa1QlqOS0fr/Kr7aXfF/p4cMr+flrnovPAAAAAAAAAAAAAAAAAAAAAAVm+Y40dVf4cfVjt6V5VF15mrl6OjhCv5mcRr5lZym1V7xpqpmIrnjjMRnMxEullnKssvzESzHFCWr5MR+vHuq+2l3xv6eHDK6NW9F54AAAAAAAAAAAAAAAAAAAAACv3pGZo6q/w5646aFNeh5vq6dtT0fS1bxX7TLkuqNrq+2nqXHGy05kQ13J23i7E/6Ko7GvG0/O7Lk6v87NK2sQAAAAAAAAAAAAAAAAAAAAACBvHpUdVfbSpqi2mqzabfnZvW9L3T4afS9T21T7XTLFZZy2Sy8Km7aqqnSRKx3dsE6y7en6V1Vy1+pNMajddnm1x7NUN+jT7WDXq3W7o5gAAAAAAAAAAAAAAAAAAAAAIO8daOqv8AiiraUWYyqs8LmzxKt0SrTVZw8f8AB0x5kT09Kf8Apqe9q1ELSKX5T9kjw46pWitT1lQAAAAAAAAAAAAAAAAAAAAAELeOtHVX+EVbSiZQs+TKBxMg+0SCZss+HT1VdiYrU9ZUAAAAAAAAAAAAAAAAAAAAABG2zZ5uRHNxmnOukxP/AJCLEy7INWy3I/yZ6qoc/wDTpvpcRYuZ40VfaSb/AHC+39cV7PcnSir48C+76iZt913a2S756cdcwie78LdP6n7Ns00zE1THCJxEOklc7UtZUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//2Q=="
       },
@@ -38,7 +45,7 @@
         "precio": 35.00,
         "tonos_disponibles": ["Pillow Talk", "Walk of No Shame", "Supermodel"],
         "descripcion": "Un labial mate de textura cremosa e hidratante con un color icónico.",
-        "url": "https://is4.revolveassets.com/images/p4/n/d/CTIL-WU115_V1.jpg"
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLKWnAWJa6fmtF6EiLv_8TznsDfmUll92f7A&s"
       },
       {
         "id": 5,
@@ -49,7 +56,38 @@
         "tonos_disponibles": ["Negro"],
         "descripcion": "Máscara de pestañas voluminizadora con un cepillo en forma de reloj de arena.",
         "url": "https://m.toofaced.eu/media/export/cms/products/1000x1000/2f_sku_94281_1000x1000_0.jpg"
+      },
+      {
+        "id": 6,
+        "nombre": "Anastasia Beverly Hills Brow Wiz",
+        "marca": "Anastasia Beverly Hills",
+        "categoria": "Lápiz de Cejas",
+        "precio": 25.00,
+        "tonos_disponibles": ["Blonde", "Soft Brown", "Dark Brown", "Ebony"],
+        "descripcion": "Lápiz de cejas ultrafino que imita el aspecto natural del vello con precisión.",
+        "url": "https://m.media-amazon.com/images/I/81M4jwU8GJL._AC_UF350,350_QL80_.jpg"
+      },
+      {
+        "id": 7,
+        "nombre": "Dior Addict Lip Glow",
+        "marca": "Dior",
+        "categoria": "Bálsamo Labial",
+        "precio": 40.00,
+        "tonos_disponibles": ["001 Pink", "004 Coral", "008 Raspberry"],
+        "descripcion": "Bálsamo labial hidratante que reacciona con el pH de los labios para un color personalizado.",
+        "url": "data:image/jpeg;base64,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"
+      },
+      {
+        "id": 8,
+        "nombre": "NARS Radiant Creamy Concealer",
+        "marca": "NARS",
+        "categoria": "Corrector",
+        "precio": 32.00,
+        "tonos_disponibles": ["Chantilly", "Vanilla", "Custard", "Ginger", "Caramel"],
+        "descripcion": "Corrector de cobertura media a completa con un acabado radiante e hidratante.",
+        "url": "https://www.narscosmetics.es/on/demandware.static/-/Sites-itemmaster_NARS/default/dw43b619f6/hi-res/Bundles/radiant-creamy-concealer-foundation-bundle.jpg"
       }
+     
     ]
   }
   

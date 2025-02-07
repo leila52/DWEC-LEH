@@ -18,35 +18,33 @@ export function buscarProducto(nombre , informacion){
     return total
   }
   
-  export function AñadirSiHayMasDeUnProducto(informacion,nombre){
-    console.log("estoy buscando"+nombre)
+  export function AñadirSiHayMasDeUnProducto(informacion, nombre, tono){
+    console.log("Añadiendo uno más de", nombre, "con tono", tono);
     return informacion.map(producto => {
-      if (producto.nombre === nombre) {
-        return {
-          ...producto,
-          cantidad: producto.cantidad + 1
-        };
-      }
-      return producto;
-    })
-    // filtramos con cantidad mayor a 0
-    .filter(producto => producto.cantidad > 0);
-  }
+        if (producto.nombre === nombre && producto.tono === tono) {
+            return { ...producto, cantidad: producto.cantidad + 1 };
+        }
+        return producto;
+    }).filter(producto => producto.cantidad > 0);
+}
   
-  export function borrarSiHayMasDeUnProducto(informacion,nombre){
-    console.log("estoy buscando"+nombre)
-    return informacion.map(producto => {
-      if (producto.nombre === nombre) {
-        return {
-          ...producto,
-          cantidad: producto.cantidad - 1
-        };
-      }
-      return producto;
-    })
-    // filtramos con cantidad mayor a 0
-    .filter(producto => producto.cantidad > 0);
-  }
+export function borrarSiHayMasDeUnProducto(informacion, nombre, tono) {
+  console.log("Restando uno a", nombre, "con tono", tono);
+  return informacion
+      .map(producto => {
+          if (producto.nombre === nombre && producto.tono === tono) {
+              // Si el producto tiene solo 1 unidad, lo quitamos
+              if (producto.cantidad === 1) {
+                  return null; // Eliminamos el producto de la lista
+              }
+              return { ...producto, cantidad: producto.cantidad - 1 };
+          }
+          return producto;
+      })
+      .filter(producto => producto !== null); // Filtramos productos eliminados
+}
+
+
   
   //borrar todo
   export function borrarTodo(informacion, nombre) {

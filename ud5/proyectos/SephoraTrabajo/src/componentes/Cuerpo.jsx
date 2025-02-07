@@ -6,6 +6,7 @@ import "../estilos/Cuerpo.css";
 import Swal from 'sweetalert2';
 
 const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, setTotal }) => {
+    //para saber que tono se ha seleccionado y almacenarlo
     const [tonosSeleccionados, setTonosSeleccionados] = useState({});
     //coger inormacioon del json que es informacion
     useEffect(() => {
@@ -24,7 +25,6 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
     },//importante poner esto 
         []);
 
-    // Manejar la selección del tono
     const manejarCambioTono = (productoId, tono) => {
         setTonosSeleccionados(prevTonos => ({
             ...prevTonos,
@@ -32,13 +32,16 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
         }));
     };
     const AnadirACesta = (nombre, precio, productoId) => {
+        //cogemos el tono del producto
         const tonoSeleccionado = tonosSeleccionados[productoId];
+        //si no seleccionada sale un swall
         if (!tonoSeleccionado) {
             Swal.fire("Selecciona un tono", "Debes elegir un tono antes de añadir el producto", "warning");
             return;
         }
+        // actualizamos el total
         setTotal(total + precio);
-        // Verificamos si el producto con ese tono ya está en la cesta
+        // verificamos si el producto con ese tono ya está en la cesta
         let productoExistente = false;
         let nuevaLista = productoM.map(p => {
             if (p.nombre === nombre && p.tono === tonoSeleccionado) {
@@ -57,7 +60,7 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
         Swal.fire("Producto añadido a la cesta", `${nombre} (${tonoSeleccionado}) añadido`, "success");
     };
 
-
+/**  */
 
 
     return (
@@ -70,19 +73,21 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
                             <div>
                                 <strong>{info.nombre}</strong>: ${info.precio.toFixed(2)}
                             </div>
-                            <div>
-                                <label htmlFor={`tono-${info.id}`}>Selecciona un tono: </label>
-                                <select
-                                    id={`tono-${info.id}`}
-                                    onChange={(e) => manejarCambioTono(info.id, e.target.value)}
-                                    value={tonosSeleccionados[info.id] || ""}
-                                >
-                                    <option value="">-- Selecciona --</option>
-                                    {info.tonos_disponibles.map((tono) => (
-                                        <option key={tono} value={tono}>{tono}</option>
-                                    ))}
-                                </select>
-                            </div>
+                            <div className="tonos-container">
+                            {info.tonos_disponibles.map((tono,key) => (
+                                <label key={key} className="tono-label">
+                                    <input
+                                        type="radio"
+                                        name={`tono-${info.id}`}
+                                        value={tono}
+                                        checked={tonosSeleccionados[info.id] === tono}
+                                        onChange={() => manejarCambioTono(info.id, tono)}
+                                        className="tono-radio"
+                                    />
+                                    <img src={tono.imagen} alt={tono.nombre} className="tono-imagen" />
+                                </label>
+                            ))}
+                        </div>
                             <div>
                                 <button onClick={() => AnadirACesta(info.nombre, info.precio, info.id)}>
                                     Añadir a la cesta

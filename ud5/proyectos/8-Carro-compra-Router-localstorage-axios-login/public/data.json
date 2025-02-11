@@ -1,6 +1,6 @@
 {
     "usuarios": [
-      { "id": "1", "nombre": "agustin", "pass": "123" },
+      { "id": "1", "nombre": "agustin", "pass": "$2a$10$PDbXLvyxmNz2YzRBTKte.OZevWOk7T0S7/VWrQImbQ7OXmgyJ3rI2" },
       { "id": "2", "nombre": "ana", "pass": "456" },
       { "id": "3", "nombre": "juanito", "pass": "789" }
     ],

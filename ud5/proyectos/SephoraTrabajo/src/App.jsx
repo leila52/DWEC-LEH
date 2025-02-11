@@ -1,12 +1,14 @@
 import './App.css'
-import { useState } from 'react';
 import Menu from './componentes/Menu';
 import Cuerpo from './componentes/Cuerpo';
+import UseStateStorage from './servicios/UseStateStorage';
+
+
 
 function App() {
-  const [informacion, setInformacion] = useState([])
-  const[productoM,setProductoM]=useState([]);
-  const [total,setTotal]=useState(0);
+  const [informacion, setInformacion] =UseStateStorage("informacion",[]);
+  const[productoM,setProductoM]=UseStateStorage("productoM",[]);
+  const [total,setTotal]=UseStateStorage("total",0);
 
   return (
     <>

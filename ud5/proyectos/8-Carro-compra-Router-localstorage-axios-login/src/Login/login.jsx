@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 import ServicioUsuario from '../servicios/ServicioUsuario';
-import bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs/dist/bcrypt";
+
 //import UseStateStorage from './servicios/UseSateStorage';
 // import axios from 'axios';
 
@@ -23,7 +24,7 @@ const Login = () => {
     console.log(`hash ${hash}`);
     return hash;
   }
-  cifrarPassword("123");
+  //cifrarPassword("789");
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -32,7 +33,7 @@ const Login = () => {
       .then((response) => {
         if (response.data.length !== 0) {
           const usuario = response.data[0].nombre;
-          const hashUsuario = usuario.pass;
+          const hashUsuario = response.data[0].pass;
           const esCorrecta = bcrypt.compareSync(password, hashUsuario);
           if (esCorrecta) {
             login(usuario);

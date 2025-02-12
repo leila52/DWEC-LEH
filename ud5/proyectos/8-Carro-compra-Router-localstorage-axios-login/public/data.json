@@ -1,8 +1,8 @@
 {
     "usuarios": [
       { "id": "1", "nombre": "agustin", "pass": "$2a$10$PDbXLvyxmNz2YzRBTKte.OZevWOk7T0S7/VWrQImbQ7OXmgyJ3rI2" },
-      { "id": "2", "nombre": "ana", "pass": "456" },
-      { "id": "3", "nombre": "juanito", "pass": "789" }
+      { "id": "2", "nombre": "ana", "pass": "$2a$10$54FmcLNAWeyFhoiJoY7HlOHDw7jPGe4vKaVOc3FZmF3nSkiyeMTqS" },
+      { "id": "3", "nombre": "juanito", "pass": "$2a$10$w10i0YhtkY9G1Mj6dKpntOxSiNYzCI7ISDQvU6h8kZmvyP9zfBf2e" }
     ],
 
     "frutas" : [

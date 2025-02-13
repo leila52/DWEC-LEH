@@ -24,6 +24,21 @@ class LocalStorageServicio {
 
         }
     }
+    static remove(valor) {
+        try {
+            window.localStorage.removeItem(valor);
+        } catch (error) {
+            console.error("Error BORRANDO el valor", valor, error);
+        }
+    }
+
+    static clear() {
+        try {
+            window.localStorage.clear();
+        } catch (error) {
+            console.error("Error LIMPIANDO localStorage", error);
+        }
+    }
 
 }
 export default LocalStorageServicio;

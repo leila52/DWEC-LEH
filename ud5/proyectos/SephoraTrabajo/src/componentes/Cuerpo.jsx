@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import servicioInformacion from "../servicios/servicioInformacion";
+import servicioInformacion from "../serviciosAxios/servicioInformacion";
 import { buscarProducto, añadir } from "../herramientas/herramientas";
 import "../estilos/Cuerpo.css";
 import Swal from 'sweetalert2';
@@ -9,21 +9,7 @@ const Cuerpo = ({ informacion, setInformacion, productoM, setProductoM, total, s
     //para saber que tono se ha seleccionado y almacenarlo
     const [tonosSeleccionados, setTonosSeleccionados] = useState({});
     //coger inormacioon del json que es informacion
-    useEffect(() => {
-        servicioInformacion.getAll()
-            .then((response) => {
-                //almacenamos toda la info
-                setInformacion(response.data);
-            })
-            .catch((error) => {
-                Swal.fire({
-                    title: "¿Tienes Internet?",
-                    text: "No consigo descargar las aficiones :(",
-                    icon: "question",
-                });
-            });
-    },//importante poner esto 
-        []);
+    
 
     const manejarCambioTono = (productoId, tono) => {
         setTonosSeleccionados(prevTonos => ({

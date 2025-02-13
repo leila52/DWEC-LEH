@@ -1,4 +1,10 @@
 {
+    "usuarios": [
+      { "id": "1", "nombre": "agustin", "pass": "$2a$10$PDbXLvyxmNz2YzRBTKte.OZevWOk7T0S7/VWrQImbQ7OXmgyJ3rI2" },
+      { "id": "2", "nombre": "ana", "pass": "$2a$10$54FmcLNAWeyFhoiJoY7HlOHDw7jPGe4vKaVOc3FZmF3nSkiyeMTqS" },
+      { "id": "3", "nombre": "juanito", "pass": "$2a$10$w10i0YhtkY9G1Mj6dKpntOxSiNYzCI7ISDQvU6h8kZmvyP9zfBf2e" }
+    ],
+    
     "informacion": [
       {
         "id": 1,
@@ -47,7 +53,11 @@
         "marca": "Charlotte Tilbury",
         "categoria": "Labial",
         "precio": 35.00,
-        "tonos_disponibles": ["Pillow Talk", "Walk of No Shame", "Supermodel"],
+        "tonos_disponibles": [
+          {"nombre":"Pillow Talk", "imagen": "https://images.ctfassets.net/wlke2cbybljx/1kUUnjWWQRtdR4GuO0tn4W/ede65b9db30c87c17c2ee293b3ff4f18/pillow-talk-swatch.png?q=80&w=660&h=660&fit=fill&bg=&fm=png"},
+        {"nombre":  "Walk of No Shame","imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpgIQwKrQxFBR2XygiFtpSeR-7Av8Pz8N2SHQGRgyvam4bIeB2FSI_tnWMsxgcN-ARMG4&usqp=CAU"}, 
+        {"nombre": "Supermodel" , "imagen" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQts4agcUZByMgdwwJ5nwufowt_LdEN63zEGBCOLimJwfoG4jHy4nu1_lWC1ElgCWZkKGQ&usqp=CAU" }
+          ],
         "descripcion": "Un labial mate de textura cremosa e hidratante con un color icónico.",
         "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLKWnAWJa6fmtF6EiLv_8TznsDfmUll92f7A&s"
       },
@@ -57,7 +67,10 @@
         "marca": "Too Faced",
         "categoria": "Máscara de pestañas",
         "precio": 28.00,
-        "tonos_disponibles": ["Negro"],
+        "tonos_disponibles": [  
+          {"nombre":"Negro", "imagen": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw99562578/images/hi-res/SKU/SKU_3376/275755_swatch.jpg?sw=585&sh=585&sm=fit"},
+        {"nombre":  "Waterproff","imagen":"https://m.toofaced.eu/media/export/cms/products/1000x1000/2f_sku_94242_1000x1000_0.jpg"}
+        ],
         "descripcion": "Máscara de pestañas voluminizadora con un cepillo en forma de reloj de arena.",
         "url": "https://m.toofaced.eu/media/export/cms/products/1000x1000/2f_sku_94281_1000x1000_0.jpg"
       },
@@ -67,7 +80,12 @@
         "marca": "Anastasia Beverly Hills",
         "categoria": "Lápiz de Cejas",
         "precio": 25.00,
-        "tonos_disponibles": ["Blonde", "Soft Brown", "Dark Brown", "Ebony"],
+        "tonos_disponibles": [
+          {"nombre":"Blonde", "imagen": "https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw426853a7/images/hi-res/SKU/SKU_1/184019_swatch.jpg?sw=585&sh=585&sm=fit"},
+        {"nombre": "Soft Brown" , "imagen":"https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw73bbdd92/images/hi-res/SKU/SKU_4731/281730_swatch.jpg"}, 
+        {"nombre": "Dark Brown" , "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb9d63683/images/hi-res/SKU/SKU_4/310458_swatch.jpg" },
+        {"nombre": "Ebony" , "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw2be3773d/images/hi-res/SKU/SKU_1909/510784_swatch.jpg" }
+        ],
         "descripcion": "Lápiz de cejas ultrafino que imita el aspecto natural del vello con precisión.",
         "url": "https://m.media-amazon.com/images/I/81M4jwU8GJL._AC_UF350,350_QL80_.jpg"
       },
@@ -77,7 +95,11 @@
         "marca": "Dior",
         "categoria": "Bálsamo Labial",
         "precio": 40.00,
-        "tonos_disponibles": ["001 Pink", "004 Coral", "008 Raspberry"],
+        "tonos_disponibles": [
+          {"nombre":"001 Pink", "imagen": "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwdb9036e0/images/hi-res/SKU/SKU_6220/749150_swatch.jpg"},
+        {"nombre":  "004 Coral","imagen":"https://www.sephora.es/dw/image/v2/BCVW_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw88cc1d6b/images/hi-res/SKU/SKU_6219/749156_swatch.jpg?sw=585&sh=585&sm=fit"}, 
+        {"nombre": "008 Raspberry" , "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwb8a895af/images/hi-res/SKU/SKU_6219/749166_swatch.jpg" }
+          ],
         "descripcion": "Bálsamo labial hidratante que reacciona con el pH de los labios para un color personalizado.",
         "url": "data:image/jpeg;base64,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"
       },
@@ -87,11 +109,135 @@
         "marca": "NARS",
         "categoria": "Corrector",
         "precio": 32.00,
-        "tonos_disponibles": ["Chantilly", "Vanilla", "Custard", "Ginger", "Caramel"],
+        "tonos_disponibles": [
+          {"nombre":"Chantilly", "imagen": "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dwf0a86beb/images/hi-res/SKU/SKU_3/269765_swatch.jpg"},
+        {"nombre": "Vanilla" , "imagen":"https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw1db1eb8c/images/hi-res/SKU/SKU_3/262315_swatch.jpg"}, 
+        {"nombre":"Custard" , "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw4da50549/images/hi-res/SKU/SKU_3/262317_swatch.jpg" },
+        {"nombre": "Ginger", "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw9fabda96/images/hi-res/SKU/SKU_3/262318_swatch.jpg" },
+        {"nombre": "Caramel", "imagen" : "https://www.sephora.es/on/demandware.static/-/Sites-masterCatalog_Sephora/default/dw92111632/images/hi-res/SKU/SKU_3/262320_swatch.jpg" }
+          
+      ],
         "descripcion": "Corrector de cobertura media a completa con un acabado radiante e hidratante.",
         "url": "https://www.narscosmetics.es/on/demandware.static/-/Sites-itemmaster_NARS/default/dw43b619f6/hi-res/Bundles/radiant-creamy-concealer-foundation-bundle.jpg"
       }
      
+    ],
+    "skincare":[
+      {
+        "nombre": "Glow Recipe Cloudberry Bright Tónico unificador",
+        "descripcion": "Tónico que unifica el tono de la piel, aportando luminosidad y mejorando la textura.",
+        "precio": 37.99,
+        "url": "https://www.sephora.es/media/catalog/product/1/2/1234567890.jpg"
+      },
+      {
+        "nombre": "Olehenriksen Banana Bright+ Eye Crème",
+        "descripcion": "Crema para el contorno de ojos con vitamina C y colágeno que ilumina y reduce las ojeras.",
+        "precio": 39.99,
+        "url": "https://www.sephora.es/media/catalog/product/2/3/2345678901.jpg"
+      },
+      {
+        "nombre": "Supergoop! Unseen Protector solar invisible SPF 30 PA+++",
+        "descripcion": "Protector solar invisible que ofrece protección SPF 30 sin dejar residuos.",
+        "precio": 22.99,
+        "url": "https://www.sephora.es/media/catalog/product/3/4/3456789012.jpg"
+      },
+      {
+        "nombre": "Sephora Collection Crema calmante",
+        "descripcion": "Crema hidratante con ácido hialurónico y centella asiática que calma e hidrata la piel.",
+        "precio": 16.99,
+        "url": "https://www.sephora.es/media/catalog/product/4/5/4567890123.jpg"
+      },
+      {
+        "nombre": "Byoma Gel-Crema Hidratante",
+        "descripcion": "Crema hidratante diaria que equilibra e hidrata la piel.",
+        "precio": 16.99,
+        "url": "https://www.sephora.es/media/catalog/product/5/6/5678901234.jpg"
+      },
+      {
+        "nombre": "Glow Recipe Watermelon Glow Tónico Tensor PHA + BHA",
+        "descripcion": "Tónico con PHA y BHA que exfolia suavemente y aporta luminosidad.",
+        "precio": 14.99,
+        "url": "https://www.sephora.es/media/catalog/product/6/7/6789012345.jpg"
+      },
+      {
+        "nombre": "Laneige Lip Sleeping Mask",
+        "descripcion": "Mascarilla de noche para labios que hidrata y suaviza.",
+        "precio": 24.99,
+        "url": "https://www.sephora.es/media/catalog/product/7/8/7890123456.jpg"
+      },
+      {
+        "nombre": "The Ordinary Solución tonificante con ácido glicólico 7 %",
+        "descripcion": "Loción exfoliante con ácido glicólico al 7% que mejora la textura de la piel.",
+        "precio": 9.99,
+        "url": "https://www.sephora.es/media/catalog/product/8/9/8901234567.jpg"
+      },
+      {
+        "nombre": "Byoma Hydrating Milky Toner",
+        "descripcion": "Tónico calmante que hidrata y equilibra la piel.",
+        "precio": 14.99,
+        "url": "https://www.sephora.es/media/catalog/product/9/0/9012345678.jpg"
+      },
+      {
+        "nombre": "Byoma Crema Hidratante Enriquecida",
+        "descripcion": "Tratamiento facial hidratante que nutre y fortalece la barrera cutánea.",
+        "precio": 16.99,
+        "url": "https://www.sephora.es/media/catalog/product/0/1/0123456789.jpg"
+      },
+      {
+        "nombre": "Glow Recipe Watermelon Glow Sérum Gotas Rosadas con Niacinamida",
+        "descripcion": "Sérum con niacinamida que aporta luminosidad y reduce la apariencia de los poros.",
+        "precio": 20.99,
+        "url": "https://www.sephora.es/media/catalog/product/1/2/1234567890.jpg"
+      },
+      {
+        "nombre": "Byoma Sérum hidratante",
+        "descripcion": "Tratamiento facial calmante que hidrata y reduce la irritación.",
+        "precio": 17.99,
+        "url": "https://www.sephora.es/media/catalog/product/2/3/2345678901.jpg"
+      },
+      {
+        "nombre": "The Ordinary Ácido Hialurónico 2% + B5",
+        "descripcion": "Sérum hidratante con ácido hialurónico y vitamina B5.",
+        "precio": 9.99,
+        "url": "https://www.sephora.es/media/catalog/product/3/4/3456789012.jpg"
+      },
+      {
+        "nombre": "Olehenriksen Strength Trainer Peptide Boost Moisturizer",
+        "descripcion": "Hidratante con péptidos y colágeno que fortalece y reafirma la piel.",
+        "precio": 21.99,
+        "url": "https://www.sephora.es/media/catalog/product/4/5/4567890123.jpg"
+      },
+      {
+        "nombre": "Drunk Elephant Protini™ Polypeptide Cream",
+        "descripcion": "Crema hidratante con péptidos que mejora la textura y firmeza de la piel.",
+        "precio": 69.99,
+        "url": "https://www.sephora.es/media/catalog/product/5/6/5678901234.jpg"
+      },
+      {
+        "nombre": "Clinique Take the Day Off Cleansing Balm",
+        "descripcion": "Bálsamo desmaquillante que elimina eficazmente el maquillaje y las impurezas.",
+        "precio": 23.00,
+        "url": "https://www.sephora.es/media/catalog/product/6/7/6789012345.jpg"
+      },
+      {
+        "nombre": "Byoma Sérum Iluminador",
+        "descripcion": "Tratamiento facial que aporta luminosidad y unifica el tono de la piel.",
+        "precio": 17.99,
+        "url": "https://www.sephora.es/media/catalog/product/7/8/7890123456.jpg"
+      },
+      {
+        "nombre": "Laneige Bouncy & Firm Sleeping Mask",
+        "descripcion": "Mascarilla de noche que rellena y reafirma la piel mientras duermes.",
+        "precio": 35.99,
+        "url": "https://www.sephora.es/media/catalog/product/8/9/8901234567.jpg"
+      },
+      {
+        "nombre": "Kiehl's Creamy Eye Treatment with Avocado",
+        "descripcion": "Crema para el contorno de ojos hidratante con aguacate.",
+        "precio": 34.99,
+        "url": "https://www.sephora.es/media/catalog/product/9/0/9012345678.jpg"
+      }
     ]
+    
   }
   

@@ -4,9 +4,9 @@ import UseStorageState from '../servicios/UseStorageState';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = UseStorageState("usuario",null);
+  //const [user, setUser] = UseStorageState("usuario",null);
   
-  /*const [user, setUser] = useState(() => {
+  const [user, setUser] = useState(() => {
     // Recuperar usuario desde localStorage si existe
     return localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
   });
@@ -22,9 +22,9 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user'); 
-  };*/
-  const login = (userData) => setUser(userData);
-  const logout = () => setUser(null);
+  };
+  //const login = (userData) => setUser(userData);
+  //const logout = () => setUser(null);
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

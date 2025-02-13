@@ -61,12 +61,12 @@ function App() {
               }
             />
 
-            <Route
+            
+          <Route
               path="/login"
               element={<Login/>}
             />
 
-          
             
             <Route path="/detalle-carrito" element={
                <RutasProtegidas>

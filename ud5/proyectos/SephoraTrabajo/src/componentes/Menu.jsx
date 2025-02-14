@@ -86,6 +86,9 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
                             <li className="menu-item">
                                 <Link to="/detalle-carrito">Detalle</Link>
                             </li>
+                            <li className="menu-item">
+                                <Link to="/skinCare">skin Care</Link>
+                            </li>
                             
                             {/* Si el usuario NO está logueado, mostrar solo "Login" */}
                             {user === null ? (
@@ -103,6 +106,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
                                         </button>
                                     </li>
                                     <li className="menu-item carrito-container">
+                                        <span>Total Productos {productoM.length} : Precio Toatal{total.toFixed(2)}</span>
                                         <button className="toggle-carrito" onClick={toggleCarrito}>🛒</button>
                                     </li>
                                 </>
@@ -111,12 +115,6 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
                     </nav>
                 </div>
         
-                {/* Si el usuario NO está logueado, mostrar solo el formulario de login */}
-                {user === null && (
-                    <div className="login-container">
-                        <Login />
-                    </div>
-                )}
         
                 {/* Si el usuario ESTÁ logueado, mostrar el carrito */}
                 {user !== null && carritoVisible && (

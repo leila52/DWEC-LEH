@@ -10,6 +10,8 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './login/AuthProvider';
 import Login from './login/login';
 import RutasProtegida from './login/RutasProtegidas';
+import DetalleCarrito from './componentes/DetalleCarrito';
+import skinCare from './componentes/SkinCare';
 
 function App() {
   const [informacion, setInformacion] = useState([]);
@@ -77,6 +79,28 @@ function App() {
           path="/login"
           element={<Login />}
         />
+         <Route path="/detalle-carrito" element={
+               <RutasProtegida>
+              <DetalleCarrito productoM={productoM} informacion={informacion} />
+              </RutasProtegida>
+              } />
+
+<Route
+          path="/skinCare"
+          element={
+            <RutasProtegida>
+              <skinCare
+              skincare={skincare}
+               setSkinCare={setSkinCare}
+                productoM={productoM}
+                setProductoM={setProductoM}
+                total={total}
+                setTotal={setTotal}
+              />
+            </RutasProtegida>
+          }
+        />
+
         <Route path="*" element={<Pagina404 />} />
 
       </Routes>

@@ -99,6 +99,14 @@ body {
     background-color: #218838;
   }
   
+  .actions .delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .actions .delete:hover {
+    background-color: #c82333;
+  }
   
   .actions .view {
     background-color: #17a2b8;

@@ -1,8 +1,0 @@
-{
-  "informacion" : [ 
-    {"url": "/imagenes/ajos.jpeg",  "nombre": "Ajos", "precio": 7.15 }, 
-    { "url": "/imagenes/aceitunas.jpeg",  "nombre": "Aceitunas", "precio": 8.99 }, 
-    { "url": "/imagenes/calabacin.jpg",  "nombre": "Calabacin", "precio": 1.99 },
-    { "url": "/imagenes/calabaza.jpg",  "nombre": "Calabaza", "precio": 3.17 }
-  ]
-}

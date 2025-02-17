@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuSuperior from './componentes/menu'
 import ListaImagenes from './componentes/cuerpo'
 import DetalleCarrito from './componentes/DetalleCarrito'
@@ -7,11 +7,25 @@ import {Routes, Route } from 'react-router-dom';
 import Pagina404 from './componentes/Pagina404';
 import DetalleProducto from './componentes/DetalleProducto';
 import UseStorageState from './servicios/UseStorageState';
+import ServicioInformacion from './servicios/axios/ServicioInformacion';
+import Administrador from './componentes/Administrador';
 
 
 function App() {
   
-  const [informacion, setInformacion] = useState([])
+  const [informacion,setInformacion] = useState([])
+
+  useEffect(() => {
+    ServicioInformacion.getAll()
+      .then((response) => {
+        setInformacion(response.data);
+      })
+      .catch((error) => {
+        
+       alert("No se ha podido descargar la informacion...")
+      });
+  }, []);
+
  
 
   const [total, setTotal] = UseStorageState("total", 0); // Estado para el importe total
@@ -34,13 +48,14 @@ function App() {
             {/* Ruta principal con ListaImagenes */}
             <Route 
               path="/" 
-              element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos} informacion={informacion} setInformacion={setInformacion}/>} 
+              element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos} informacion={informacion}/>} 
             />
             
             {/* Detalle del carrito de la compra */}
-            <Route path="/detalle-carrito" element={<DetalleCarrito productos={productos} setProductos={setProductos} total={total} setTotal={setTotal} informacion={informacion}/>} />
+            <Route path="/detalle-carrito" element={<DetalleCarrito productos={productos} setProductos={setProductos} total={total} setTotal={setTotal}/>} />
 
-            <Route path="/producto/:nombre" element={<DetalleProducto informacion={informacion}/>} />
+            <Route path="/producto/:id" element={<DetalleProducto informacion={informacion}/>} />
+            <Route path="/administrador" element={<Administrador/>} />
             
             <Route path="*" element={<Pagina404 />} />
 

@@ -2,32 +2,16 @@ import React, { useState } from "react";
 import "../estilos/menu.css";
 import { Link } from 'react-router-dom';
 import { calcularUnidades } from "../herramientas/buscarProducto";
-//import Modal from "./Modal";
-//import Carrito from "./Carrito";
 
 // Componente MenuSuperior
 const MenuSuperior = ({ total, productos, eliminarProducto }) => {
   const [carritoVisible, setCarritoVisible] = useState(false);
-  const [modals, setModals] = useState({
-    consultar: false,
-});
-//gestionar modales
-const gestionarModal = (tipoModal, estadoAbierto) => {
-  setModals((previoModals) => ({ ...previoModals, [tipoModal]: estadoAbierto }));
-};
-
 
   const toggleCarrito = () => {
     setCarritoVisible(!carritoVisible);
   };
-   //manejar modales
-   const consultarCarrito = (productos) => {
-    setInformacionSeleccionada(productos);
-    gestionarModal("consultar", true)
-};
 
-
-  let importeTotal = total.toFixed(2);  
+  let importeTotal = 10;//total.toFixed(2);  
   let unidades = calcularUnidades(productos)  
 
   return (
@@ -46,6 +30,7 @@ const gestionarModal = (tipoModal, estadoAbierto) => {
           {/* Enlaces */}
           <li><Link to="/">Inicio</Link></li>
           <li><Link to="/detalle-carrito">Detalle</Link></li>
+          <li><Link to="/administrador">Administrador</Link></li>
   
           {/* Información destacada del carrito */}
           <li className="carrito-info">
@@ -72,7 +57,13 @@ const gestionarModal = (tipoModal, estadoAbierto) => {
                 <ul className="lista-productos">
                   {productos.map((producto, index) => (
                     <li key={index} className="producto-item">
-                      <span>{producto.cantidad} x {producto.nombre}</span>                     
+                      <span>{producto.cantidad} x {producto.nombre}</span>
+                      <button
+                        className="eliminar-producto"
+                        onClick={() => alert("Debes implementarme, soy una parte de la prueba")}
+                      >
+                        🗑️
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -81,10 +72,6 @@ const gestionarModal = (tipoModal, estadoAbierto) => {
               )}
             </li>
           )}
-           {/**< Modal isOpen={modals.consultar} onClose={() => gestionarModal("consultar", false)}> {productos&& <Carrito productos={productos} />}
-            </Modal> */
-           } 
-
         </ul>
       </nav>
     </div>

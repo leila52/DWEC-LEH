@@ -1,30 +1,11 @@
 import '../estilos/cuerpo.css';
-import React, { useEffect,  } from "react";
 import { buscarProducto , incrementarCantidad } from '../herramientas/buscarProducto';
-import servicioInformacion from '../servicios/servicioInformacion';
 
 
 
 // Componente ListaImagenes
-const ListaImagenes = ({ total, setTotal , productos, setProductos , informacion ,setInformacion}) => {
+const ListaImagenes = ({ total, setTotal , productos, setProductos , informacion}) => {
   
-  //coger inormacioon del json que es informacion
-  useEffect(() => {
-    servicioInformacion.getAll()
-        .then((response) => {
-            //almacenamos toda la info
-            setInformacion(response.data);
-        })
-        .catch((error) => {
-            Swal.fire({
-                title: "¿Tienes Internet?",
-                text: "No consigo descargar las aficiones :(",
-                icon: "question",
-            });
-        });
-},//importante poner esto 
-    []);
-
   const AnadirProducto = (nombre, precio) => {    
     
     
@@ -35,7 +16,7 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos , informacion
     if(buscarProducto(productos,nombre)===null){     
       
       setProductos([...productos,
-        { url: productoAnadir.url, nombre: productoAnadir.nombre, precio: productoAnadir.precio, cantidad:1 }])
+        {id:productoAnadir.id, url: productoAnadir.url, nombre: productoAnadir.nombre, precio: productoAnadir.precio, cantidad:1 }])
 
     }else{
 
@@ -46,7 +27,6 @@ const ListaImagenes = ({ total, setTotal , productos, setProductos , informacion
     
    
   };
-
 
   return (
     <div className="container">

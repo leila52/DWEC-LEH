@@ -1,0 +1,10 @@
+{
+     "informacion" : [
+      { "id": "1", "nombre": "Ajos", "precio": 5,  "url": "/imagenes/ajos.jpeg" },
+      { "id": "2", "nombre": "Calbaza", "precio": 7,  "url": "/imagenes/calabaza.jpg" },
+      { "id": "3", "nombre": "Calabacin", "precio": 4,  "url": "/imagenes/calabacin.jpg" },  
+      { "id": "4", "nombre": "Aceitunas", "precio": 10,  "url": "/imagenes/aceitunas.jpeg" }      
+    ]
+   
+  }
+

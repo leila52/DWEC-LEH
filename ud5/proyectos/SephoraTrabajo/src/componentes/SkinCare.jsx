@@ -1,93 +1,249 @@
-
-import React, { useEffect, useState } from "react";
-import servicioInformacion from "../serviciosAxios/servicioInformacion";
+import ProductoConsultar from './ProductoConsultar';
+import Modal from './Modal';
+import React, {  useState } from "react";
+import ServicioUsuario from "../servicioLogIn/ServicioUsuario";
 import { buscarProducto, añadir } from "../herramientas/herramientas";
-import "../estilos/Cuerpo.css";
+import "../estilos/SkinCare.css";
 import Swal from 'sweetalert2';
 
-const skinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTotal }) => {
-    //para saber que tono se ha seleccionado y almacenarlo
-    const [tonosSeleccionados, setTonosSeleccionados] = useState({});
-    //coger inormacioon del json que es informacion
-    
+const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTotal }) => {
+    // Almacenar los errores del Formulario
+    const [errores, setErrores] = useState({});
+    const [form, setForm] = useState({ nombre: '', precioMenor: "", precioMayor: "" });
+    const [productoSeleccionado, setProductoSeleccionado] = useState(null)
+    const [modal, setModal] = useState({
+        consultar: false
+    });
 
-    const manejarCambioTono = (productoId, tono) => {
-        setTonosSeleccionados(prevTonos => ({
-            ...prevTonos,
-            [productoId]: tono.nombre
-        }));
-    };
-    const AnadirACesta = (nombre, precio, productoId) => {
-        //cogemos el tono del producto
-        const tonoSeleccionado = tonosSeleccionados[productoId];
-        //si no seleccionada sale un swall
-        if (!tonoSeleccionado) {
-            Swal.fire("Selecciona un tono", "Debes elegir un tono antes de añadir el producto", "warning");
-            return;
-        }
-        // actualizamos el total
-        setTotal(total + precio);
-        // verificamos si el producto con ese tono ya está en la cesta
-        let productoExistente = false;
-        let nuevaLista = productoM.map(p => {
-            if (p.nombre === nombre && p.tono === tonoSeleccionado) {
-                productoExistente = true;
-                return { ...p, cantidad: p.cantidad + 1 };
-            }
-            return p;
+    
+    
+    const gestionarModal = (tipo, estado, producto = null) => {
+        setModal({ ...modal, [tipo]: estado });
+        if (tipo === "consultar")
+            setProductoSeleccionado(producto)
+    }
+    const gestionarCambio = (e) => {
+
+        const { name, value } = e.target;
+
+        setForm({
+            ...form,
+            [name]: value,
         });
 
-        if (!productoExistente) {
-            nuevaLista.push({ nombre, tono: tonoSeleccionado, cantidad: 1 });
+
+    };
+    const validar = () => {
+        const nuevosErrores = {};
+
+        // Validar que el nombre no esté vacío si se ingresa
+        if (form.nombre.trim() && !/^[a-zA-Z\s]+$/.test(form.nombre)) {
+            nuevosErrores.nombre = 'El nombre solo puede contener letras y espacios.';
         }
-
-        setProductoM(nuevaLista);
-
-        Swal.fire("Producto añadido a la cesta", `${nombre} (${tonoSeleccionado}) añadido`, "success");
+        // Validar que los precios sean números válidos
+        if (form.precioMayor.trim() && isNaN(form.precioMayor)) {
+            nuevosErrores.precioMayor = "El precio mayor tiene que ser un valor numerico"
+        }
+        if (form.precioMenor.trim() && isNaN(form.precioMenor)) {
+            nuevosErrores.precioMenor = "El precio menor tiene que ser un valor numerico"
+        }
+        // Validar que el precio mínimo no sea negativo
+        if (form.precioMenor.trim() && Number(form.precioMenor) < 0) {
+            nuevosErrores.precioMenor = "El precio menor tiene que ser positivo"
+        }
+        // Validar que el precio mínimo no sea mayor que el precio máximo
+        console.log(form)
+        if (form.precioMenor.trim() && !isNaN(form.precioMenor) && form.precioMayor.trim() && !isNaN(form.precioMayor)) {
+            if (Number(form.precioMenor) > Number(form.precioMayor)) {
+                nuevosErrores.precioMenor = "El precio minimo no puede ser mayor al precio maximo"
+            }
+        }
+        setErrores(nuevosErrores);
+        return Object.keys(nuevosErrores).length === 0;
     };
 
-/**  */
+
+    // Función para manejar el envío del formulario
+    const enviarFormulario = (e) => {
+        e.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+        // Validar el formulario antes de enviar
+    if (validar()) {
+        // Si el campo "nombre" está lleno, buscar por nombre
+        if (form.nombre.trim() !== "") {
+          ServicioUsuario.getPorNombre(form.nombre)
+            .then((response) => {
+              setSkinCare(response.data); // Actualiza el estado con los resultados
+            })
+            .catch((error) => {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "No se ha podido descargar la información..."
+              });
+  
+              console.error(error); // Muestra el error en la consola
+            });
+        }
+        // Si los campos de precio están llenos, buscar por precio
+        else if (form.precioMenor.trim() !== "" || form.precioMayor.trim() !== "") {
+          ServicioUsuario.getPorPrecio(form.precioMenor, form.precioMayor)
+            .then((response) => {
+              setSkinCare(response.data); // Actualiza el estado con los resultados
+            })
+            .catch((error) => {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "No se ha podido descargar la información..."
+              });
+  
+              console.error(error); // Muestra el error en la consola
+            });
+        }
+        // Si no se llenó ningún campo, mostrar un mensaje
+        else {
+          Swal.fire({
+            text: "Por favor, complete al menos un campo para buscar.",
+            icon: "question"
+          });
+  
+        }
+      } else {
+        Swal.fire({
+          text: "Por favor, corrija los errores en el formulario antes de enviar.",
+          icon: "error"
+        });
+  
+      }
+    };
+
+    const consultar = (item) => {
+        setProductoSeleccionado(item)
+        setModal(prevState => ({
+            ...prevState,
+            consultar: true
+        }));
+    }
+    const limpiarFormulario = () => {
+        setForm({
+            nombre: '',
+            precioMenor: "",
+            precioMayor: "",
+        })
+        setErrores({})
+    }
+
+    const AnadirACesta = (nombre, precio) => {
+        setTotal(total + precio);
+
+        if (buscarProducto(nombre, productoM) === null) {
+            setProductoM((elegidoProducto) => [...elegidoProducto, { nombre, cantidad: 1 }]);
+        } else {
+            setProductoM((elegidoProducto) => añadir(elegidoProducto, nombre))
+        }
+        Swal.fire("Producto añadido a la cesta", `${nombre} añadido`, "success");
+    }
 
 
     return (
         <>
-            <ul className="informacion-list">
-                {skinCare.length > 0 ? (
-                    skinCare.map((info) => (
-                        <li key={info.id} className="info-item">
-                            <img src={info.url} alt={info.nombre} />
-                            <div>
-                                <strong>{info.nombre}</strong>: €{info.precio.toFixed(2)}
-                            </div>
-                            <div className="tonos-container">
-                            {info.tonos_disponibles.map((tono,key) => (
-                                <label key={key} className="tono-label">
-                                    <input
-                                        type="radio"
-                                        name={`tono-${info.id}`}
-                                        value={tono.nombre}
-                                        checked={tonosSeleccionados[info.id] === tono.nombre}
-                                        onChange={() => manejarCambioTono(info.id, tono)}
-                                        className="tono-radio"
-                                    />
-                                    <img src={tono.imagen} alt={tono.nombre} className="tono-imagen" />
-                                </label>
-                            ))}
-                        </div>
-                            <div>
-                                <button onClick={() => AnadirACesta(info.nombre, info.precio, info.id)}>
-                                    Añadir a la cesta
-                                </button>
-                            </div>
-                        </li>
-                    ))
-                ) : (
-                    <p>No se encontraron servicios.</p>
-                )}
+            <div className="filters">
+                <form onSubmit={enviarFormulario}>
+                    {/* Campo de texto para nombre */}
+                    <label htmlFor="nombre">Nombre</label>
+                    <input
+                        id="nombre"
+                        type="text"
+                        name="nombre"
+                        value={form.nombre}
+                        onChange={gestionarCambio}
+                        placeholder="Escribe tu nombre"
+                    />
+                    {errores.nombre && <p className="error">{errores.nombre}</p>}
 
-            </ul>
+                    {/* Campo de texto para apellidos */}
+                    <label htmlFor="apellidos">Precio Mínomo</label>
+                    <input
+                        id="precioMenor"
+                        type="text"
+                        name="precioMenor"
+                        value={form.precioMenor}
+                        onChange={gestionarCambio}
+                        placeholder="importe Mínimo"
+                    />
+                    {errores.precioMenor && <p className="error">{errores.precioMenor}</p>}
+
+                    <label htmlFor="apellidos">Precio Máximo</label>
+                    <input
+                        id="precioMayor"
+                        type="text"
+                        name="precioMayor"
+                        value={form.precioMayor}
+                        onChange={gestionarCambio}
+                        placeholder="importe Máximo"
+                    />
+                    {errores.precioMayor && <p className="error">{errores.precioMayor}</p>}
+
+                    <button type="submit">Buscar</button>
+                    <button type="button" onClick={() => limpiarFormulario()}>Limpiar</button>
+                </form>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio (€)</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+
+                    {skinCare.map((item, index) => (
+                        <tr key={index}>
+                            <img src={item.url} alt="" />
+                            <td>{item.nombre}</td>
+                            <td>{item.precio}</td>
+                            <td className="actions">
+                            <button onClick={() => AnadirACesta(item.nombre, item.precio)}>
+                                        Añadir a la cesta
+                                    </button>
+                                <button className="view" onClick={() => consultar(item)}>Consultar</button>
+                            </td>
+                        </tr>
+
+
+                    ))}
+
+
+                </tbody>
+            </table>
+            {/* <ul className="informacion-list">
+                    {skinCare && skinCare.length > 0 ? (
+                        skinCare.map((info) => (
+                            <li key={info.id} className="info-item">
+                                <img src={info.url} alt={info.nombre} />
+                                <div>
+                                    <strong>{info.nombre}</strong>: €{info.precio}
+                                </div>
+                                <div>
+                                    <button onClick={() => AnadirACesta(info.nombre, info.precio)}>
+                                        Añadir a la cesta
+                                    </button>
+                                </div>
+                            </li>
+                        ))
+                    ) : (
+                        <p>No se encontraron productos de skin care.</p>
+                    )}
+                </ul> */}
+            <Modal isOpen={modal.consultar} onClose={() => gestionarModal("consultar", false)}>
+                {productoSeleccionado && (<ProductoConsultar producto={productoSeleccionado}></ProductoConsultar>)}
+            </Modal>
+
         </>
 
     );
-}
-export default skinCare;
+};
+
+export default SkinCare;

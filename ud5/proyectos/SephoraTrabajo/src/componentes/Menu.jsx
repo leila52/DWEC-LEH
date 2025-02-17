@@ -26,7 +26,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
         logout();
         //localStorage.removeItem('token'); // Elimina el token
         navigate('/login');
-      };
+    };
 
 
     //calculamos el total
@@ -75,74 +75,75 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
         setTotal(calcularTotal(productosActualizados, informacion));
     };
     return (
-            <div>
-                <div className="menu-container">
-                    <h1>Sephora</h1>
-                    <nav>
-                        <ul className="menu-list">
+        <div>
+            <div className="menu-container">
+                <h1>Sephora</h1>
+                <nav>
+                    <ul className="menu-list">
+
+                        {/* Si el usuario NO está logueado, mostrar solo "Login" */}
+                        {user === null ? (
                             <li className="menu-item">
-                                <Link to="/">Inicio</Link>
+                                <Link to="/login">Login</Link>
                             </li>
-                            <li className="menu-item">
-                                <Link to="/detalle-carrito">Detalle</Link>
-                            </li>
-                            <li className="menu-item">
-                                <Link to="/skinCare">skin Care</Link>
-                            </li>
-                            
-                            {/* Si el usuario NO está logueado, mostrar solo "Login" */}
-                            {user === null ? (
-                                <li className="menu-item">
-                                    <Link to="/login">Login</Link>
-                                </li>
-                            ) : (
-                                <>
-                                    <li className="menu-item saludo">
-                                        Hola, {user}
-                                    </li>
-                                    <li className="menu-item">
-                                        <button className="btn-salir" onClick={handleLogout}>
-                                            Salir
-                                        </button>
-                                    </li>
-                                    <li className="menu-item carrito-container">
-                                        <span>Total Productos {productoM.length} : Precio Toatal{total.toFixed(2)}</span>
-                                        <button className="toggle-carrito" onClick={toggleCarrito}>🛒</button>
-                                    </li>
-                                </>
-                            )}
-                        </ul>
-                    </nav>
-                </div>
-        
-        
-                {/* Si el usuario ESTÁ logueado, mostrar el carrito */}
-                {user !== null && carritoVisible && (
-                    <div className="carrito-productos">
-                        <h4>Carrito</h4>
-                        {productoM.length > 0 ? (
-                            <ul>
-                                {productoM.map((productito, index) => (
-                                    <li key={index}>
-                                        <div className="carrito-info">
-                                            <span>Producto: {productito.nombre} </span>
-                                            <span>Cantidad: {productito.cantidad}</span>
-                                            <span>Tono: {productito.tono} </span>
-                                        </div>
-                                        <div className="carrito-botones">
-                                            <button onClick={() => incrementarProducto(productito.nombre, productito.tono)}>Añadir</button>
-                                            <button onClick={() => decrementarProducto(productito.nombre, productito.tono)}>Restar</button>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
                         ) : (
-                            <p>No hay productos en el carrito.</p>
+                            <>
+                                <li className="menu-item">
+                                    <Link to="/">Inicio</Link>
+                                </li>
+                                <li className="menu-item">
+                                    <Link to="/skinCare">Skin Care</Link>
+                                </li>
+                                <li className="menu-item">
+                                    <Link to="/detalle-carrito">Carrito</Link>
+                                </li>
+                                <li className="menu-item saludo">
+                                    Hola, {user}
+                                </li>
+                                
+                                <li className="menu-item carrito-container">
+                                    <span>Productos {productoM.length}  Precio : {total.toFixed(2)}</span>
+                                    <button className="toggle-carrito" onClick={toggleCarrito}>🛒</button>
+                                </li>
+                                <li className="menu-item">
+                                    <button className="btn-salir" onClick={handleLogout}>
+                                        Salir
+                                    </button>
+                                </li>
+                            </>
                         )}
-                    </div>
-                )}
+                    </ul>
+                </nav>
             </div>
-        );
-     
+
+
+            {/* Si el usuario ESTÁ logueado, mostrar el carrito */}
+            {user !== null && carritoVisible && (
+                <div className="carrito-productos">
+                    <h4>Carrito</h4>
+                    {productoM.length > 0 ? (
+                        <ul>
+                            {productoM.map((productito, index) => (
+                                <li key={index}>
+                                    <div className="carrito-info">
+                                        <span>Producto: {productito.nombre} </span>
+                                        <span>Cantidad: {productito.cantidad}</span>
+                                        <span>Tono: {productito.tono} </span>
+                                    </div>
+                                    <div className="carrito-botones">
+                                        <button onClick={() => incrementarProducto(productito.nombre, productito.tono)}>Añadir</button>
+                                        <button onClick={() => decrementarProducto(productito.nombre, productito.tono)}>Restar</button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No hay productos en el carrito.</p>
+                    )}
+                </div>
+            )}
+        </div>
+    );
+
 }
 export default Menu;

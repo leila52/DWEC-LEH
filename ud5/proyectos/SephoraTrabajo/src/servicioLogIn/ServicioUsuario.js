@@ -7,6 +7,21 @@ class ServicioUsuario {
    getAllSkinCare() {
     return http.get("/skincare");
   }
+  getPorNombre(nombre) {
+   return http.get(`/skincare?nombre=${nombre}`);
+ } 
+
+ getPorPrecio(precioMenor,precioSuperior){
+   let url= "/skincare?"
+   if (precioMenor){
+     url+=`precio_gt=${precioMenor}`
+   }
+   if (precioSuperior){
+     url+=`&precio_lt=${precioSuperior}`
+   }
+   return http.get(url);
+ }
+
 
    //encriptar contraseña
   login(usuario) {

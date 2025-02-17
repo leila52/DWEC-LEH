@@ -1,12 +1,25 @@
 import '../estilos/DetalleProducto.css';
-import {buscarProducto} from "../herramientas/buscarProducto"
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import ServicioInformacion from '../servicios/axios/ServicioInformacion';
 
 const DetalleProducto = ({informacion}) => {  
 
-  const {nombre} = useParams()
+  const {id} = useParams()
 
-  let producto = buscarProducto(informacion,nombre )
+
+  const [producto,setProducto] = useState([])
+
+  useEffect(() => {
+    ServicioInformacion.get(id)
+      .then((response) => {
+        setProducto(response.data);
+      })
+      .catch((error) => {
+        
+       alert("No se ha podido consultar el producto"+id)
+      });
+    }, []);
 
   return (
     <div className="container-detalle-producto">

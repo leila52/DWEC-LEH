@@ -18,18 +18,13 @@ export function incrementarCantidad(informacion , nombre) {
     return { ...producto }; 
   });
 }
-export function incrementarCantidadIntroducida(informacion, nombre, cantidad){
-  return informacion.map(producto => {
-    if (producto.nombre.toLowerCase() === nombre.toLowerCase()) {
-      if(producto.cantidad+cantidad <=10){
-        return { ...producto, cantidad: producto.cantidad + cantidad }; 
-      }
-      //sin return ya que es solo un aler
-       alert("no puedes ya que teine que ser menor o igual que 10");
-      
-    }
-    return { ...producto }; 
-  });
+
+//*********************************************************************************/
+// Reducir la cantidad de un producto, en el array informacion facilitado
+//*********************************************************************************/
+export function reducirCantidad(informacion, nombre) {  
+  
+  
 }
 
 export function calcularUnidades(productos){

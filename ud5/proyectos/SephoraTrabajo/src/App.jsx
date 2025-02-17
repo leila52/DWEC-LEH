@@ -11,11 +11,11 @@ import { AuthProvider } from './login/AuthProvider';
 import Login from './login/login';
 import RutasProtegida from './login/RutasProtegidas';
 import DetalleCarrito from './componentes/DetalleCarrito';
-import skinCare from './componentes/SkinCare';
+import SkinCare from './componentes/SkinCare';
 
 function App() {
   const [informacion, setInformacion] = useState([]);
-  const [skincare, setSkinCare] = useState([]);
+  const [skinCare, setSkinCare] = useState([]);
   useEffect(() => {
     ServicioUsuario.getAllInformacion()
       .then((response) => {
@@ -79,19 +79,18 @@ function App() {
           path="/login"
           element={<Login />}
         />
-         <Route path="/detalle-carrito" element={
-               <RutasProtegida>
-              <DetalleCarrito productoM={productoM} informacion={informacion} />
-              </RutasProtegida>
-              } />
-
-<Route
+        <Route path="/detalle-carrito" element={
+          <RutasProtegida>
+            <DetalleCarrito productoM={productoM} informacion={informacion} skinCare={skinCare} />
+          </RutasProtegida>
+        } />
+        <Route
           path="/skinCare"
           element={
             <RutasProtegida>
-              <skinCare
-              skincare={skincare}
-               setSkinCare={setSkinCare}
+              <SkinCare
+                skinCare={skinCare}
+                setSkinCare={setSkinCare}
                 productoM={productoM}
                 setProductoM={setProductoM}
                 total={total}
@@ -105,7 +104,7 @@ function App() {
 
       </Routes>
 
-      </AuthProvider>
+    </AuthProvider>
   )
 }
 

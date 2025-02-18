@@ -8,8 +8,9 @@ class ServicioUsuario {
     return http.get("/skincare");
   }
   getPorNombre(nombre) {
-   return http.get(`/skincare?nombre=${nombre}`);
- } 
+    return http.get(`/skincare?nombre_like=^${nombre}`);
+ }
+ 
 
  getPorPrecio(precioMenor,precioSuperior){
    let url= "/skincare?"

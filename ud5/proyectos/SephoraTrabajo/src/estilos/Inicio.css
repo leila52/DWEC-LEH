@@ -1,0 +1,33 @@
+.promo-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 500px; /* Ajusta según lo necesites */
+    overflow: hidden;
+}
+
+.promo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.promo-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black; /* Fondo semitransparente para resaltar el texto */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.promo-text h1 {
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.promo-text span {
+    font-size: 1rem;
+}

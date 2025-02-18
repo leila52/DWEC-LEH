@@ -153,10 +153,10 @@
 
 .carrito-productos button:hover {
     background: #ccc;
-    color: black;
+    color: rgb(153, 11, 58);
 }
 .btn-salir {
-    background-color: red; /* Fondo rojo */
+    background-color: #e91e63; /* Fondo rojo */
     color: white; /* Texto blanco */
     border: none;
     padding: 8px 15px;
@@ -169,5 +169,5 @@
 
 /* Efecto hover en el botón de salir */
 .btn-salir:hover {
-    background-color: darkred; /* Un rojo más oscuro al pasar el mouse */
+    background-color: rgb(223, 12, 83) /* Un rojo más oscuro al pasar el mouse */
 }

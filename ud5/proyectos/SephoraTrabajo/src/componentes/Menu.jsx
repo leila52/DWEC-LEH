@@ -7,15 +7,15 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Login from "../login/login";
 
-const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
+const Menu = ({ total, setTotal, productoM, setProductoM, informacion,skinCare }) => {
     //para mostrar el carrito
     const [carritoVisible, setCarritoVisible] = useState(false);
-
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
     const [productoSeleccionado, setProductoSeleccionado] = useState(null);
     const [cantidad, setCantidad] = useState(1); // Cantidad por defecto 1
 
-    const { user, logout } = useAuth();
-    const navigate = useNavigate();
+    
 
 
     const toggleCarrito = () => {
@@ -33,7 +33,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
     const calcularTotal = (productos, informacion) => {
         return productos.reduce((total, productito) => {
             // Busca el producto en la información completa
-            const productoDetalle = buscarProducto(productito.nombre, informacion);
+            const productoDetalle = buscarProducto(productito.nombre, productito.tono ? informacion : skinCare);
             if (productoDetalle) {
                 // Si encuentra el producto, suma el precio total basado en la cantidad
                 return total + productito.cantidad * productoDetalle.precio;
@@ -88,8 +88,11 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion }) => {
                             </li>
                         ) : (
                             <>
-                                <li className="menu-item">
+                            <li className="menu-item">
                                     <Link to="/">Inicio</Link>
+                                </li>
+                                <li className="menu-item">
+                                    <Link to="/maquillaje">Maquillaje</Link>
                                 </li>
                                 <li className="menu-item">
                                     <Link to="/skinCare">Skin Care</Link>

@@ -1,6 +1,6 @@
 import ProductoConsultar from './ProductoConsultar';
 import Modal from './Modal';
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import ServicioUsuario from "../servicioLogIn/ServicioUsuario";
 import { buscarProducto, añadir } from "../herramientas/herramientas";
 import "../estilos/SkinCare.css";
@@ -15,8 +15,8 @@ const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTo
         consultar: false
     });
 
-    
-    
+
+
     const gestionarModal = (tipo, estado, producto = null) => {
         setModal({ ...modal, [tipo]: estado });
         if (tipo === "consultar")
@@ -68,54 +68,57 @@ const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTo
         e.preventDefault(); // Evita que el formulario se envíe automáticamente
 
         // Validar el formulario antes de enviar
-    if (validar()) {
-        // Si el campo "nombre" está lleno, buscar por nombre
-        if (form.nombre.trim() !== "") {
-          ServicioUsuario.getPorNombre(form.nombre)
-            .then((response) => {
-              setSkinCare(response.data); // Actualiza el estado con los resultados
-            })
-            .catch((error) => {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "No se ha podido descargar la información..."
-              });
-  
-              console.error(error); // Muestra el error en la consola
+        if (validar()) {
+            // Si el campo "nombre" está lleno, buscar por nombre
+            if (form.nombre.trim() !== "") {
+                ServicioUsuario.getPorNombre(form.nombre)
+                    .then((response) => {
+                        const productosFiltrados = response.data.filter(producto =>
+                            producto.nombre.toLowerCase().startsWith(form.nombre.toLowerCase())
+                        );
+                        setSkinCare(productosFiltrados);
+                    })
+                    .catch((error) => {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "No se ha podido descargar la información..."
+                        });
+
+                        console.error(error); // Muestra el error en la consola
+                    });
+            }
+            // Si los campos de precio están llenos, buscar por precio
+            else if (form.precioMenor.trim() !== "" || form.precioMayor.trim() !== "") {
+                ServicioUsuario.getPorPrecio(form.precioMenor, form.precioMayor)
+                    .then((response) => {
+                        setSkinCare(response.data); // Actualiza el estado con los resultados
+                    })
+                    .catch((error) => {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "No se ha podido descargar la información..."
+                        });
+
+                        console.error(error); // Muestra el error en la consola
+                    });
+            }
+            // Si no se llenó ningún campo, mostrar un mensaje
+            else {
+                Swal.fire({
+                    text: "Por favor, complete al menos un campo para buscar.",
+                    icon: "question"
+                });
+
+            }
+        } else {
+            Swal.fire({
+                text: "Por favor, corrija los errores en el formulario antes de enviar.",
+                icon: "error"
             });
+
         }
-        // Si los campos de precio están llenos, buscar por precio
-        else if (form.precioMenor.trim() !== "" || form.precioMayor.trim() !== "") {
-          ServicioUsuario.getPorPrecio(form.precioMenor, form.precioMayor)
-            .then((response) => {
-              setSkinCare(response.data); // Actualiza el estado con los resultados
-            })
-            .catch((error) => {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "No se ha podido descargar la información..."
-              });
-  
-              console.error(error); // Muestra el error en la consola
-            });
-        }
-        // Si no se llenó ningún campo, mostrar un mensaje
-        else {
-          Swal.fire({
-            text: "Por favor, complete al menos un campo para buscar.",
-            icon: "question"
-          });
-  
-        }
-      } else {
-        Swal.fire({
-          text: "Por favor, corrija los errores en el formulario antes de enviar.",
-          icon: "error"
-        });
-  
-      }
     };
 
     const consultar = (item) => {
@@ -139,8 +142,10 @@ const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTo
 
         if (buscarProducto(nombre, productoM) === null) {
             setProductoM((elegidoProducto) => [...elegidoProducto, { nombre, cantidad: 1 }]);
+            console.log(productoM);
         } else {
             setProductoM((elegidoProducto) => añadir(elegidoProducto, nombre))
+            console.log(productoM);
         }
         Swal.fire("Producto añadido a la cesta", `${nombre} añadido`, "success");
     }
@@ -192,6 +197,7 @@ const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTo
             <table>
                 <thead>
                     <tr>
+                        <th>Producto</th>
                         <th>Nombre</th>
                         <th>Precio (€)</th>
                         <th>Acciones</th>
@@ -201,13 +207,15 @@ const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTo
 
                     {skinCare.map((item, index) => (
                         <tr key={index}>
-                            <img src={item.url} alt="" />
+                            <td>
+                                <img src={item.url} alt="" />
+                            </td>
                             <td>{item.nombre}</td>
                             <td>{item.precio}</td>
                             <td className="actions">
-                            <button onClick={() => AnadirACesta(item.nombre, item.precio)}>
-                                        Añadir a la cesta
-                                    </button>
+                                <button onClick={() => AnadirACesta(item.nombre, item.precio)}>
+                                    Añadir a la cesta
+                                </button>
                                 <button className="view" onClick={() => consultar(item)}>Consultar</button>
                             </td>
                         </tr>
@@ -218,25 +226,6 @@ const SkinCare = ({ skinCare, setSkinCare, productoM, setProductoM, total, setTo
 
                 </tbody>
             </table>
-            {/* <ul className="informacion-list">
-                    {skinCare && skinCare.length > 0 ? (
-                        skinCare.map((info) => (
-                            <li key={info.id} className="info-item">
-                                <img src={info.url} alt={info.nombre} />
-                                <div>
-                                    <strong>{info.nombre}</strong>: €{info.precio}
-                                </div>
-                                <div>
-                                    <button onClick={() => AnadirACesta(info.nombre, info.precio)}>
-                                        Añadir a la cesta
-                                    </button>
-                                </div>
-                            </li>
-                        ))
-                    ) : (
-                        <p>No se encontraron productos de skin care.</p>
-                    )}
-                </ul> */}
             <Modal isOpen={modal.consultar} onClose={() => gestionarModal("consultar", false)}>
                 {productoSeleccionado && (<ProductoConsultar producto={productoSeleccionado}></ProductoConsultar>)}
             </Modal>

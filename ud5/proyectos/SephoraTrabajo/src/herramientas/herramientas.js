@@ -21,7 +21,7 @@ export function buscarProducto(nombre , informacion){
   export function AñadirSiHayMasDeUnProducto(informacion, nombre, tono){
     console.log("Añadiendo uno más de", nombre, "con tono", tono);
     return informacion.map(producto => {
-        if (producto.nombre === nombre && producto.tono === tono) {
+      if (producto.nombre === nombre && (tono ? producto.tono === tono : producto.tono === undefined || producto.tono === null)) {
             return { ...producto, cantidad: producto.cantidad + 1 };
         }
         return producto;
@@ -32,7 +32,7 @@ export function borrarSiHayMasDeUnProducto(informacion, nombre, tono) {
   console.log("Restando uno a", nombre, "con tono", tono);
   return informacion
       .map(producto => {
-          if (producto.nombre === nombre && producto.tono === tono) {
+        if (producto.nombre === nombre && (tono ? producto.tono === tono : producto.tono === undefined || producto.tono === null)) {
               // Si el producto tiene solo 1 unidad, lo quitamos
               if (producto.cantidad === 1) {
                   return null; // Eliminamos el producto de la lista

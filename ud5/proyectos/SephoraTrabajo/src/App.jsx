@@ -12,6 +12,7 @@ import Login from './login/login';
 import RutasProtegida from './login/RutasProtegidas';
 import DetalleCarrito from './componentes/DetalleCarrito';
 import SkinCare from './componentes/SkinCare';
+import Inicio from './componentes/Inicio';
 
 function App() {
   const [informacion, setInformacion] = useState([]);
@@ -56,6 +57,7 @@ function App() {
         productoM={productoM}
         setProductoM={setProductoM}
         informacion={informacion}
+        skinCare={skinCare}
       />
       <Routes>
 
@@ -63,18 +65,23 @@ function App() {
           path="/"
           element={
             <RutasProtegida>
-              <Cuerpo
-                informacion={informacion}
-                setInformacion={setInformacion}
-                productoM={productoM}
-                setProductoM={setProductoM}
-                total={total}
-                setTotal={setTotal}
+              <Inicio
               />
             </RutasProtegida>
           }
         />
-
+        <Route path="/maquillaje" element={
+          <RutasProtegida>
+          <Cuerpo
+            informacion={informacion}
+            setInformacion={setInformacion}
+            productoM={productoM}
+            setProductoM={setProductoM}
+            total={total}
+            setTotal={setTotal}
+          />
+        </RutasProtegida>
+        } />
         <Route
           path="/login"
           element={<Login />}

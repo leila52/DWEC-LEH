@@ -12,8 +12,10 @@ const DetalleCarrito = ({ productoM, informacion, skinCare }) => {
 
   return (
     <div className="container-detalle">
+       <h2>Productos Seleccionados</h2>
       <ul> 
-        <h2>Productos Seleccionados</h2>
+       
+        <div>
         {
           productoM.map((item, index) => {
             const productoInfo = buscarProducto(item.nombre);
@@ -30,8 +32,11 @@ const DetalleCarrito = ({ productoM, informacion, skinCare }) => {
             );
           })
         }
-        <li className='total'>Número de Elementos: {productoM.reduce((acc, item) => acc + item.cantidad, 0)}</li>
+        </div>
+        
+        
       </ul>
+      <p className='total'>Número de Elementos: {productoM.reduce((acc, item) => acc + item.cantidad, 0)}</p>
     </div>
   );
 };

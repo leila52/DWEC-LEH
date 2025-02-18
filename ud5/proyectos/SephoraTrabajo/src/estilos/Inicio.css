@@ -1,9 +1,14 @@
 .promo-container {
     position: relative;
-    width: 100%;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100%;
-    height: 500px; /* Ajusta según lo necesites */
+    height: 250px; /* Ajusta según lo necesites */
     overflow: hidden;
+    border-radius: 30px;
 }
 
 .promo-image {
@@ -24,10 +29,73 @@
 }
 
 .promo-text h1 {
+    align-items: flex-start;
     font-size: 2.5rem;
     margin: 0 0 10px 0;
 }
 
 .promo-text span {
     font-size: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 20px;
+}
+
+.item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.item h2 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  a{
+    color: white;
+  }
+
+.botonnn {
+    margin: 10px 0;
+    padding: 12px 25px;
+    background-color: #cf2b88;
+    color: #fff;
+    border-radius: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonnn:hover {
+    background-color: #c5006b;
+}
+
+.item p {
+    font-size: 14px;
+    color: #777;
 }

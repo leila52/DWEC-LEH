@@ -100,6 +100,9 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion,skinCare }
                                 <li className="menu-item">
                                     <Link to="/detalle-carrito">Carrito</Link>
                                 </li>
+                                <li className="menu-item">
+                                    <Link to="/productos">Productos</Link>
+                                </li>
                                 <li className="menu-item saludo">
                                     Hola, {user}
                                 </li>

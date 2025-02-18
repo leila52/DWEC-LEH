@@ -13,6 +13,7 @@ import RutasProtegida from './login/RutasProtegidas';
 import DetalleCarrito from './componentes/DetalleCarrito';
 import SkinCare from './componentes/SkinCare';
 import Inicio from './componentes/Inicio';
+import Productos from './componentes/Productos';
 
 function App() {
   const [informacion, setInformacion] = useState([]);
@@ -70,7 +71,14 @@ function App() {
             </RutasProtegida>
           }
         />
-        <Route path="/maquillaje" element={
+         {/* Ruta anidada de Productos */}
+         <Route path="/productos" element={<RutasProtegida><Productos /></RutasProtegida>}>
+          <Route path="maquillaje" element={<Cuerpo informacion={informacion} setInformacion={setInformacion} productoM={productoM} setProductoM={setProductoM} total={total} setTotal={setTotal} />} />
+          <Route path="skinCare" element={<SkinCare skinCare={skinCare} setSkinCare={setSkinCare} productoM={productoM} setProductoM={setProductoM} total={total} setTotal={setTotal} />} />
+        </Route>
+
+        
+       <Route path="/maquillaje" element={
           <RutasProtegida>
           <Cuerpo
             informacion={informacion}
@@ -82,6 +90,7 @@ function App() {
           />
         </RutasProtegida>
         } />
+        
         <Route
           path="/login"
           element={<Login />}
@@ -91,7 +100,7 @@ function App() {
             <DetalleCarrito productoM={productoM} informacion={informacion} skinCare={skinCare} />
           </RutasProtegida>
         } />
-        <Route
+         <Route
           path="/skinCare"
           element={
             <RutasProtegida>
@@ -106,6 +115,7 @@ function App() {
             </RutasProtegida>
           }
         />
+       
 
         <Route path="*" element={<Pagina404 />} />
 

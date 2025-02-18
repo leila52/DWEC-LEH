@@ -20,16 +20,15 @@
   }
   
   .container-detalle ul li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: block;
     background-color: #000000;
     color: #ffffff;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+}
+
   
   .container-detalle ul li img {
     width: 80px;

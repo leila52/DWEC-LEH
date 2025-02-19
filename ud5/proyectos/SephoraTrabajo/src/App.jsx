@@ -71,26 +71,27 @@ function App() {
             </RutasProtegida>
           }
         />
-         {/* Ruta anidada de Productos */}
-         <Route path="/productos" element={<RutasProtegida><Productos /></RutasProtegida>}>
+        {/* Ruta anidada de Productos */}
+        <Route path="/productos" element={<RutasProtegida><Productos /></RutasProtegida>}>
+
           <Route path="maquillaje" element={<Cuerpo informacion={informacion} setInformacion={setInformacion} productoM={productoM} setProductoM={setProductoM} total={total} setTotal={setTotal} />} />
           <Route path="skinCare" element={<SkinCare skinCare={skinCare} setSkinCare={setSkinCare} productoM={productoM} setProductoM={setProductoM} total={total} setTotal={setTotal} />} />
         </Route>
 
-        
-       <Route path="/maquillaje" element={
+
+        <Route path="/maquillaje" element={
           <RutasProtegida>
-          <Cuerpo
-            informacion={informacion}
-            setInformacion={setInformacion}
-            productoM={productoM}
-            setProductoM={setProductoM}
-            total={total}
-            setTotal={setTotal}
-          />
-        </RutasProtegida>
+            <Cuerpo
+              informacion={informacion}
+              setInformacion={setInformacion}
+              productoM={productoM}
+              setProductoM={setProductoM}
+              total={total}
+              setTotal={setTotal}
+            />
+          </RutasProtegida>
         } />
-        
+
         <Route
           path="/login"
           element={<Login />}
@@ -100,7 +101,7 @@ function App() {
             <DetalleCarrito productoM={productoM} informacion={informacion} skinCare={skinCare} />
           </RutasProtegida>
         } />
-         <Route
+        <Route
           path="/skinCare"
           element={
             <RutasProtegida>
@@ -115,7 +116,7 @@ function App() {
             </RutasProtegida>
           }
         />
-       
+
 
         <Route path="*" element={<Pagina404 />} />
 

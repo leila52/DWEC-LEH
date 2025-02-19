@@ -1,40 +1,44 @@
 import '../estilos/cuerpo.css';
-import { buscarProducto , incrementarCantidad } from '../herramientas/buscarProducto';
-
+import { buscarProducto, incrementarCantidad } from '../herramientas/buscarProducto';
+import { Link } from 'react-router-dom';
 
 
 // Componente ListaImagenes
-const ListaImagenes = ({ total, setTotal , productos, setProductos , informacion}) => {
-  
-  const AnadirProducto = (nombre, precio) => {    
-    
-    
-    setTotal(total + precio);    
+const ListaImagenes = ({ total, setTotal, productos, setProductos, informacion }) => {
 
-    let productoAnadir= buscarProducto(informacion,nombre)
+  const AnadirProducto = (nombre, precio) => {
 
-    if(buscarProducto(productos,nombre)===null){     
-      
+
+    setTotal(parseInt(total) + parseInt(precio));
+
+    let productoAnadir = buscarProducto(informacion, nombre)
+
+    if (buscarProducto(productos, nombre) === null) {
+
       setProductos([...productos,
-        {id:productoAnadir.id, url: productoAnadir.url, nombre: productoAnadir.nombre, precio: productoAnadir.precio, cantidad:1 }])
+      { url: productoAnadir.url, nombre: productoAnadir.nombre, precio: productoAnadir.precio, cantidad: 1 }])
 
-    }else{
+    } else {
 
-      setProductos(incrementarCantidad(productos , nombre))
+      setProductos(incrementarCantidad(productos, nombre))
 
     }
 
-    
-   
-  };
 
+
+  };
+  // el link que lleva a producto/nombre
   return (
     <div className="container">
       {informacion.map((item, index) => (
         <div key={index}>
-          <img src={item.url} alt="imagen" />
-          <h3>{item.nombre}</h3>
-          <p>Precio: {item.precio} Euros</p>
+          
+          <Link to={`/producto/${item.nombre}`}>
+            <img src={item.url} alt="imagen" />
+            <h3>{item.nombre}</h3>
+            <p>Precio: {item.precio} Euros</p>
+          </Link>
+
           <button onClick={() => AnadirProducto(item.nombre, item.precio)}>
             Añadir al carrito
           </button>

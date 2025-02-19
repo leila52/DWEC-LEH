@@ -1,0 +1,16 @@
+{ 
+    "informacion" : [
+      { "id": "1", "nombre": "aceitunas", "precio": "5",  "url": "/imagenes/aceitunas.jpeg" },
+      { "id": "2", "nombre": "ajos", "precio": "7",  "url": "/imagenes/ajos.jpeg" },
+      { "id": "3", "nombre": "calabacin", "precio": "4",  "url": "/imagenes/calabacin.jpg" },  
+      { "id": "4", "nombre": "calabaza", "precio": "10",  "url": "/imagenes/calabaza.jpg" }      
+    ],
+    "usuarios": [
+      { "id": "1", "nombre": "agustin", "pass": "$2a$10$PDbXLvyxmNz2YzRBTKte.OZevWOk7T0S7/VWrQImbQ7OXmgyJ3rI2" },
+      { "id": "2", "nombre": "admin", "pass": "$2a$10$54FmcLNAWeyFhoiJoY7HlOHDw7jPGe4vKaVOc3FZmF3nSkiyeMTqS" },
+      { "id": "3", "nombre": "juanito", "pass": "$2a$10$w10i0YhtkY9G1Mj6dKpntOxSiNYzCI7ISDQvU6h8kZmvyP9zfBf2e" }
+    ]
+
+   
+  }
+

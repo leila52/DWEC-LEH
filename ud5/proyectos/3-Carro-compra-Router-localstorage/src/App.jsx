@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react'
 import MenuSuperior from './componentes/menu'
 import ListaImagenes from './componentes/cuerpo'
 import DetalleCarrito from './componentes/DetalleCarrito'
-
-import {Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './Login/AuthProvider';
+import { Routes, Route } from 'react-router-dom';
 import Pagina404 from './componentes/Pagina404';
 import DetalleProducto from './componentes/DetalleProducto';
 import UseStorageState from './servicios/UseStorageState';
-import ServicioInformacion from './servicios/axios/ServicioInformacion';
-import Administrador from './componentes/Administrador';
+import ServicioInformacion from './servicios/ServicioInformacion';
+import Login from './Login/login';
+import RutasProtegidas from './Login/RutasProtegidas';
 
 
 function App() {
-  
-  const [informacion,setInformacion] = useState([])
+
+  const [informacion, setInformacion] = useState([])
 
   useEffect(() => {
     ServicioInformacion.getAll()
@@ -21,50 +22,63 @@ function App() {
         setInformacion(response.data);
       })
       .catch((error) => {
-        
-       alert("No se ha podido descargar la informacion...")
+
+        alert("No se descarga informacion")
       });
   }, []);
 
- 
 
   const [total, setTotal] = UseStorageState("total", 0); // Estado para el importe total
-  const [productos, setProductos] = UseStorageState("productos",[]); // Lista de productos del carrrito
-  
+  const [productos, setProductos] = UseStorageState("productos", []); // Lista de productos del carrrito
 
+  // authProvider es la hamburges dentro esta luego dentro esta Routes para los contenidos,luego en cada elemento Route y dentro para lo del login rutasAnidadas
   return (
-
     
-    <div className="App">
+    <AuthProvider>
+      <div className="App">
       <header className="App-header">
         {/* Pasar el total al menú superior */}
-        <MenuSuperior 
-            total={total} 
-            productos={productos}
-                  />
+        <MenuSuperior
+          total={total}
+          productos={productos}
+        />
       </header>
       <main>
-      <Routes>
-            {/* Ruta principal con ListaImagenes */}
-            <Route 
-              path="/" 
-              element={<ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos} informacion={informacion}/>} 
-            />
-            
-            {/* Detalle del carrito de la compra */}
-            <Route path="/detalle-carrito" element={<DetalleCarrito productos={productos} setProductos={setProductos} total={total} setTotal={setTotal}/>} />
+        <Routes>
+          {/* Ruta principal con ListaImagenes */}
+          <Route
+            path="/"
+            element={
+            <RutasProtegidas><ListaImagenes total={total} setTotal={setTotal} productos={productos} setProductos={setProductos} informacion={informacion} /></RutasProtegidas>
+            }
+          />
 
-            <Route path="/producto/:id" element={<DetalleProducto informacion={informacion}/>} />
-            <Route path="/administrador" element={<Administrador/>} />
-            
-            <Route path="*" element={<Pagina404 />} />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-            
+          {/* Detalle del carrito de la compra */}
+          <Route path="/detalle-carrito" element={
+            <RutasProtegidas> <DetalleCarrito productos={productos} setProductos={setProductos} total={total} setTotal={setTotal} /></RutasProtegidas>
+           } />
 
-          </Routes>
+          <Route path="/producto/:nombre" element={
+            <RutasProtegidas><DetalleProducto informacion={informacion} /></RutasProtegidas>
+            } />
+
+          <Route path="*" element={<Pagina404 />} />
+
+
+
+        </Routes>
       </main>
     </div>
-  
+
+    </AuthProvider>
+
+    
+
   );
 }
 

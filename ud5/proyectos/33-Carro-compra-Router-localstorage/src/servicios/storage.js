@@ -1,8 +1,7 @@
-class SessionStorageServicio {
+class LocalStorageServicio {
     static get(valor) {
       try {
-        //sesion
-        const item = window.sessionStorage.getItem(valor);
+        const item = window.localStorage.getItem(valor);
         return item ? JSON.parse(item) : null;
       } catch (error) {
         console.error("Error LEYENDO el valor", valor, error);
@@ -12,7 +11,7 @@ class SessionStorageServicio {
   
     static set(clave, valor) {
       try {
-        window.sessionStorage.setItem(clave, JSON.stringify(valor));
+        window.localStorage.setItem(clave, JSON.stringify(valor));
       } catch (error) {
         console.error("Error GUARDANDO el valor", clave, error);
       }
@@ -20,7 +19,7 @@ class SessionStorageServicio {
   
     static remove(valor) {
       try {
-        window.sessionStorage.removeItem(valor);
+        window.localStorage.removeItem(valor);
       } catch (error) {
         console.error("Error BORRANDO el valor", valor, error);
       }
@@ -28,12 +27,12 @@ class SessionStorageServicio {
   
     static clear() {
       try {
-        window.sessionStorage.clear();
+        window.localStorage.clear();
       } catch (error) {
         console.error("Error LIMPIANDO localStorage", error);
       }
     }
   }
   
-  export default SessionStorageServicio;
+  export default LocalStorageServicio;
   

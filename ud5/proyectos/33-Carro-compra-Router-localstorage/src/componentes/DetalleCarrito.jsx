@@ -1,27 +1,12 @@
 import { Link } from 'react-router-dom';
 import '../estilos/DetalleCarrito.css';
-import { incrementarCantidad  } from '../herramientas/buscarProducto';
+import { reducirCantidad , incrementarCantidad } from '../herramientas/buscarProducto';
 
 
 
 const DetalleCarrito = ({ productos, setProductos , total, setTotal}) => {
 
-  function incrementarMasivo(producto){
-      
-      let cantidad = parseInt(prompt("¿Cuantos productos quieres añadir?"))
-
-      if(cantidad + producto.cantidad > 10 ||cantidad + producto.cantidad <= 0 ){
-        alert("La cantidad es incorrecta")
-      }else if (isNaN(cantidad)){
-        alert("Has seleccionado cancelar")
-      }else{
-        setProductos(incrementarCantidad(productos, producto.nombre,cantidad))
-        setTotal(parseInt(total) + (producto.precio*cantidad));  
-      }
-      
-
-
-  }
+   
   function incrementar(producto){
     // Actualizamos lista de productos
     setProductos(incrementarCantidad(productos, producto.nombre))
@@ -40,13 +25,20 @@ const DetalleCarrito = ({ productos, setProductos , total, setTotal}) => {
                 <span>
                   {producto.cantidad} x {producto.nombre} : {producto.precio}Є
                 </span>
-                <Link to={`/producto/${producto.nombre}`}>
+                <Link to={`/producto/${producto.id}`}>
                   <img src={producto.url} alt={producto.nombre} />
+                  {console.log(producto)}
                 </Link>
               </div>
 
               {/* Botones para incrementar/reducir cantidad */}
-              <div className="producto-acciones">                
+              <div className="producto-acciones">
+                <button
+                  className="btn-reducir"
+                  onClick={() => alert("Debes implementarme, soy una parte de la prueba")}
+                >
+                  -
+                </button>
                 <button
                   className="btn-incrementar"
                   onClick={() =>
@@ -58,7 +50,7 @@ const DetalleCarrito = ({ productos, setProductos , total, setTotal}) => {
                 <button
                   className="btn-incrementar"
                   onClick={() =>
-                   incrementarMasivo(producto)
+                    prompt("¿Cuantos productos quieres añadir?")
                   }
                 >
                   *

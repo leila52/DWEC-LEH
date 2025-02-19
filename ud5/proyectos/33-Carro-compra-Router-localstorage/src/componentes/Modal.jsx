@@ -1,6 +1,7 @@
 import React from 'react';
 import '../estilos/Modal.css'
 
+
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 

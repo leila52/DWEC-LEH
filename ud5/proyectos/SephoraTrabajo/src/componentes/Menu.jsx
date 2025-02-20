@@ -83,9 +83,16 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion,skinCare }
 
                         {/* Si el usuario NO está logueado, mostrar solo "Login" */}
                         {user === null ? (
-                            <li className="menu-item">
+                            <>
+                             <li className="menu-item">
                                 <Link to="/login">Login</Link>
+                               
                             </li>
+                            <li>
+                                 <Link to="/registrar">Registrar</Link>
+                            </li>
+                            </>
+                           
                         ) : (
                             <>
                             <li className="menu-item">
@@ -104,7 +111,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion,skinCare }
                                     <Link to="/productos">Productos</Link>
                                 </li>
                                 <li className="menu-item saludo">
-                                    Hola, {user}
+                                    Bienvenido {user}
                                 </li>
                                 
                                 <li className="menu-item carrito-container">
@@ -126,27 +133,38 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion,skinCare }
             {/* Si el usuario ESTÁ logueado, mostrar el carrito */}
             {user !== null && carritoVisible && (
                 <div className="carrito-productos">
-                    <h4>Carrito</h4>
-                    {productoM.length > 0 ? (
-                        <ul>
-                            {productoM.map((productito, index) => (
-                                <li key={index}>
-                                    <div className="carrito-info">
-                                        <span>Producto: {productito.nombre} </span>
-                                        <span>Cantidad: {productito.cantidad}</span>
-                                        <span>Tono: {productito.tono} </span>
-                                    </div>
-                                    <div className="carrito-botones">
-                                        <button onClick={() => incrementarProducto(productito.nombre, productito.tono)}>Añadir</button>
-                                        <button onClick={() => decrementarProducto(productito.nombre, productito.tono)}>Restar</button>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>No hay productos en el carrito.</p>
-                    )}
-                </div>
+                <h4 className="carrito-titulo">Carrito</h4>
+                {productoM.length > 0 ? (
+                    <ul className="carrito-lista">
+                        {productoM.map((productito, index) => (
+                            <li key={index} className="carrito-item">
+                                <div className="carrito-info">
+                                    <span className="carrito-nombre">Producto: {productito.nombre} </span>
+                                    <span className="carrito-cantidad">Cantidad: {productito.cantidad}</span>
+                                    <span className="carrito-tono">Tono: {productito.tono} </span>
+                                </div>
+                                <div className="carrito-botones">
+                                    <button 
+                                        className="carrito-btn carrito-btn-add" 
+                                        onClick={() => incrementarProducto(productito.nombre, productito.tono)}
+                                    >
+                                        Añadir
+                                    </button>
+                                    <button 
+                                        className="carrito-btn carrito-btn-remove" 
+                                        onClick={() => decrementarProducto(productito.nombre, productito.tono)}
+                                    >
+                                        Restar
+                                    </button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className="carrito-vacio">No hay productos en el carrito.</p>
+                )}
+            </div>
+            
             )}
         </div>
     );

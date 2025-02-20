@@ -17,6 +17,8 @@ export const AuthProvider = ({ children }) => {
     //para convertirlo en cadena json JSON.stringify
     localStorage.setItem('user', JSON.stringify(userData)); 
   };
+  const loginNoLogeada = (userData) => setUser(userData);
+
 
   // Eliminar del almacenamiento
   const logout = () => {
@@ -27,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   //const logout = () => setUser(null);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout,loginNoLogeada }}>
       {children}
     </AuthContext.Provider>
   );

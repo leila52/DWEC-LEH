@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthProvider';
 import ServicioUsuario from "../servicioLogIn/ServicioUsuario"
 import bcrypt from "bcryptjs/dist/bcrypt";
+import Swal from 'sweetalert2';
 import "../estilos/login.css";
 
 //import UseStateStorage from './servicios/UseSateStorage';
@@ -14,9 +15,22 @@ const Login = () => {
    */
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
+  const [form, setForm] = useState({
+    sesion: false,
+    notificacion: false,
+  });
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { login, loginNoLogeada } = useAuth();
   const navigate = useNavigate();
+  //para el cheked
+  const gestionarCambio = (e) => {
+    const { name, value, type, checked } = e.target;
+    setForm({
+      ...form,
+      [name]: type === 'checkbox' ? checked : value,
+    });
+  };
+
   //funcioj para cifrar
   const cifrarPassword = (con) => {
     const salt = bcrypt.genSaltSync(10);
@@ -37,10 +51,18 @@ const Login = () => {
           const hashUsuario = response.data[0].pass;
           const esCorrecta = bcrypt.compareSync(password, hashUsuario);
           if (esCorrecta) {
-            login(usuario);
+            if (form.sesion === true) {
+              Swal.fire("Session Realizada", "success");
+              login(usuario);
+            }
+            if (form.sesion === false) {
+              Swal.fire("Session No se guardara", "success");
+              loginNoLogeada(usuario);
+            }
+
             //te lleva al inicio
             navigate('/');
-          }else{
+          } else {
             setError("contraseña incoreecta");
           }
 
@@ -59,32 +81,45 @@ const Login = () => {
 
   return (
     <div className="login-container">
-  <div className="login-box">
-    <h2>Login</h2>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Usuario</label>
-        <input
-          type="text"
-          value={usuario}
-          onChange={(e) => setUsuario(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      {error && <p>{error}</p>}
-      <button type="submit">Login</button>
-    </form>
+      <div className="login-box">
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit} className="login-form">
+        <div className="input-group">
+    <label className="label">Usuario</label>
+    <input
+      type="text"
+      value={usuario}
+      onChange={(e) => setUsuario(e.target.value)}
+      required
+      className="input-field"
+    />
   </div>
-</div>
+  <div className="input-group">
+    <label className="label">Password:</label>
+    <input
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      required
+      className="input-field"
+    />
+  </div>
+  <div className="checkbox-group">
+    <input
+      type="checkbox"
+      name="sesion"
+      checked={form.sesion}
+      onChange={gestionarCambio}
+      className="checkbox"
+    />
+    <label htmlFor="sesion" className="label">Recordar Sesión</label>
+  </div>
+  {error && <p className="error-message">{error}</p>}
+  
+  <button type="submit" className="submit-button">Login</button>
+        </form>
+      </div>
+    </div>
 
   );
 };

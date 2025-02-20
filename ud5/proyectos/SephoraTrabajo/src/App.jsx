@@ -14,6 +14,7 @@ import DetalleCarrito from './componentes/DetalleCarrito';
 import SkinCare from './componentes/SkinCare';
 import Inicio from './componentes/Inicio';
 import Productos from './componentes/Productos';
+import Registrar from './componentes/Reguistrar';
 
 function App() {
   const [informacion, setInformacion] = useState([]);
@@ -95,6 +96,10 @@ function App() {
         <Route
           path="/login"
           element={<Login />}
+        />
+        <Route
+          path="/registrar"
+          element={<Registrar />}
         />
         <Route path="/detalle-carrito" element={
           <RutasProtegida>

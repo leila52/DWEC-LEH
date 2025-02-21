@@ -34,6 +34,16 @@
       "id": "848d",
       "nombre": "lucas",
       "pass": "$2a$10$sNQ.f8z1Ux8tj7zkQhYAHuHqkc7OYJxWsgtCJKB.5NdeoRc7ZmgPO"
+    },
+    {
+      "id": "b487",
+      "nombre": "agustin",
+      "pass": "$2a$10$3620IbPkGGOg/Bulc66HfOuwEF1VNZPgd8UWYUOYK131EKgf3Adie"
+    },
+    {
+      "id": "67f8",
+      "nombre": "hicham",
+      "pass": "$2a$10$baKbrqiuiaPJRN7mHaO05Ob2Ppfjf0dbbRaiU9by.9NCZwCqJTU7C"
     }
   ],
   "informacion": [

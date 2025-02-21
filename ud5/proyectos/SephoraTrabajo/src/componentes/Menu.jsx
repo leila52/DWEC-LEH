@@ -88,7 +88,7 @@ const Menu = ({ total, setTotal, productoM, setProductoM, informacion,skinCare }
                                 <Link to="/login">Login</Link>
                                
                             </li>
-                            <li>
+                            <li className="menu-item">
                                  <Link to="/registrar">Registrar</Link>
                             </li>
                             </>

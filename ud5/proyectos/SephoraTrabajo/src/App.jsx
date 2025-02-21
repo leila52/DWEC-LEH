@@ -13,7 +13,7 @@ import RutasProtegida from './login/RutasProtegidas';
 import DetalleCarrito from './componentes/DetalleCarrito';
 import SkinCare from './componentes/SkinCare';
 import Inicio from './componentes/Inicio';
-import Productos from './componentes/Productos';
+//import Productos from './componentes/Productos';
 import Registrar from './componentes/Reguistrar';
 
 function App() {
@@ -72,12 +72,14 @@ function App() {
             </RutasProtegida>
           }
         />
-        {/* Ruta anidada de Productos */}
+        {/* Ruta anidada de Productos
         <Route path="/productos" element={<RutasProtegida><Productos /></RutasProtegida>}>
 
           <Route path="maquillaje" element={<Cuerpo informacion={informacion} setInformacion={setInformacion} productoM={productoM} setProductoM={setProductoM} total={total} setTotal={setTotal} />} />
           <Route path="skinCare" element={<SkinCare skinCare={skinCare} setSkinCare={setSkinCare} productoM={productoM} setProductoM={setProductoM} total={total} setTotal={setTotal} />} />
         </Route>
+        */}
+        
 
 
         <Route path="/maquillaje" element={

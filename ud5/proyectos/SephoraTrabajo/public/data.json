@@ -29,6 +29,11 @@
       "id": "d26a",
       "nombre": "pedro",
       "pass": "$2a$10$PPa2MoUyy2zGPznM.0UwCOJTFtR8u6j/.eirOElLR7DBo8dyDxOK2"
+    },
+    {
+      "id": "848d",
+      "nombre": "lucas",
+      "pass": "$2a$10$sNQ.f8z1Ux8tj7zkQhYAHuHqkc7OYJxWsgtCJKB.5NdeoRc7ZmgPO"
     }
   ],
   "informacion": [
